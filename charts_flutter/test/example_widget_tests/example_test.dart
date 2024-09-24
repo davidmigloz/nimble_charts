@@ -3,6 +3,7 @@ import 'package:example/gallery_app.dart';
 import 'package:example/line_chart/line_gallery.dart';
 import 'package:example/main.dart';
 import 'package:example/original.dart';
+import 'package:example/scatter_plot_chart/scatter_plot_gallery.dart';
 import 'package:example/time_series_chart/time_series_gallery.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -355,6 +356,42 @@ void main() {
       'Navigates to Pan and Zoom Line Chart and Renders',
       (tester) async => tester.navigateToChartAndGolden<charts.LineChart>(
         lineAnimationZoomChartTitle,
+        scrollDelta: 300,
+      ),
+    );
+
+    testWidgets(
+      'Navigates to Scatter Plot Chart and Renders',
+      (tester) async =>
+          tester.navigateToChartAndGolden<charts.ScatterPlotChart>(
+        simpleScatterPlotChartTitle,
+        scrollDelta: 300,
+      ),
+    );
+
+    testWidgets(
+      'Navigates to Scatter Plot Chart and Renders',
+      (tester) async =>
+          tester.navigateToChartAndGolden<charts.ScatterPlotChart>(
+        comparisonPointsScatterPlotChartTitle,
+        scrollDelta: 300,
+      ),
+    );
+
+    testWidgets(
+      'Navigates to Scatter Plot Chart and Renders',
+      (tester) async =>
+          tester.navigateToChartAndGolden<charts.ScatterPlotChart>(
+        panAndZoomScatterPlotChartTitle,
+        scrollDelta: 300,
+      ),
+    );
+
+    testWidgets(
+      'Navigates to Bucketing Axis Scatter Plot Chart and Renders',
+      (tester) async =>
+          tester.navigateToChartAndGolden<charts.ScatterPlotChart>(
+        bucketingAxisScatterPlotChartTitle,
         scrollDelta: 300,
       ),
     );

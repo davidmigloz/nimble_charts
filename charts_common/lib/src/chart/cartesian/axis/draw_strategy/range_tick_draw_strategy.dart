@@ -89,7 +89,7 @@ class RangeTickRendererSpec<D> extends SmallTickRendererSpec<D> {
   final int? rangeTickLengthPx;
   // Specifies range shade's height.
   final int? rangeShadeHeightPx;
-  // Specifies the starting offet of range shade from axis in pixels.
+  // Specifies the starting offset of range shade from axis in pixels.
   final int? rangeShadeOffsetFromAxisPx;
   // A range tick offset from the original location. The start point offset is
   // toward the origin and end point offset is toward the end of axis.
@@ -268,7 +268,7 @@ class RangeTickDrawStrategy<D> extends SmallTickDrawStrategy<D> {
                   getLabelWidth(labelElements),
                 ) +
                 labelOffsetFromAxisPx(collision: collision),
-            //TODO: possible precission loss
+            //TODO: possible precision loss
           ).toInt(),
           labelOffsetFromAxisPx(collision: collision) + rangeShadeHeightPx,
         );
@@ -281,7 +281,7 @@ class RangeTickDrawStrategy<D> extends SmallTickDrawStrategy<D> {
                 getLabelWidth(labelElements),
               ) +
               labelOffsetFromAxisPx(collision: collision),
-          //TODO: possible precission loss
+          //TODO: possible precision loss
         ).toInt();
       }
     });
@@ -314,7 +314,7 @@ class RangeTickDrawStrategy<D> extends SmallTickDrawStrategy<D> {
                   getLabelWidth(labelElements),
                 ) +
                 rangeShadeOffsetFromAxisPx,
-            //TODO: possible precission loss
+            //TODO: possible precision loss
           ).toInt(),
           rangeShadeOffsetFromAxisPx + rangeShadeHeightPx,
         );
@@ -326,7 +326,7 @@ class RangeTickDrawStrategy<D> extends SmallTickDrawStrategy<D> {
                 getLabelHeight(labelElements),
                 getLabelWidth(labelElements),
               ),
-              //TODO: possible precission loss
+              //TODO: possible precision loss
             ).toInt() +
             labelOffsetFromAxisPx(collision: collision);
       }

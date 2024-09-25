@@ -240,7 +240,7 @@ abstract class Axis<D> extends ImmutableAxis<D> implements LayoutView {
       final domainLocation = scale[domain]!.toDouble();
 
       // If domain location is outside of scale range but only outside by less
-      // than epsilon, correct the potential mislocation caused by floating
+      // than epsilon, correct the potential mis-location caused by floating
       // point computation by moving it inside of scale range.
       if (domainLocation > range.max && domainLocation - epsilon < range.max) {
         return domainLocation - epsilon;

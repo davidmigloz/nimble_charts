@@ -143,7 +143,7 @@ class SimpleLegendEntryLayout implements LegendEntryLayout {
   @override
   int get hashCode => runtimeType.hashCode;
 
-  /// Convert the charts common TextStlyeSpec into a standard TextStyle, while
+  /// Convert the charts common TextStyleSpec into a standard TextStyle, while
   /// reducing the color opacity to 26% if the entry is hidden.
   ///
   /// For non-specified values, override the hidden text color to use the body 1

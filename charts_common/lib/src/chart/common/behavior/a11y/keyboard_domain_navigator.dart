@@ -221,7 +221,7 @@ abstract class KeyboardDomainNavigator<D> implements ChartBehavior<D> {
     }
 
     // If the currentIndex is the same as the firstSelectedDetail we don't have
-    // to do a linear seach to find the domain.
+    // to do a linear search to find the domain.
     final firstDomain = details.first.domain as D;
 
     if (0 <= _currentIndex &&

@@ -176,7 +176,7 @@ void main() {
       expect(actualLabels, equals(expectedLabels));
     });
 
-    test('on empty input doesnt break', () {
+    test('on empty input does not break', () {
       final formatter =
           DateTimeTickFormatter.withFormatters({10: timeFormatter1});
       final formatterCache = <DateTime, String>{};
@@ -218,7 +218,7 @@ void main() {
   });
 
   group('check custom time tick formatters', () {
-    test('throws arugment error if time resolution key is not positive', () {
+    test('throws argument error if time resolution key is not positive', () {
       // -1 is reserved for any, if there is only one formatter, -1 is allowed.
       expect(
         () => DateTimeTickFormatter.withFormatters(
@@ -235,7 +235,7 @@ void main() {
       );
     });
 
-    test('throws arugment error if formatters are not sorted', () {
+    test('throws argument error if formatters are not sorted', () {
       expect(
         () => DateTimeTickFormatter.withFormatters({
           3: timeFormatter1,

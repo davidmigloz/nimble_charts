@@ -1,0 +1,60 @@
+$schema: https://raw.githubusercontent.com/streetsidesoftware/cspell/main/cspell.schema.json
+version: "0.2"
+ignorePaths:
+  # Various platform-specific API names we can just ignore.
+  - charts_flutter/example/windows/
+  - charts_flutter/example/macos/
+  - charts_flutter/example/ios/
+  - charts_flutter/example/linux/
+  - charts_flutter/example/android/
+  - "gradlew"
+  - "gradlew.bat"
+  - "build"
+  - "*.iml"
+  - "charts_common/test/data/"
+  - 'coverage'
+words:
+- pubspec
+- genhtml
+- goldens
+- hotfixes
+- dasharray
+- hashcode
+- LTWH
+- barchart
+- gridlines
+- gridline
+- cupertino
+- gradlew
+- squarified
+- Squarify
+- Sankey
+- hovercard
+- Outliner
+- treemap
+- ellipsized
+- nonclaiming
+- Unlisten
+- cbraun
+- Treemaps
+- unitconverter # Probably could be capitalized
+- ellipsize
+- defaultlabel # Probably could be capitalized
+- Nimblesite
+- squarification
+- Rangeband
+- OPENSOURCE
+- Gemlock
+- Findlay
+- Statick
+- niced
+- nicing
+- Jaspr
+- Postrender # Probably could be capitalized
+- stylepack
+- paintable
+- TRBL
+- Aplos # Group inside Google which wrote the original flutter_charts.
+- tostring # Used in a lint name
+- RRGGBB # Color format
+- credentialless # CORS policy name (in serve.json for web)

@@ -76,7 +76,7 @@ class GestureListener {
   /// Called when the chart is focused.
   final GestureCallback? onFocus;
 
-  /// Called when the chart is blured.
+  /// Called when the chart is blurred.
   final GestureCallback? onBlur;
 
   /// Called when the tap event has moved beyond a threshold indicating that

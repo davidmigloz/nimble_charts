@@ -120,7 +120,7 @@ class TreeMapLabelDecorator<D> extends TreeMapRendererDecorator<D> {
       // Draws a label inside of a treemap renderer element.
       canvas.drawText(
         segment.text,
-        segment.xOffet,
+        segment.xOffset,
         segment.yOffset,
         rotation: segment.rotationAngle,
       );
@@ -197,7 +197,7 @@ class TreeMapLabelDecorator<D> extends TreeMapRendererDecorator<D> {
 class _TreeMapLabelSegment {
   _TreeMapLabelSegment(
     this.text,
-    this.xOffet,
+    this.xOffset,
     this.yOffset,
     this.rotationAngle,
   );
@@ -206,7 +206,7 @@ class _TreeMapLabelSegment {
   final TextElement text;
 
   /// x-coordinate offset for [text].
-  final int xOffet;
+  final int xOffset;
 
   /// y-coordinate offset for [text].
   final int yOffset;

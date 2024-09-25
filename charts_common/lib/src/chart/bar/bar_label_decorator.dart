@@ -444,7 +444,7 @@ class BarLabelDecorator<D> extends BarRendererDecorator<D> {
         : defaultStyle;
   }
 
-  /// Helper function to get the bar label anchor when BarLabelPostion is
+  /// Helper function to get the bar label anchor when BarLabelPosition is
   /// inside.
   BarLabelAnchor _resolveLabelAnchor(num measure, BarLabelAnchor anchor) {
     if (labelPlacement == BarLabelPlacement.opposeAxisBaseline) {
@@ -484,7 +484,7 @@ enum BarLabelPlacement {
   followMeasureAxis,
 
   /// Places the label with respect to the zero baseline. The bar end is the
-  /// absolute value aways from the zero baseline.
+  /// absolute value always from the zero baseline.
   opposeAxisBaseline,
 }
 

@@ -277,7 +277,7 @@ class Link<N, L> extends GraphElement<L> {
 List<Link<N, L>> _cloneLinkList<N, L>(List<Link<N, L>> linkList) =>
     linkList.map(Link.clone).toList();
 
-/// A [Link] or [Node] elmeent in a graph containing user defined data.
+/// A [Link] or [Node] element in a graph containing user defined data.
 abstract class GraphElement<G> {
   GraphElement(this.data);
 

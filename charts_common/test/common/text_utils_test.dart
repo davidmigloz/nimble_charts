@@ -13,6 +13,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+// cspell:words texttexttexttext texttextte xttext
+
 import 'package:mockito/mockito.dart';
 import 'package:nimble_charts_common/src/common/color.dart' show Color;
 import 'package:nimble_charts_common/src/common/graphics_factory.dart'
@@ -149,6 +151,7 @@ void main() {
     test(
         'when label can not fit in a single line, enable allowLabelOverflow, '
         'disable multiline, return ellipsized text', () {
+      // cspell:disable-next-line
       final textElement = FakeTextElement('texttexttexttext')
         ..textStyle = textStyle;
       final textElements = wrapLabelLines(
@@ -161,6 +164,7 @@ void main() {
       );
 
       expect(textElements, hasLength(1));
+      // cspell:disable-next-line
       expect(textElements.first.text, 'textte...');
     });
 
@@ -184,7 +188,7 @@ void main() {
     });
 
     test(
-        'when both label and ellpisis can not fit in a single line, disable '
+        'when both label and ellipsis can not fit in a single line, disable '
         'allowLabelOverflow and multiline, return empty', () {
       const maxWidth = 2;
       final textElement = FakeTextElement('texttexttexttext')
@@ -202,7 +206,7 @@ void main() {
     });
 
     test(
-        'when both label and ellpisis can not fit in a single line, disable '
+        'when both label and ellipsis can not fit in a single line, disable '
         'allowLabelOverflow but enable multiline, return textElements', () {
       const maxWidth = 2;
       final textElement = FakeTextElement('t ex text')..textStyle = textStyle;

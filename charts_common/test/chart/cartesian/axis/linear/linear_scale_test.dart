@@ -268,7 +268,7 @@ void main() {
     });
 
     // [MutableScale.addDomain] doesn't allow nulls, yet
-    // LinearScaleDomainInfo.addDomainValue does. Leaving this 
+    // LinearScaleDomainInfo.addDomainValue does. Leaving this
     // here for posterity, but the library does not support nulls
     // in this way currently
     test(

@@ -15,7 +15,7 @@ This project is a resurrection of the discontinued [charts_flutter](https://pub.
 
 ### Dart 3, Type Safety, Tests, and Bug Fixes
 
-Type safety and rigourous tests ensure that this package is reliable and maintainable. We applied thousands of automatic and manual fixes to the code to bring type safety up, and ensure that it's harder to break this library. There are also many new widget tests with goldens, which means that changes should not affect the UI behavior.
+Type safety and rigorous tests ensure that this package is reliable and maintainable. We applied thousands of automatic and manual fixes to the code to bring type safety up, and ensure that it's harder to break this library. There are also many new widget tests with goldens, which means that changes should not affect the UI behavior.
 
 This fork provides the most solid foundation for future development, and we will continue to maintain this library.
 

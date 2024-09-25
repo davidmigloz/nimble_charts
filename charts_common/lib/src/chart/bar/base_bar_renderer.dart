@@ -426,7 +426,7 @@ abstract class BaseBarRenderer<D, R extends BaseBarRendererElement,
 
         final barStackList = _barStackMap.putIfAbsent(barStackMapKey, () => []);
 
-        // If we already have an AnimatingBarfor that index, use it.
+        // If we already have an AnimatingBar for that index, use it.
         var animatingBar =
             barStackList.firstWhereOrNull((bar) => bar.key == barKey);
 
@@ -830,7 +830,7 @@ abstract class BaseBarRenderer<D, R extends BaseBarRendererElement,
   bool get isRtl => chart.context.isRtl;
 }
 
-/// Iterable wrapping the seriesList that returns the ReversedSeriesItertor.
+/// Iterable wrapping the seriesList that returns the ReversedSeriesIterator.
 class _ReversedSeriesIterable<S extends ImmutableSeries<Object?>>
     extends Iterable<S> {
   _ReversedSeriesIterable(this.seriesList);

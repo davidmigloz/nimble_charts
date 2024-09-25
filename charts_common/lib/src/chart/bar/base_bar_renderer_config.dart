@@ -156,7 +156,7 @@ abstract class BaseBarRendererConfig<D> extends LayoutViewConfig
   }
 }
 
-/// Defines the way multiple series of bars are renderered per domain.
+/// Defines the way multiple series of bars are rendered per domain.
 ///
 /// * [grouped] - Render bars for each series that shares a domain value
 ///   side-by-side.

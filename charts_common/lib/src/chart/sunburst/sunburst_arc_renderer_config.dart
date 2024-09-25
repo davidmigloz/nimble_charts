@@ -84,7 +84,7 @@ class SunburstArcRendererConfig<D> extends BaseArcRendererConfig<D> {
       SunburstArcRenderer<D>(config: this, rendererId: customRendererId);
 }
 
-/// Strategies for assinging color to the arcs if colorFn is not provided for
+/// Strategies for assigning color to the arcs if colorFn is not provided for
 /// Series.
 enum SunburstColorStrategy {
   /// Assign a new shade to each of the arcs.

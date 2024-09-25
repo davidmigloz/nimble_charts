@@ -29,7 +29,7 @@ class LayoutManagerImpl implements LayoutManager {
   static const _minDrawWidth = 20;
   static const _minDrawHeight = 20;
 
-  // Allow [Layoutconfig] to be mutable so it can be modified without requiring
+  // Allow [LayoutConfig] to be mutable so it can be modified without requiring
   // a new copy of [DefaultLayoutManager] to be created.
   LayoutConfig config;
 

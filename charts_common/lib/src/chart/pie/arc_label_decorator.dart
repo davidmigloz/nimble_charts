@@ -219,7 +219,7 @@ class ArcLabelDecorator<D> extends ArcRendererDecorator<D> {
     TextStyle labelStyle,
     int insideArcWidth,
     int outsideArcWidth,
-    ArcRendererElement arcRendererelement,
+    ArcRendererElement arcRendererElement,
     ArcLabelPosition labelPosition,
   ) {
     if (labelPosition == ArcLabelPosition.auto) {
@@ -312,7 +312,7 @@ class ArcLabelDecorator<D> extends ArcRendererDecorator<D> {
       arcElements.center.y + labelRadius * sin(centerAngle),
     );
 
-    // Use the label's chart quandrant to determine whether it's rendered to the
+    // Use the label's chart quadrant to determine whether it's rendered to the
     // right or left.
     final centerAbs = centerAngle.abs() % (2 * pi);
     final labelLeftOfChart = pi / 2 < centerAbs && centerAbs < pi * 3 / 2;

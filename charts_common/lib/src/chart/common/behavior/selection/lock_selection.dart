@@ -17,7 +17,7 @@ import 'dart:math';
 
 import 'package:nimble_charts_common/common.dart';
 
-/// Chart behavior that listens to tap event trigges and locks the specified
+/// Chart behavior that listens to tap event triggers and locks the specified
 /// [SelectionModel]. This is used to prevent further updates to the selection
 /// model, until it is unlocked again.
 ///

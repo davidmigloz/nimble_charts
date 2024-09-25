@@ -1,4 +1,5 @@
 import 'package:example/bar_chart/bar_gallery.dart';
+import 'package:example/combo_chart/combo_gallery.dart';
 import 'package:example/gallery_app.dart';
 import 'package:example/line_chart/line_gallery.dart';
 import 'package:example/main.dart';
@@ -392,6 +393,51 @@ void main() {
       (tester) async =>
           tester.navigateToChartAndGolden<charts.ScatterPlotChart>(
         bucketingAxisScatterPlotChartTitle,
+        scrollDelta: 300,
+      ),
+    );
+
+    testWidgets(
+      'Navigates to Ordinal Combo Chart and Renders',
+      (tester) async =>
+          tester.navigateToChartAndGolden<charts.OrdinalComboChart>(
+        ordinalComboChartTitle,
+        scrollDelta: 300,
+      ),
+    );
+
+    testWidgets(
+      'Navigates to Numeric Line Bar Combo Chart and Renders',
+      (tester) async =>
+          tester.navigateToChartAndGolden<charts.NumericComboChart>(
+        numericComboLineBarChartTitle,
+        scrollDelta: 300,
+      ),
+    );
+
+    testWidgets(
+      'Navigates to Numeric Line Points Combo Chart and Renders',
+      (tester) async =>
+          tester.navigateToChartAndGolden<charts.NumericComboChart>(
+        numericComboLinePointChartTitle,
+        scrollDelta: 400,
+      ),
+    );
+
+    testWidgets(
+      'Navigates to Time Series Combo Chart and Renders',
+      (tester) async =>
+          tester.navigateToChartAndGolden<charts.TimeSeriesChart>(
+        dateTimeComboLinePointChartTitle,
+        scrollDelta: 350,
+      ),
+    );
+
+    testWidgets(
+      'Navigates to Scatter Plot Combo Chart and Renders',
+      (tester) async =>
+          tester.navigateToChartAndGolden<charts.ScatterPlotChart>(
+        scatterPlotComboLineChartTitle,
         scrollDelta: 300,
       ),
     );

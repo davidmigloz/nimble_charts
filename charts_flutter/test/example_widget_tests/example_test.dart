@@ -426,8 +426,7 @@ void main() {
 
     testWidgets(
       'Navigates to Time Series Combo Chart and Renders',
-      (tester) async =>
-          tester.navigateToChartAndGolden<charts.TimeSeriesChart>(
+      (tester) async => tester.navigateToChartAndGolden<charts.TimeSeriesChart>(
         dateTimeComboLinePointChartTitle,
         scrollDelta: 350,
       ),

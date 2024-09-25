@@ -14,47 +14,49 @@ ignorePaths:
   - "charts_common/test/data/"
   - 'coverage'
 words:
-- pubspec
+- Aplos # Group inside Google which wrote the original flutter_charts.
+- barchart
+- cbraun
+- credentialless # CORS policy name (in serve.json for web)
+- cupertino
+- dasharray
+- defaultlabel # Probably could be capitalized
+- ellipsize
+- ellipsized
+- Findlay
+- focusable
+- Gemlock
 - genhtml
 - goldens
-- hotfixes
-- dasharray
-- hashcode
-- LTWH
-- barchart
-- gridlines
-- gridline
-- cupertino
 - gradlew
-- squarified
-- Squarify
-- Sankey
+- gridline
+- gridlines
+- hashcode
+- hotfixes
 - hovercard
-- Outliner
-- treemap
-- ellipsized
-- nonclaiming
-- Unlisten
-- cbraun
-- Treemaps
-- unitconverter # Probably could be capitalized
-- ellipsize
-- defaultlabel # Probably could be capitalized
-- Nimblesite
-- squarification
-- Rangeband
-- OPENSOURCE
-- Gemlock
-- Findlay
-- Statick
+- Jaspr
+- LTWH
 - niced
 - nicing
-- Jaspr
-- Postrender # Probably could be capitalized
-- stylepack
+- Nimblesite
+- nonclaiming
+- OPENSOURCE
+- Outliner
 - paintable
-- TRBL
-- Aplos # Group inside Google which wrote the original flutter_charts.
-- tostring # Used in a lint name
+- Postrender # Probably could be capitalized
+- pubspec
+- Rangeband
 - RRGGBB # Color format
-- credentialless # CORS policy name (in serve.json for web)
+- Sankey
+- squarification
+- squarified
+- Squarify
+- Statick
+- stylepack
+- tappable
+- tostring # Used in a lint name
+- TRBL
+- treemap
+- Treemaps
+- unitconverter # Probably could be capitalized
+- Unlisten

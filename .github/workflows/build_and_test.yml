@@ -1,3 +1,4 @@
+# cspell:words subosito
 name: build_and_test
 on:
   pull_request:

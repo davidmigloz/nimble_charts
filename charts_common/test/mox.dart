@@ -10,9 +10,12 @@ import 'package:nimble_charts_common/common.dart';
   MockSpec<TickFormatter<num>>(as: #MockNumericTickFormatter),
   MockSpec<BaseTickDrawStrategy>(as: #MockDrawStrategy),
   MockSpec<TickDrawStrategy<num>>(as: #MockTickDrawStrategy),
-  MockSpec<Axis<String>>(),
+  MockSpec<Axis>(),
   MockSpec<ChartCanvas>(as: #MockCanvas),
   MockSpec<ImmutableSeries>(),
   MockSpec<LineStyle>(as: #MockLinePaint),
+  MockSpec<NumericScale>(as: #MockNumericScale),
+  MockSpec<TextStyle>(as: #MockTextStyle),
+  MockSpec<CartesianChart>(as: #MockChart),
 ])
 void main() {}

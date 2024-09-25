@@ -256,8 +256,8 @@ void main() {
     });
 
     test('LabelPosition.inside always paints inside the bar', () {
-      //This code looks like it does nothing, but the weird mutable
-      //heirarchy means that it's necessary.
+      // This code looks like it does nothing, but the weird mutable
+      // hierarchy means that it's necessary.
       final barElements = [
         // 'LabelABC' would not fit inside the bar in auto setting because it
         // has a width of 8.
@@ -855,8 +855,8 @@ void main() {
     test('Inside and outside label styles are applied', () {
       final data = ['A', 'B'];
 
-      //This code looks like it does nothing, but the weird mutable
-      //heirarchy means that it's necessary.
+      // This code looks like it does nothing, but the weird mutable
+      // hierarchy means that it's necessary.
       // ignore: unused_local_variable
       final barElements = [
         // 'LabelA' and 'LabelB' both have lengths of 6.

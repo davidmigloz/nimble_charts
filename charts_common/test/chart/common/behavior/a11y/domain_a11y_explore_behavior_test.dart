@@ -40,7 +40,7 @@ class FakeCartesianChart extends CartesianChart<String> {
 void main() {
   late FakeCartesianChart chart;
   late DomainA11yExploreBehavior<String> behavior;
-  late MockAxis domainAxis;
+  late MockAxis<String> domainAxis;
 
   late MutableSeries<String> series1;
   final s1D1 = MyRow('s1d1', 11, 'a11yd1');

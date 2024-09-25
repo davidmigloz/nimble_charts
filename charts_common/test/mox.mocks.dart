@@ -3,33 +3,37 @@
 // Do not manually edit this file.
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'dart:math' as _i18;
+import 'dart:collection' as _i24;
+import 'dart:math' as _i13;
 
 import 'package:mockito/mockito.dart' as _i1;
-import 'package:mockito/src/dummies.dart' as _i12;
-import 'package:nimble_charts_common/common.dart' as _i13;
+import 'package:mockito/src/dummies.dart' as _i16;
+import 'package:nimble_charts_common/common.dart' as _i11;
 import 'package:nimble_charts_common/src/chart/cartesian/axis/axis.dart'
-    as _i16;
+    as _i14;
 import 'package:nimble_charts_common/src/chart/cartesian/axis/collision_report.dart'
     as _i9;
 import 'package:nimble_charts_common/src/chart/cartesian/axis/draw_strategy/base_tick_draw_strategy.dart'
-    as _i19;
-import 'package:nimble_charts_common/src/chart/cartesian/axis/draw_strategy/tick_draw_strategy.dart'
     as _i20;
-import 'package:nimble_charts_common/src/chart/cartesian/axis/scale.dart'
+import 'package:nimble_charts_common/src/chart/cartesian/axis/draw_strategy/tick_draw_strategy.dart'
     as _i21;
+import 'package:nimble_charts_common/src/chart/cartesian/axis/scale.dart'
+    as _i12;
 import 'package:nimble_charts_common/src/chart/cartesian/axis/spec/axis_spec.dart'
-    as _i14;
+    as _i17;
 import 'package:nimble_charts_common/src/chart/cartesian/axis/tick.dart'
-    as _i15;
+    as _i18;
 import 'package:nimble_charts_common/src/chart/cartesian/axis/tick_provider.dart'
     as _i22;
+import 'package:nimble_charts_common/src/chart/common/base_chart.dart' as _i26;
 import 'package:nimble_charts_common/src/chart/common/behavior/a11y/a11y_node.dart'
-    as _i11;
+    as _i15;
 import 'package:nimble_charts_common/src/chart/common/chart_canvas.dart'
-    as _i17;
+    as _i19;
 import 'package:nimble_charts_common/src/chart/common/chart_context.dart'
     as _i7;
+import 'package:nimble_charts_common/src/chart/common/datum_details.dart'
+    as _i25;
 import 'package:nimble_charts_common/src/chart/layout/layout_view.dart' as _i10;
 import 'package:nimble_charts_common/src/common/date_time_factory.dart' as _i2;
 import 'package:nimble_charts_common/src/common/graphics_factory.dart' as _i8;
@@ -158,6 +162,158 @@ class _FakeLayoutViewConfig_9 extends _i1.SmartFake
         );
 }
 
+class _FakeNumericExtents_10 extends _i1.SmartFake
+    implements _i11.NumericExtents {
+  _FakeNumericExtents_10(
+    Object parent,
+    Invocation parentInvocation,
+  ) : super(
+          parent,
+          parentInvocation,
+        );
+}
+
+class _FakeStepSizeConfig_11 extends _i1.SmartFake
+    implements _i12.StepSizeConfig {
+  _FakeStepSizeConfig_11(
+    Object parent,
+    Invocation parentInvocation,
+  ) : super(
+          parent,
+          parentInvocation,
+        );
+}
+
+class _FakeRangeBandConfig_12 extends _i1.SmartFake
+    implements _i12.RangeBandConfig {
+  _FakeRangeBandConfig_12(
+    Object parent,
+    Invocation parentInvocation,
+  ) : super(
+          parent,
+          parentInvocation,
+        );
+}
+
+class _FakeMutableScale_13<D> extends _i1.SmartFake
+    implements _i12.MutableScale<D> {
+  _FakeMutableScale_13(
+    Object parent,
+    Invocation parentInvocation,
+  ) : super(
+          parent,
+          parentInvocation,
+        );
+}
+
+class _FakeDuration_14 extends _i1.SmartFake implements Duration {
+  _FakeDuration_14(
+    Object parent,
+    Invocation parentInvocation,
+  ) : super(
+          parent,
+          parentInvocation,
+        );
+}
+
+class _FakeProxyGestureListener_15 extends _i1.SmartFake
+    implements _i11.ProxyGestureListener {
+  _FakeProxyGestureListener_15(
+    Object parent,
+    Invocation parentInvocation,
+  ) : super(
+          parent,
+          parentInvocation,
+        );
+}
+
+class _FakeSeriesRenderer_16<D1> extends _i1.SmartFake
+    implements _i11.SeriesRenderer<D1> {
+  _FakeSeriesRenderer_16(
+    Object parent,
+    Invocation parentInvocation,
+  ) : super(
+          parent,
+          parentInvocation,
+        );
+}
+
+class _FakeRectangle_17<T extends num> extends _i1.SmartFake
+    implements _i13.Rectangle<T> {
+  _FakeRectangle_17(
+    Object parent,
+    Invocation parentInvocation,
+  ) : super(
+          parent,
+          parentInvocation,
+        );
+}
+
+class _FakeNumericAxis_18 extends _i1.SmartFake implements _i14.NumericAxis {
+  _FakeNumericAxis_18(
+    Object parent,
+    Invocation parentInvocation,
+  ) : super(
+          parent,
+          parentInvocation,
+        );
+}
+
+class _FakeMutableSeries_19<D1> extends _i1.SmartFake
+    implements _i11.MutableSeries<D1> {
+  _FakeMutableSeries_19(
+    Object parent,
+    Invocation parentInvocation,
+  ) : super(
+          parent,
+          parentInvocation,
+        );
+}
+
+class _FakeGestureListener_20 extends _i1.SmartFake
+    implements _i11.GestureListener {
+  _FakeGestureListener_20(
+    Object parent,
+    Invocation parentInvocation,
+  ) : super(
+          parent,
+          parentInvocation,
+        );
+}
+
+class _FakeLifecycleListener_21<D1> extends _i1.SmartFake
+    implements _i11.LifecycleListener<D1> {
+  _FakeLifecycleListener_21(
+    Object parent,
+    Invocation parentInvocation,
+  ) : super(
+          parent,
+          parentInvocation,
+        );
+}
+
+class _FakeMutableSelectionModel_22<D1> extends _i1.SmartFake
+    implements _i11.MutableSelectionModel<D1> {
+  _FakeMutableSelectionModel_22(
+    Object parent,
+    Invocation parentInvocation,
+  ) : super(
+          parent,
+          parentInvocation,
+        );
+}
+
+class _FakeChartBehavior_23<D1> extends _i1.SmartFake
+    implements _i11.ChartBehavior<D1> {
+  _FakeChartBehavior_23(
+    Object parent,
+    Invocation parentInvocation,
+  ) : super(
+          parent,
+          parentInvocation,
+        );
+}
+
 /// A class which mocks [ChartContext].
 ///
 /// See the documentation for Mockito's code generation for more information.
@@ -232,7 +388,7 @@ class MockChartContext extends _i1.Mock implements _i7.ChartContext {
 
   @override
   void enableA11yExploreMode(
-    List<_i11.A11yNode>? nodes, {
+    List<_i15.A11yNode>? nodes, {
     String? announcement,
   }) =>
       super.noSuchMethod(
@@ -370,11 +526,11 @@ class MockTextElement extends _i1.Mock implements _i5.TextElement {
   @override
   String get text => (super.noSuchMethod(
         Invocation.getter(#text),
-        returnValue: _i12.dummyValue<String>(
+        returnValue: _i16.dummyValue<String>(
           this,
           Invocation.getter(#text),
         ),
-        returnValueForMissingStub: _i12.dummyValue<String>(
+        returnValueForMissingStub: _i16.dummyValue<String>(
           this,
           Invocation.getter(#text),
         ),
@@ -414,7 +570,7 @@ class MockTextElement extends _i1.Mock implements _i5.TextElement {
 ///
 /// See the documentation for Mockito's code generation for more information.
 class MockNumericTickFormatter extends _i1.Mock
-    implements _i13.TickFormatter<num> {
+    implements _i11.TickFormatter<num> {
   @override
   List<String> format(
     List<num>? tickValues,
@@ -439,7 +595,7 @@ class MockNumericTickFormatter extends _i1.Mock
 ///
 /// See the documentation for Mockito's code generation for more information.
 class MockDrawStrategy<D> extends _i1.Mock
-    implements _i13.BaseTickDrawStrategy<D> {
+    implements _i11.BaseTickDrawStrategy<D> {
   @override
   _i7.ChartContext get chartContext => (super.noSuchMethod(
         Invocation.getter(#chartContext),
@@ -511,15 +667,15 @@ class MockDrawStrategy<D> extends _i1.Mock
       );
 
   @override
-  _i14.TickLabelJustification get tickLabelJustification => (super.noSuchMethod(
+  _i17.TickLabelJustification get tickLabelJustification => (super.noSuchMethod(
         Invocation.getter(#tickLabelJustification),
-        returnValue: _i14.TickLabelJustification.inside,
-        returnValueForMissingStub: _i14.TickLabelJustification.inside,
-      ) as _i14.TickLabelJustification);
+        returnValue: _i17.TickLabelJustification.inside,
+        returnValueForMissingStub: _i17.TickLabelJustification.inside,
+      ) as _i17.TickLabelJustification);
 
   @override
   set tickLabelJustification(
-          _i14.TickLabelJustification? _tickLabelJustification) =>
+          _i17.TickLabelJustification? _tickLabelJustification) =>
       super.noSuchMethod(
         Invocation.setter(
           #tickLabelJustification,
@@ -579,19 +735,19 @@ class MockDrawStrategy<D> extends _i1.Mock
       ) as int);
 
   @override
-  _i14.TickLabelAnchor tickLabelAnchor({required bool? collision}) =>
+  _i17.TickLabelAnchor tickLabelAnchor({required bool? collision}) =>
       (super.noSuchMethod(
         Invocation.method(
           #tickLabelAnchor,
           [],
           {#collision: collision},
         ),
-        returnValue: _i14.TickLabelAnchor.before,
-        returnValueForMissingStub: _i14.TickLabelAnchor.before,
-      ) as _i14.TickLabelAnchor);
+        returnValue: _i17.TickLabelAnchor.before,
+        returnValueForMissingStub: _i17.TickLabelAnchor.before,
+      ) as _i17.TickLabelAnchor);
 
   @override
-  void decorateTicks(List<_i15.Tick<D>>? ticks) => super.noSuchMethod(
+  void decorateTicks(List<_i18.Tick<D>>? ticks) => super.noSuchMethod(
         Invocation.method(
           #decorateTicks,
           [ticks],
@@ -601,10 +757,10 @@ class MockDrawStrategy<D> extends _i1.Mock
 
   @override
   void updateTickWidth(
-    List<_i15.Tick<D>>? ticks,
+    List<_i18.Tick<D>>? ticks,
     int? maxWidth,
     int? maxHeight,
-    _i16.AxisOrientation? orientation, {
+    _i14.AxisOrientation? orientation, {
     bool? collision = false,
   }) =>
       super.noSuchMethod(
@@ -623,8 +779,8 @@ class MockDrawStrategy<D> extends _i1.Mock
 
   @override
   _i9.CollisionReport<D> collides(
-    List<_i15.Tick<D>>? ticks,
-    _i16.AxisOrientation? orientation,
+    List<_i18.Tick<D>>? ticks,
+    _i14.AxisOrientation? orientation,
   ) =>
       (super.noSuchMethod(
         Invocation.method(
@@ -658,7 +814,7 @@ class MockDrawStrategy<D> extends _i1.Mock
 
   @override
   _i10.ViewMeasuredSizes measureVerticallyDrawnTicks(
-    List<_i15.Tick<D>>? ticks,
+    List<_i18.Tick<D>>? ticks,
     int? maxWidth,
     int? maxHeight, {
     bool? collision = false,
@@ -701,7 +857,7 @@ class MockDrawStrategy<D> extends _i1.Mock
 
   @override
   _i10.ViewMeasuredSizes measureHorizontallyDrawnTicks(
-    List<_i15.Tick<D>>? ticks,
+    List<_i18.Tick<D>>? ticks,
     int? maxWidth,
     int? maxHeight, {
     bool? collision = false,
@@ -744,9 +900,9 @@ class MockDrawStrategy<D> extends _i1.Mock
 
   @override
   void drawAxisLine(
-    _i17.ChartCanvas? canvas,
-    _i16.AxisOrientation? orientation,
-    _i18.Rectangle<int>? axisBounds,
+    _i19.ChartCanvas? canvas,
+    _i14.AxisOrientation? orientation,
+    _i13.Rectangle<int>? axisBounds,
   ) =>
       super.noSuchMethod(
         Invocation.method(
@@ -762,11 +918,11 @@ class MockDrawStrategy<D> extends _i1.Mock
 
   @override
   void drawLabel(
-    _i17.ChartCanvas? canvas,
-    _i15.Tick<D>? tick, {
-    required _i16.AxisOrientation? orientation,
-    required _i18.Rectangle<int>? axisBounds,
-    required _i18.Rectangle<int>? drawAreaBounds,
+    _i19.ChartCanvas? canvas,
+    _i18.Tick<D>? tick, {
+    required _i14.AxisOrientation? orientation,
+    required _i13.Rectangle<int>? axisBounds,
+    required _i13.Rectangle<int>? drawAreaBounds,
     required bool? isFirst,
     required bool? isLast,
     bool? collision = false,
@@ -791,8 +947,8 @@ class MockDrawStrategy<D> extends _i1.Mock
       );
 
   @override
-  _i19.PixelVerticalDirection normalizeVerticalAnchor(
-    _i14.TickLabelAnchor? anchor,
+  _i20.PixelVerticalDirection normalizeVerticalAnchor(
+    _i17.TickLabelAnchor? anchor,
     bool? isFirst,
     bool? isLast,
   ) =>
@@ -805,9 +961,9 @@ class MockDrawStrategy<D> extends _i1.Mock
             isLast,
           ],
         ),
-        returnValue: _i19.PixelVerticalDirection.over,
-        returnValueForMissingStub: _i19.PixelVerticalDirection.over,
-      ) as _i19.PixelVerticalDirection);
+        returnValue: _i20.PixelVerticalDirection.over,
+        returnValueForMissingStub: _i20.PixelVerticalDirection.over,
+      ) as _i20.PixelVerticalDirection);
 
   @override
   double calculateWidthForRotatedLabel(
@@ -882,11 +1038,11 @@ class MockDrawStrategy<D> extends _i1.Mock
 
   @override
   void draw(
-    _i17.ChartCanvas? canvas,
-    _i15.Tick<D>? tick, {
-    required _i16.AxisOrientation? orientation,
-    required _i18.Rectangle<int>? axisBounds,
-    required _i18.Rectangle<int>? drawAreaBounds,
+    _i19.ChartCanvas? canvas,
+    _i18.Tick<D>? tick, {
+    required _i14.AxisOrientation? orientation,
+    required _i13.Rectangle<int>? axisBounds,
+    required _i13.Rectangle<int>? drawAreaBounds,
     required bool? isFirst,
     required bool? isLast,
     bool? collision = false,
@@ -915,9 +1071,9 @@ class MockDrawStrategy<D> extends _i1.Mock
 ///
 /// See the documentation for Mockito's code generation for more information.
 class MockTickDrawStrategy extends _i1.Mock
-    implements _i20.TickDrawStrategy<num> {
+    implements _i21.TickDrawStrategy<num> {
   @override
-  void decorateTicks(List<_i15.Tick<num>>? ticks) => super.noSuchMethod(
+  void decorateTicks(List<_i18.Tick<num>>? ticks) => super.noSuchMethod(
         Invocation.method(
           #decorateTicks,
           [ticks],
@@ -927,8 +1083,8 @@ class MockTickDrawStrategy extends _i1.Mock
 
   @override
   _i9.CollisionReport<num> collides(
-    List<_i15.Tick<num>>? ticks,
-    _i16.AxisOrientation? orientation,
+    List<_i18.Tick<num>>? ticks,
+    _i14.AxisOrientation? orientation,
   ) =>
       (super.noSuchMethod(
         Invocation.method(
@@ -962,7 +1118,7 @@ class MockTickDrawStrategy extends _i1.Mock
 
   @override
   _i10.ViewMeasuredSizes measureVerticallyDrawnTicks(
-    List<_i15.Tick<num>>? ticks,
+    List<_i18.Tick<num>>? ticks,
     int? maxWidth,
     int? maxHeight, {
     bool? collision = false,
@@ -1005,7 +1161,7 @@ class MockTickDrawStrategy extends _i1.Mock
 
   @override
   _i10.ViewMeasuredSizes measureHorizontallyDrawnTicks(
-    List<_i15.Tick<num>>? ticks,
+    List<_i18.Tick<num>>? ticks,
     int? maxWidth,
     int? maxHeight, {
     bool? collision = false,
@@ -1048,10 +1204,10 @@ class MockTickDrawStrategy extends _i1.Mock
 
   @override
   void updateTickWidth(
-    List<_i15.Tick<num>>? ticks,
+    List<_i18.Tick<num>>? ticks,
     int? maxWidth,
     int? maxHeight,
-    _i16.AxisOrientation? orientation, {
+    _i14.AxisOrientation? orientation, {
     bool? collision = false,
   }) =>
       super.noSuchMethod(
@@ -1070,11 +1226,11 @@ class MockTickDrawStrategy extends _i1.Mock
 
   @override
   void draw(
-    _i17.ChartCanvas? canvas,
-    _i15.Tick<num>? tick, {
-    required _i16.AxisOrientation? orientation,
-    required _i18.Rectangle<int>? axisBounds,
-    required _i18.Rectangle<int>? drawAreaBounds,
+    _i19.ChartCanvas? canvas,
+    _i18.Tick<num>? tick, {
+    required _i14.AxisOrientation? orientation,
+    required _i13.Rectangle<int>? axisBounds,
+    required _i13.Rectangle<int>? drawAreaBounds,
     required bool? isFirst,
     required bool? isLast,
     bool? collision = false,
@@ -1100,9 +1256,9 @@ class MockTickDrawStrategy extends _i1.Mock
 
   @override
   void drawAxisLine(
-    _i17.ChartCanvas? canvas,
-    _i16.AxisOrientation? orientation,
-    _i18.Rectangle<int>? axisBounds,
+    _i19.ChartCanvas? canvas,
+    _i14.AxisOrientation? orientation,
+    _i13.Rectangle<int>? axisBounds,
   ) =>
       super.noSuchMethod(
         Invocation.method(
@@ -1120,9 +1276,9 @@ class MockTickDrawStrategy extends _i1.Mock
 /// A class which mocks [Axis].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockAxis extends _i1.Mock implements _i16.Axis<String> {
+class MockAxis<D> extends _i1.Mock implements _i14.Axis<D> {
   @override
-  set scale(_i21.MutableScale<String>? _scale) => super.noSuchMethod(
+  set scale(_i12.MutableScale<D>? _scale) => super.noSuchMethod(
         Invocation.setter(
           #scale,
           _scale,
@@ -1131,8 +1287,7 @@ class MockAxis extends _i1.Mock implements _i16.Axis<String> {
       );
 
   @override
-  set tickProvider(_i22.TickProvider<String>? _tickProvider) =>
-      super.noSuchMethod(
+  set tickProvider(_i22.TickProvider<D>? _tickProvider) => super.noSuchMethod(
         Invocation.setter(
           #tickProvider,
           _tickProvider,
@@ -1141,7 +1296,7 @@ class MockAxis extends _i1.Mock implements _i16.Axis<String> {
       );
 
   @override
-  set tickDrawStrategy(_i20.TickDrawStrategy<String>? _tickDrawStrategy) =>
+  set tickDrawStrategy(_i21.TickDrawStrategy<D>? _tickDrawStrategy) =>
       super.noSuchMethod(
         Invocation.setter(
           #tickDrawStrategy,
@@ -1151,7 +1306,7 @@ class MockAxis extends _i1.Mock implements _i16.Axis<String> {
       );
 
   @override
-  set axisOrientation(_i16.AxisOrientation? _axisOrientation) =>
+  set axisOrientation(_i14.AxisOrientation? _axisOrientation) =>
       super.noSuchMethod(
         Invocation.setter(
           #axisOrientation,
@@ -1269,8 +1424,7 @@ class MockAxis extends _i1.Mock implements _i16.Axis<String> {
       );
 
   @override
-  set tickFormatter(_i13.TickFormatter<String>? formatter) =>
-      super.noSuchMethod(
+  set tickFormatter(_i11.TickFormatter<D>? formatter) => super.noSuchMethod(
         Invocation.setter(
           #tickFormatter,
           formatter,
@@ -1348,7 +1502,7 @@ class MockAxis extends _i1.Mock implements _i16.Axis<String> {
       ) as bool);
 
   @override
-  void setRangeBandConfig(_i21.RangeBandConfig? rangeBandConfig) =>
+  void setRangeBandConfig(_i12.RangeBandConfig? rangeBandConfig) =>
       super.noSuchMethod(
         Invocation.method(
           #setRangeBandConfig,
@@ -1358,7 +1512,7 @@ class MockAxis extends _i1.Mock implements _i16.Axis<String> {
       );
 
   @override
-  void addDomainValue(String? domain) => super.noSuchMethod(
+  void addDomainValue(D? domain) => super.noSuchMethod(
         Invocation.method(
           #addDomainValue,
           [domain],
@@ -1385,29 +1539,29 @@ class MockAxis extends _i1.Mock implements _i16.Axis<String> {
       );
 
   @override
-  String getDomain(double? location) => (super.noSuchMethod(
+  D getDomain(double? location) => (super.noSuchMethod(
         Invocation.method(
           #getDomain,
           [location],
         ),
-        returnValue: _i12.dummyValue<String>(
+        returnValue: _i16.dummyValue<D>(
           this,
           Invocation.method(
             #getDomain,
             [location],
           ),
         ),
-        returnValueForMissingStub: _i12.dummyValue<String>(
+        returnValueForMissingStub: _i16.dummyValue<D>(
           this,
           Invocation.method(
             #getDomain,
             [location],
           ),
         ),
-      ) as String);
+      ) as D);
 
   @override
-  int compareDomainValueToViewport(String? domain) => (super.noSuchMethod(
+  int compareDomainValueToViewport(D? domain) => (super.noSuchMethod(
         Invocation.method(
           #compareDomainValueToViewport,
           [domain],
@@ -1500,8 +1654,8 @@ class MockAxis extends _i1.Mock implements _i16.Axis<String> {
 
   @override
   void layout(
-    _i18.Rectangle<int>? componentBounds,
-    _i18.Rectangle<int>? drawAreaBounds,
+    _i13.Rectangle<int>? componentBounds,
+    _i13.Rectangle<int>? drawAreaBounds,
   ) =>
       super.noSuchMethod(
         Invocation.method(
@@ -1516,7 +1670,7 @@ class MockAxis extends _i1.Mock implements _i16.Axis<String> {
 
   @override
   void paint(
-    _i17.ChartCanvas? canvas,
+    _i19.ChartCanvas? canvas,
     double? animationPercent,
   ) =>
       super.noSuchMethod(
@@ -1534,7 +1688,7 @@ class MockAxis extends _i1.Mock implements _i16.Axis<String> {
 /// A class which mocks [ChartCanvas].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockCanvas extends _i1.Mock implements _i17.ChartCanvas {
+class MockCanvas extends _i1.Mock implements _i19.ChartCanvas {
   @override
   _i8.GraphicsFactory get graphicsFactory => (super.noSuchMethod(
         Invocation.getter(#graphicsFactory),
@@ -1559,13 +1713,13 @@ class MockCanvas extends _i1.Mock implements _i17.ChartCanvas {
 
   @override
   void drawCircleSector(
-    _i18.Point<num>? center,
+    _i13.Point<num>? center,
     double? radius,
     double? innerRadius,
     double? startAngle,
     double? endAngle, {
-    _i13.Color? fill,
-    _i13.Color? stroke,
+    _i11.Color? fill,
+    _i11.Color? stroke,
     double? strokeWidthPx,
   }) =>
       super.noSuchMethod(
@@ -1589,9 +1743,9 @@ class MockCanvas extends _i1.Mock implements _i17.ChartCanvas {
 
   @override
   void drawLink(
-    _i17.Link? link,
-    _i17.LinkOrientation? orientation,
-    _i13.Color? fill,
+    _i19.Link? link,
+    _i19.LinkOrientation? orientation,
+    _i11.Color? fill,
   ) =>
       super.noSuchMethod(
         Invocation.method(
@@ -1607,10 +1761,10 @@ class MockCanvas extends _i1.Mock implements _i17.ChartCanvas {
 
   @override
   void drawLine({
-    required List<_i18.Point<num>>? points,
-    _i18.Rectangle<num>? clipBounds,
-    _i13.Color? fill,
-    _i13.Color? stroke,
+    required List<_i13.Point<num>>? points,
+    _i13.Rectangle<num>? clipBounds,
+    _i11.Color? fill,
+    _i11.Color? stroke,
     bool? roundEndCaps,
     double? strokeWidthPx,
     List<int>? dashPattern,
@@ -1633,7 +1787,7 @@ class MockCanvas extends _i1.Mock implements _i17.ChartCanvas {
       );
 
   @override
-  void drawPie(_i13.CanvasPie? canvasPie) => super.noSuchMethod(
+  void drawPie(_i11.CanvasPie? canvasPie) => super.noSuchMethod(
         Invocation.method(
           #drawPie,
           [canvasPie],
@@ -1643,12 +1797,12 @@ class MockCanvas extends _i1.Mock implements _i17.ChartCanvas {
 
   @override
   void drawPoint({
-    required _i18.Point<num>? point,
+    required _i13.Point<num>? point,
     required double? radius,
-    _i13.Color? fill,
-    _i13.Color? stroke,
+    _i11.Color? fill,
+    _i11.Color? stroke,
     double? strokeWidthPx,
-    _i17.BlendMode? blendMode,
+    _i19.BlendMode? blendMode,
   }) =>
       super.noSuchMethod(
         Invocation.method(
@@ -1668,10 +1822,10 @@ class MockCanvas extends _i1.Mock implements _i17.ChartCanvas {
 
   @override
   void drawPolygon({
-    required List<_i18.Point<num>>? points,
-    _i18.Rectangle<num>? clipBounds,
-    _i13.Color? fill,
-    _i13.Color? stroke,
+    required List<_i13.Point<num>>? points,
+    _i13.Rectangle<num>? clipBounds,
+    _i11.Color? fill,
+    _i11.Color? stroke,
     double? strokeWidthPx,
   }) =>
       super.noSuchMethod(
@@ -1691,11 +1845,11 @@ class MockCanvas extends _i1.Mock implements _i17.ChartCanvas {
 
   @override
   void drawRect(
-    _i18.Rectangle<num>? bounds, {
-    _i13.Color? fill,
-    _i13.Color? stroke,
+    _i13.Rectangle<num>? bounds, {
+    _i11.Color? fill,
+    _i11.Color? stroke,
     double? strokeWidthPx,
-    _i18.Rectangle<num>? drawAreaBounds,
+    _i13.Rectangle<num>? drawAreaBounds,
   }) =>
       super.noSuchMethod(
         Invocation.method(
@@ -1713,11 +1867,11 @@ class MockCanvas extends _i1.Mock implements _i17.ChartCanvas {
 
   @override
   void drawRRect(
-    _i18.Rectangle<num>? bounds, {
-    _i13.Color? fill,
-    _i13.Color? stroke,
-    _i13.Color? patternColor,
-    _i17.FillPatternType? fillPattern,
+    _i13.Rectangle<num>? bounds, {
+    _i11.Color? fill,
+    _i11.Color? stroke,
+    _i11.Color? patternColor,
+    _i19.FillPatternType? fillPattern,
     double? patternStrokeWidthPx,
     double? strokeWidthPx,
     num? radius,
@@ -1749,8 +1903,8 @@ class MockCanvas extends _i1.Mock implements _i17.ChartCanvas {
 
   @override
   void drawBarStack(
-    _i13.CanvasBarStack? canvasBarStack, {
-    _i18.Rectangle<num>? drawAreaBounds,
+    _i11.CanvasBarStack? canvasBarStack, {
+    _i13.Rectangle<num>? drawAreaBounds,
   }) =>
       super.noSuchMethod(
         Invocation.method(
@@ -1782,7 +1936,7 @@ class MockCanvas extends _i1.Mock implements _i17.ChartCanvas {
       );
 
   @override
-  void setClipBounds(_i18.Rectangle<int>? clipBounds) => super.noSuchMethod(
+  void setClipBounds(_i13.Rectangle<int>? clipBounds) => super.noSuchMethod(
         Invocation.method(
           #setClipBounds,
           [clipBounds],
@@ -1804,7 +1958,7 @@ class MockCanvas extends _i1.Mock implements _i17.ChartCanvas {
 ///
 /// See the documentation for Mockito's code generation for more information.
 class MockImmutableSeries<D> extends _i1.Mock
-    implements _i13.ImmutableSeries<D> {
+    implements _i11.ImmutableSeries<D> {
   @override
   set keyFn(_i23.AccessorFn<String>? _keyFn) => super.noSuchMethod(
         Invocation.setter(
@@ -1816,7 +1970,7 @@ class MockImmutableSeries<D> extends _i1.Mock
 
   @override
   set insideLabelStyleAccessorFn(
-          _i23.AccessorFn<_i14.TextStyleSpec>? _insideLabelStyleAccessorFn) =>
+          _i23.AccessorFn<_i17.TextStyleSpec>? _insideLabelStyleAccessorFn) =>
       super.noSuchMethod(
         Invocation.setter(
           #insideLabelStyleAccessorFn,
@@ -1827,7 +1981,7 @@ class MockImmutableSeries<D> extends _i1.Mock
 
   @override
   set outsideLabelStyleAccessorFn(
-          _i23.AccessorFn<_i14.TextStyleSpec>? _outsideLabelStyleAccessorFn) =>
+          _i23.AccessorFn<_i17.TextStyleSpec>? _outsideLabelStyleAccessorFn) =>
       super.noSuchMethod(
         Invocation.setter(
           #outsideLabelStyleAccessorFn,
@@ -1839,11 +1993,11 @@ class MockImmutableSeries<D> extends _i1.Mock
   @override
   String get id => (super.noSuchMethod(
         Invocation.getter(#id),
-        returnValue: _i12.dummyValue<String>(
+        returnValue: _i16.dummyValue<String>(
           this,
           Invocation.getter(#id),
         ),
-        returnValueForMissingStub: _i12.dummyValue<String>(
+        returnValueForMissingStub: _i16.dummyValue<String>(
           this,
           Invocation.getter(#id),
         ),
@@ -1880,11 +2034,11 @@ class MockImmutableSeries<D> extends _i1.Mock
   @override
   _i23.AccessorFn<D> get domainFn => (super.noSuchMethod(
         Invocation.getter(#domainFn),
-        returnValue: (int? index) => _i12.dummyValue<D>(
+        returnValue: (int? index) => _i16.dummyValue<D>(
           this,
           Invocation.getter(#domainFn),
         ),
-        returnValueForMissingStub: (int? index) => _i12.dummyValue<D>(
+        returnValueForMissingStub: (int? index) => _i16.dummyValue<D>(
           this,
           Invocation.getter(#domainFn),
         ),
@@ -1906,7 +2060,7 @@ class MockImmutableSeries<D> extends _i1.Mock
 
   @override
   void setAttr<R>(
-    _i13.AttributeKey<R>? key,
+    _i11.AttributeKey<R>? key,
     R? value,
   ) =>
       super.noSuchMethod(
@@ -1921,7 +2075,7 @@ class MockImmutableSeries<D> extends _i1.Mock
       );
 
   @override
-  R? getAttr<R>(_i13.AttributeKey<R>? key) => (super.noSuchMethod(
+  R? getAttr<R>(_i11.AttributeKey<R>? key) => (super.noSuchMethod(
         Invocation.method(
           #getAttr,
           [key],
@@ -1960,10 +2114,1274 @@ class MockLinePaint extends _i1.Mock implements _i3.LineStyle {
       );
 
   @override
-  set color(_i13.Color? value) => super.noSuchMethod(
+  set color(_i11.Color? value) => super.noSuchMethod(
         Invocation.setter(
           #color,
           value,
+        ),
+        returnValueForMissingStub: null,
+      );
+}
+
+/// A class which mocks [NumericScale].
+///
+/// See the documentation for Mockito's code generation for more information.
+class MockNumericScale extends _i1.Mock implements _i11.NumericScale {
+  @override
+  bool get keepViewportWithinData => (super.noSuchMethod(
+        Invocation.getter(#keepViewportWithinData),
+        returnValue: false,
+        returnValueForMissingStub: false,
+      ) as bool);
+
+  @override
+  set keepViewportWithinData(bool? keep) => super.noSuchMethod(
+        Invocation.setter(
+          #keepViewportWithinData,
+          keep,
+        ),
+        returnValueForMissingStub: null,
+      );
+
+  @override
+  _i11.NumericExtents get dataExtent => (super.noSuchMethod(
+        Invocation.getter(#dataExtent),
+        returnValue: _FakeNumericExtents_10(
+          this,
+          Invocation.getter(#dataExtent),
+        ),
+        returnValueForMissingStub: _FakeNumericExtents_10(
+          this,
+          Invocation.getter(#dataExtent),
+        ),
+      ) as _i11.NumericExtents);
+
+  @override
+  num get minimumDomainStep => (super.noSuchMethod(
+        Invocation.getter(#minimumDomainStep),
+        returnValue: 0,
+        returnValueForMissingStub: 0,
+      ) as num);
+
+  @override
+  set domainOverride(_i11.NumericExtents? extent) => super.noSuchMethod(
+        Invocation.setter(
+          #domainOverride,
+          extent,
+        ),
+        returnValueForMissingStub: null,
+      );
+
+  @override
+  _i11.NumericExtents get viewportDomain => (super.noSuchMethod(
+        Invocation.getter(#viewportDomain),
+        returnValue: _FakeNumericExtents_10(
+          this,
+          Invocation.getter(#viewportDomain),
+        ),
+        returnValueForMissingStub: _FakeNumericExtents_10(
+          this,
+          Invocation.getter(#viewportDomain),
+        ),
+      ) as _i11.NumericExtents);
+
+  @override
+  set viewportDomain(_i11.NumericExtents? extent) => super.noSuchMethod(
+        Invocation.setter(
+          #viewportDomain,
+          extent,
+        ),
+        returnValueForMissingStub: null,
+      );
+
+  @override
+  set range(_i12.ScaleOutputExtent? extent) => super.noSuchMethod(
+        Invocation.setter(
+          #range,
+          extent,
+        ),
+        returnValueForMissingStub: null,
+      );
+
+  @override
+  set rangeBandConfig(_i12.RangeBandConfig? barGroupWidthConfig) =>
+      super.noSuchMethod(
+        Invocation.setter(
+          #rangeBandConfig,
+          barGroupWidthConfig,
+        ),
+        returnValueForMissingStub: null,
+      );
+
+  @override
+  _i12.StepSizeConfig get stepSizeConfig => (super.noSuchMethod(
+        Invocation.getter(#stepSizeConfig),
+        returnValue: _FakeStepSizeConfig_11(
+          this,
+          Invocation.getter(#stepSizeConfig),
+        ),
+        returnValueForMissingStub: _FakeStepSizeConfig_11(
+          this,
+          Invocation.getter(#stepSizeConfig),
+        ),
+      ) as _i12.StepSizeConfig);
+
+  @override
+  set stepSizeConfig(_i12.StepSizeConfig? config) => super.noSuchMethod(
+        Invocation.setter(
+          #stepSizeConfig,
+          config,
+        ),
+        returnValueForMissingStub: null,
+      );
+
+  @override
+  int get rangeWidth => (super.noSuchMethod(
+        Invocation.getter(#rangeWidth),
+        returnValue: 0,
+        returnValueForMissingStub: 0,
+      ) as int);
+
+  @override
+  _i12.RangeBandConfig get rangeBandConfig => (super.noSuchMethod(
+        Invocation.getter(#rangeBandConfig),
+        returnValue: _FakeRangeBandConfig_12(
+          this,
+          Invocation.getter(#rangeBandConfig),
+        ),
+        returnValueForMissingStub: _FakeRangeBandConfig_12(
+          this,
+          Invocation.getter(#rangeBandConfig),
+        ),
+      ) as _i12.RangeBandConfig);
+
+  @override
+  double get rangeBand => (super.noSuchMethod(
+        Invocation.getter(#rangeBand),
+        returnValue: 0.0,
+        returnValueForMissingStub: 0.0,
+      ) as double);
+
+  @override
+  double get stepSize => (super.noSuchMethod(
+        Invocation.getter(#stepSize),
+        returnValue: 0.0,
+        returnValueForMissingStub: 0.0,
+      ) as double);
+
+  @override
+  double get domainStepSize => (super.noSuchMethod(
+        Invocation.getter(#domainStepSize),
+        returnValue: 0.0,
+        returnValueForMissingStub: 0.0,
+      ) as double);
+
+  @override
+  double get viewportScalingFactor => (super.noSuchMethod(
+        Invocation.getter(#viewportScalingFactor),
+        returnValue: 0.0,
+        returnValueForMissingStub: 0.0,
+      ) as double);
+
+  @override
+  double get viewportTranslatePx => (super.noSuchMethod(
+        Invocation.getter(#viewportTranslatePx),
+        returnValue: 0.0,
+        returnValueForMissingStub: 0.0,
+      ) as double);
+
+  @override
+  double computeViewportScaleFactor(double? domainWindow) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #computeViewportScaleFactor,
+          [domainWindow],
+        ),
+        returnValue: 0.0,
+        returnValueForMissingStub: 0.0,
+      ) as double);
+
+  @override
+  void resetDomain() => super.noSuchMethod(
+        Invocation.method(
+          #resetDomain,
+          [],
+        ),
+        returnValueForMissingStub: null,
+      );
+
+  @override
+  void resetViewportSettings() => super.noSuchMethod(
+        Invocation.method(
+          #resetViewportSettings,
+          [],
+        ),
+        returnValueForMissingStub: null,
+      );
+
+  @override
+  void addDomain(num? domainValue) => super.noSuchMethod(
+        Invocation.method(
+          #addDomain,
+          [domainValue],
+        ),
+        returnValueForMissingStub: null,
+      );
+
+  @override
+  void setViewportSettings(
+    double? viewportScale,
+    double? viewportTranslatePx,
+  ) =>
+      super.noSuchMethod(
+        Invocation.method(
+          #setViewportSettings,
+          [
+            viewportScale,
+            viewportTranslatePx,
+          ],
+        ),
+        returnValueForMissingStub: null,
+      );
+
+  @override
+  num? operator [](num? domainValue) => (super.noSuchMethod(
+        Invocation.method(
+          #[],
+          [domainValue],
+        ),
+        returnValueForMissingStub: null,
+      ) as num?);
+
+  @override
+  num reverse(double? pixelLocation) => (super.noSuchMethod(
+        Invocation.method(
+          #reverse,
+          [pixelLocation],
+        ),
+        returnValue: 0,
+        returnValueForMissingStub: 0,
+      ) as num);
+
+  @override
+  bool canTranslate(num? domainValue) => (super.noSuchMethod(
+        Invocation.method(
+          #canTranslate,
+          [domainValue],
+        ),
+        returnValue: false,
+        returnValueForMissingStub: false,
+      ) as bool);
+
+  @override
+  int compareDomainValueToViewport(num? domainValue) => (super.noSuchMethod(
+        Invocation.method(
+          #compareDomainValueToViewport,
+          [domainValue],
+        ),
+        returnValue: 0,
+        returnValueForMissingStub: 0,
+      ) as int);
+
+  @override
+  bool isRangeValueWithinViewport(double? rangeValue) => (super.noSuchMethod(
+        Invocation.method(
+          #isRangeValueWithinViewport,
+          [rangeValue],
+        ),
+        returnValue: false,
+        returnValueForMissingStub: false,
+      ) as bool);
+
+  @override
+  _i12.MutableScale<num> copy() => (super.noSuchMethod(
+        Invocation.method(
+          #copy,
+          [],
+        ),
+        returnValue: _FakeMutableScale_13<num>(
+          this,
+          Invocation.method(
+            #copy,
+            [],
+          ),
+        ),
+        returnValueForMissingStub: _FakeMutableScale_13<num>(
+          this,
+          Invocation.method(
+            #copy,
+            [],
+          ),
+        ),
+      ) as _i12.MutableScale<num>);
+}
+
+/// A class which mocks [TextStyle].
+///
+/// See the documentation for Mockito's code generation for more information.
+class MockTextStyle extends _i1.Mock implements _i4.TextStyle {
+  @override
+  set fontSize(int? value) => super.noSuchMethod(
+        Invocation.setter(
+          #fontSize,
+          value,
+        ),
+        returnValueForMissingStub: null,
+      );
+
+  @override
+  set fontFamily(String? fontFamily) => super.noSuchMethod(
+        Invocation.setter(
+          #fontFamily,
+          fontFamily,
+        ),
+        returnValueForMissingStub: null,
+      );
+
+  @override
+  set lineHeight(double? value) => super.noSuchMethod(
+        Invocation.setter(
+          #lineHeight,
+          value,
+        ),
+        returnValueForMissingStub: null,
+      );
+
+  @override
+  set fontWeight(String? value) => super.noSuchMethod(
+        Invocation.setter(
+          #fontWeight,
+          value,
+        ),
+        returnValueForMissingStub: null,
+      );
+
+  @override
+  set color(_i11.Color? value) => super.noSuchMethod(
+        Invocation.setter(
+          #color,
+          value,
+        ),
+        returnValueForMissingStub: null,
+      );
+}
+
+/// A class which mocks [CartesianChart].
+///
+/// See the documentation for Mockito's code generation for more information.
+class MockChart<D> extends _i1.Mock implements _i11.CartesianChart<D> {
+  @override
+  bool get vertical => (super.noSuchMethod(
+        Invocation.getter(#vertical),
+        returnValue: false,
+        returnValueForMissingStub: false,
+      ) as bool);
+
+  @override
+  set vertical(bool? _vertical) => super.noSuchMethod(
+        Invocation.setter(
+          #vertical,
+          _vertical,
+        ),
+        returnValueForMissingStub: null,
+      );
+
+  @override
+  bool get flipVerticalAxisOutput => (super.noSuchMethod(
+        Invocation.getter(#flipVerticalAxisOutput),
+        returnValue: false,
+        returnValueForMissingStub: false,
+      ) as bool);
+
+  @override
+  set flipVerticalAxisOutput(bool? _flipVerticalAxisOutput) =>
+      super.noSuchMethod(
+        Invocation.setter(
+          #flipVerticalAxisOutput,
+          _flipVerticalAxisOutput,
+        ),
+        returnValueForMissingStub: null,
+      );
+
+  @override
+  set domainAxisSpec(_i17.AxisSpec<D>? axisSpec) => super.noSuchMethod(
+        Invocation.setter(
+          #domainAxisSpec,
+          axisSpec,
+        ),
+        returnValueForMissingStub: null,
+      );
+
+  @override
+  set primaryMeasureAxisSpec(_i11.NumericAxisSpec? axisSpec) =>
+      super.noSuchMethod(
+        Invocation.setter(
+          #primaryMeasureAxisSpec,
+          axisSpec,
+        ),
+        returnValueForMissingStub: null,
+      );
+
+  @override
+  set secondaryMeasureAxisSpec(_i11.NumericAxisSpec? axisSpec) =>
+      super.noSuchMethod(
+        Invocation.setter(
+          #secondaryMeasureAxisSpec,
+          axisSpec,
+        ),
+        returnValueForMissingStub: null,
+      );
+
+  @override
+  set disjointMeasureAxisSpecs(
+          _i24.LinkedHashMap<String, _i11.NumericAxisSpec>? axisSpecs) =>
+      super.noSuchMethod(
+        Invocation.setter(
+          #disjointMeasureAxisSpecs,
+          axisSpecs,
+        ),
+        returnValueForMissingStub: null,
+      );
+
+  @override
+  _i7.ChartContext get context => (super.noSuchMethod(
+        Invocation.getter(#context),
+        returnValue: _FakeChartContext_5(
+          this,
+          Invocation.getter(#context),
+        ),
+        returnValueForMissingStub: _FakeChartContext_5(
+          this,
+          Invocation.getter(#context),
+        ),
+      ) as _i7.ChartContext);
+
+  @override
+  set context(_i7.ChartContext? _context) => super.noSuchMethod(
+        Invocation.setter(
+          #context,
+          _context,
+        ),
+        returnValueForMissingStub: null,
+      );
+
+  @override
+  set graphicsFactory(_i8.GraphicsFactory? _graphicsFactory) =>
+      super.noSuchMethod(
+        Invocation.setter(
+          #graphicsFactory,
+          _graphicsFactory,
+        ),
+        returnValueForMissingStub: null,
+      );
+
+  @override
+  Duration get transition => (super.noSuchMethod(
+        Invocation.getter(#transition),
+        returnValue: _FakeDuration_14(
+          this,
+          Invocation.getter(#transition),
+        ),
+        returnValueForMissingStub: _FakeDuration_14(
+          this,
+          Invocation.getter(#transition),
+        ),
+      ) as Duration);
+
+  @override
+  set transition(Duration? _transition) => super.noSuchMethod(
+        Invocation.setter(
+          #transition,
+          _transition,
+        ),
+        returnValueForMissingStub: null,
+      );
+
+  @override
+  double get animationPercent => (super.noSuchMethod(
+        Invocation.getter(#animationPercent),
+        returnValue: 0.0,
+        returnValueForMissingStub: 0.0,
+      ) as double);
+
+  @override
+  set animationPercent(double? _animationPercent) => super.noSuchMethod(
+        Invocation.setter(
+          #animationPercent,
+          _animationPercent,
+        ),
+        returnValueForMissingStub: null,
+      );
+
+  @override
+  bool get isTappable => (super.noSuchMethod(
+        Invocation.getter(#isTappable),
+        returnValue: false,
+        returnValueForMissingStub: false,
+      ) as bool);
+
+  @override
+  bool get selectExactEventLocation => (super.noSuchMethod(
+        Invocation.getter(#selectExactEventLocation),
+        returnValue: false,
+        returnValueForMissingStub: false,
+      ) as bool);
+
+  @override
+  bool get selectNearestByDomain => (super.noSuchMethod(
+        Invocation.getter(#selectNearestByDomain),
+        returnValue: false,
+        returnValueForMissingStub: false,
+      ) as bool);
+
+  @override
+  bool get selectOverlappingPoints => (super.noSuchMethod(
+        Invocation.getter(#selectOverlappingPoints),
+        returnValue: false,
+        returnValueForMissingStub: false,
+      ) as bool);
+
+  @override
+  bool get chartIsDirty => (super.noSuchMethod(
+        Invocation.getter(#chartIsDirty),
+        returnValue: false,
+        returnValueForMissingStub: false,
+      ) as bool);
+
+  @override
+  _i11.ProxyGestureListener get gestureProxy => (super.noSuchMethod(
+        Invocation.getter(#gestureProxy),
+        returnValue: _FakeProxyGestureListener_15(
+          this,
+          Invocation.getter(#gestureProxy),
+        ),
+        returnValueForMissingStub: _FakeProxyGestureListener_15(
+          this,
+          Invocation.getter(#gestureProxy),
+        ),
+      ) as _i11.ProxyGestureListener);
+
+  @override
+  set defaultRenderer(_i11.SeriesRenderer<D>? renderer) => super.noSuchMethod(
+        Invocation.setter(
+          #defaultRenderer,
+          renderer,
+        ),
+        returnValueForMissingStub: null,
+      );
+
+  @override
+  _i11.SeriesRenderer<D> get defaultRenderer => (super.noSuchMethod(
+        Invocation.getter(#defaultRenderer),
+        returnValue: _FakeSeriesRenderer_16<D>(
+          this,
+          Invocation.getter(#defaultRenderer),
+        ),
+        returnValueForMissingStub: _FakeSeriesRenderer_16<D>(
+          this,
+          Invocation.getter(#defaultRenderer),
+        ),
+      ) as _i11.SeriesRenderer<D>);
+
+  @override
+  List<_i11.ChartBehavior<D>> get behaviors => (super.noSuchMethod(
+        Invocation.getter(#behaviors),
+        returnValue: <_i11.ChartBehavior<D>>[],
+        returnValueForMissingStub: <_i11.ChartBehavior<D>>[],
+      ) as List<_i11.ChartBehavior<D>>);
+
+  @override
+  _i13.Rectangle<int> get drawAreaBounds => (super.noSuchMethod(
+        Invocation.getter(#drawAreaBounds),
+        returnValue: _FakeRectangle_17<int>(
+          this,
+          Invocation.getter(#drawAreaBounds),
+        ),
+        returnValueForMissingStub: _FakeRectangle_17<int>(
+          this,
+          Invocation.getter(#drawAreaBounds),
+        ),
+      ) as _i13.Rectangle<int>);
+
+  @override
+  int get marginBottom => (super.noSuchMethod(
+        Invocation.getter(#marginBottom),
+        returnValue: 0,
+        returnValueForMissingStub: 0,
+      ) as int);
+
+  @override
+  int get marginLeft => (super.noSuchMethod(
+        Invocation.getter(#marginLeft),
+        returnValue: 0,
+        returnValueForMissingStub: 0,
+      ) as int);
+
+  @override
+  int get marginRight => (super.noSuchMethod(
+        Invocation.getter(#marginRight),
+        returnValue: 0,
+        returnValueForMissingStub: 0,
+      ) as int);
+
+  @override
+  int get marginTop => (super.noSuchMethod(
+        Invocation.getter(#marginTop),
+        returnValue: 0,
+        returnValueForMissingStub: 0,
+      ) as int);
+
+  @override
+  _i13.Rectangle<int> get drawableLayoutAreaBounds => (super.noSuchMethod(
+        Invocation.getter(#drawableLayoutAreaBounds),
+        returnValue: _FakeRectangle_17<int>(
+          this,
+          Invocation.getter(#drawableLayoutAreaBounds),
+        ),
+        returnValueForMissingStub: _FakeRectangle_17<int>(
+          this,
+          Invocation.getter(#drawableLayoutAreaBounds),
+        ),
+      ) as _i13.Rectangle<int>);
+
+  @override
+  List<_i11.MutableSeries<D>> get currentSeriesList => (super.noSuchMethod(
+        Invocation.getter(#currentSeriesList),
+        returnValue: <_i11.MutableSeries<D>>[],
+        returnValueForMissingStub: <_i11.MutableSeries<D>>[],
+      ) as List<_i11.MutableSeries<D>>);
+
+  @override
+  bool get animatingThisDraw => (super.noSuchMethod(
+        Invocation.getter(#animatingThisDraw),
+        returnValue: false,
+        returnValueForMissingStub: false,
+      ) as bool);
+
+  @override
+  void init(
+    _i7.ChartContext? context,
+    _i8.GraphicsFactory? graphicsFactory,
+  ) =>
+      super.noSuchMethod(
+        Invocation.method(
+          #init,
+          [
+            context,
+            graphicsFactory,
+          ],
+        ),
+        returnValueForMissingStub: null,
+      );
+
+  @override
+  void updateConfig(_i11.LayoutConfig? layoutConfig) => super.noSuchMethod(
+        Invocation.method(
+          #updateConfig,
+          [layoutConfig],
+        ),
+        returnValueForMissingStub: null,
+      );
+
+  @override
+  void initDomainAxis() => super.noSuchMethod(
+        Invocation.method(
+          #initDomainAxis,
+          [],
+        ),
+        returnValueForMissingStub: null,
+      );
+
+  @override
+  _i14.Axis<D>? createDomainAxisFromSpec(_i17.AxisSpec<D>? axisSpec) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #createDomainAxisFromSpec,
+          [axisSpec],
+        ),
+        returnValueForMissingStub: null,
+      ) as _i14.Axis<D>?);
+
+  @override
+  void configurationChanged() => super.noSuchMethod(
+        Invocation.method(
+          #configurationChanged,
+          [],
+        ),
+        returnValueForMissingStub: null,
+      );
+
+  @override
+  _i14.NumericAxis getMeasureAxis({String? axisId}) => (super.noSuchMethod(
+        Invocation.method(
+          #getMeasureAxis,
+          [],
+          {#axisId: axisId},
+        ),
+        returnValue: _FakeNumericAxis_18(
+          this,
+          Invocation.method(
+            #getMeasureAxis,
+            [],
+            {#axisId: axisId},
+          ),
+        ),
+        returnValueForMissingStub: _FakeNumericAxis_18(
+          this,
+          Invocation.method(
+            #getMeasureAxis,
+            [],
+            {#axisId: axisId},
+          ),
+        ),
+      ) as _i14.NumericAxis);
+
+  @override
+  _i11.MutableSeries<D> makeSeries(_i11.Series<dynamic, D>? series) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #makeSeries,
+          [series],
+        ),
+        returnValue: _FakeMutableSeries_19<D>(
+          this,
+          Invocation.method(
+            #makeSeries,
+            [series],
+          ),
+        ),
+        returnValueForMissingStub: _FakeMutableSeries_19<D>(
+          this,
+          Invocation.method(
+            #makeSeries,
+            [series],
+          ),
+        ),
+      ) as _i11.MutableSeries<D>);
+
+  @override
+  _i11.SeriesRenderer<D> makeDefaultRenderer() => (super.noSuchMethod(
+        Invocation.method(
+          #makeDefaultRenderer,
+          [],
+        ),
+        returnValue: _FakeSeriesRenderer_16<D>(
+          this,
+          Invocation.method(
+            #makeDefaultRenderer,
+            [],
+          ),
+        ),
+        returnValueForMissingStub: _FakeSeriesRenderer_16<D>(
+          this,
+          Invocation.method(
+            #makeDefaultRenderer,
+            [],
+          ),
+        ),
+      ) as _i11.SeriesRenderer<D>);
+
+  @override
+  Map<String, List<_i11.MutableSeries<D>>> preprocessSeries(
+          List<_i11.MutableSeries<D>>? seriesList) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #preprocessSeries,
+          [seriesList],
+        ),
+        returnValue: <String, List<_i11.MutableSeries<D>>>{},
+        returnValueForMissingStub: <String, List<_i11.MutableSeries<D>>>{},
+      ) as Map<String, List<_i11.MutableSeries<D>>>);
+
+  @override
+  void onSkipLayout() => super.noSuchMethod(
+        Invocation.method(
+          #onSkipLayout,
+          [],
+        ),
+        returnValueForMissingStub: null,
+      );
+
+  @override
+  void onPostLayout(
+          Map<String, List<_i11.MutableSeries<D>>>? rendererToSeriesList) =>
+      super.noSuchMethod(
+        Invocation.method(
+          #onPostLayout,
+          [rendererToSeriesList],
+        ),
+        returnValueForMissingStub: null,
+      );
+
+  @override
+  List<_i25.DatumDetails<D>> getDatumDetails(_i11.SelectionModelType? type) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #getDatumDetails,
+          [type],
+        ),
+        returnValue: <_i25.DatumDetails<D>>[],
+        returnValueForMissingStub: <_i25.DatumDetails<D>>[],
+      ) as List<_i25.DatumDetails<D>>);
+
+  @override
+  void resetChartDirtyFlag() => super.noSuchMethod(
+        Invocation.method(
+          #resetChartDirtyFlag,
+          [],
+        ),
+        returnValueForMissingStub: null,
+      );
+
+  @override
+  void markChartDirty() => super.noSuchMethod(
+        Invocation.method(
+          #markChartDirty,
+          [],
+        ),
+        returnValueForMissingStub: null,
+      );
+
+  @override
+  _i11.GestureListener addGestureListener(_i11.GestureListener? listener) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #addGestureListener,
+          [listener],
+        ),
+        returnValue: _FakeGestureListener_20(
+          this,
+          Invocation.method(
+            #addGestureListener,
+            [listener],
+          ),
+        ),
+        returnValueForMissingStub: _FakeGestureListener_20(
+          this,
+          Invocation.method(
+            #addGestureListener,
+            [listener],
+          ),
+        ),
+      ) as _i11.GestureListener);
+
+  @override
+  void removeGestureListener(_i11.GestureListener? listener) =>
+      super.noSuchMethod(
+        Invocation.method(
+          #removeGestureListener,
+          [listener],
+        ),
+        returnValueForMissingStub: null,
+      );
+
+  @override
+  _i11.LifecycleListener<D> addLifecycleListener(
+          _i11.LifecycleListener<D>? listener) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #addLifecycleListener,
+          [listener],
+        ),
+        returnValue: _FakeLifecycleListener_21<D>(
+          this,
+          Invocation.method(
+            #addLifecycleListener,
+            [listener],
+          ),
+        ),
+        returnValueForMissingStub: _FakeLifecycleListener_21<D>(
+          this,
+          Invocation.method(
+            #addLifecycleListener,
+            [listener],
+          ),
+        ),
+      ) as _i11.LifecycleListener<D>);
+
+  @override
+  bool removeLifecycleListener(_i11.LifecycleListener<D>? listener) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #removeLifecycleListener,
+          [listener],
+        ),
+        returnValue: false,
+        returnValueForMissingStub: false,
+      ) as bool);
+
+  @override
+  _i11.MutableSelectionModel<D> getSelectionModel(
+          _i11.SelectionModelType? type) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #getSelectionModel,
+          [type],
+        ),
+        returnValue: _FakeMutableSelectionModel_22<D>(
+          this,
+          Invocation.method(
+            #getSelectionModel,
+            [type],
+          ),
+        ),
+        returnValueForMissingStub: _FakeMutableSelectionModel_22<D>(
+          this,
+          Invocation.method(
+            #getSelectionModel,
+            [type],
+          ),
+        ),
+      ) as _i11.MutableSelectionModel<D>);
+
+  @override
+  void addSeriesRenderer(_i11.SeriesRenderer<D>? renderer) =>
+      super.noSuchMethod(
+        Invocation.method(
+          #addSeriesRenderer,
+          [renderer],
+        ),
+        returnValueForMissingStub: null,
+      );
+
+  @override
+  _i11.SeriesRenderer<D> getSeriesRenderer(String? rendererId) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #getSeriesRenderer,
+          [rendererId],
+        ),
+        returnValue: _FakeSeriesRenderer_16<D>(
+          this,
+          Invocation.method(
+            #getSeriesRenderer,
+            [rendererId],
+          ),
+        ),
+        returnValueForMissingStub: _FakeSeriesRenderer_16<D>(
+          this,
+          Invocation.method(
+            #getSeriesRenderer,
+            [rendererId],
+          ),
+        ),
+      ) as _i11.SeriesRenderer<D>);
+
+  @override
+  bool pointWithinRenderer(_i13.Point<double>? chartPosition) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #pointWithinRenderer,
+          [chartPosition],
+        ),
+        returnValue: false,
+        returnValueForMissingStub: false,
+      ) as bool);
+
+  @override
+  List<_i25.DatumDetails<D>> getNearestDatumDetailPerSeries(
+    _i13.Point<double>? drawAreaPoint,
+    bool? selectAcrossAllDrawAreaComponents,
+  ) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #getNearestDatumDetailPerSeries,
+          [
+            drawAreaPoint,
+            selectAcrossAllDrawAreaComponents,
+          ],
+        ),
+        returnValue: <_i25.DatumDetails<D>>[],
+        returnValueForMissingStub: <_i25.DatumDetails<D>>[],
+      ) as List<_i25.DatumDetails<D>>);
+
+  @override
+  List<_i25.DatumDetails<D>> getSelectedDatumDetails(
+          _i11.SelectionModelType? selectionModelType) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #getSelectedDatumDetails,
+          [selectionModelType],
+        ),
+        returnValue: <_i25.DatumDetails<D>>[],
+        returnValueForMissingStub: <_i25.DatumDetails<D>>[],
+      ) as List<_i25.DatumDetails<D>>);
+
+  @override
+  List<_i25.DatumDetails<D>> getAllDatumDetails(
+          {bool? includeOverlaySeries = false}) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #getAllDatumDetails,
+          [],
+          {#includeOverlaySeries: includeOverlaySeries},
+        ),
+        returnValue: <_i25.DatumDetails<D>>[],
+        returnValueForMissingStub: <_i25.DatumDetails<D>>[],
+      ) as List<_i25.DatumDetails<D>>);
+
+  @override
+  _i11.ChartBehavior<D> createBehavior(_i26.BehaviorCreator? creator) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #createBehavior,
+          [creator],
+        ),
+        returnValue: _FakeChartBehavior_23<D>(
+          this,
+          Invocation.method(
+            #createBehavior,
+            [creator],
+          ),
+        ),
+        returnValueForMissingStub: _FakeChartBehavior_23<D>(
+          this,
+          Invocation.method(
+            #createBehavior,
+            [creator],
+          ),
+        ),
+      ) as _i11.ChartBehavior<D>);
+
+  @override
+  void addBehavior(_i11.ChartBehavior<D>? behavior) => super.noSuchMethod(
+        Invocation.method(
+          #addBehavior,
+          [behavior],
+        ),
+        returnValueForMissingStub: null,
+      );
+
+  @override
+  bool removeBehavior(_i11.ChartBehavior<D>? behavior) => (super.noSuchMethod(
+        Invocation.method(
+          #removeBehavior,
+          [behavior],
+        ),
+        returnValue: false,
+        returnValueForMissingStub: false,
+      ) as bool);
+
+  @override
+  void registerTappable(_i11.ChartBehavior<D>? behavior) => super.noSuchMethod(
+        Invocation.method(
+          #registerTappable,
+          [behavior],
+        ),
+        returnValueForMissingStub: null,
+      );
+
+  @override
+  void unregisterTappable(_i11.ChartBehavior<D>? behavior) =>
+      super.noSuchMethod(
+        Invocation.method(
+          #unregisterTappable,
+          [behavior],
+        ),
+        returnValueForMissingStub: null,
+      );
+
+  @override
+  void measure(
+    int? width,
+    int? height,
+  ) =>
+      super.noSuchMethod(
+        Invocation.method(
+          #measure,
+          [
+            width,
+            height,
+          ],
+        ),
+        returnValueForMissingStub: null,
+      );
+
+  @override
+  void layout(
+    int? width,
+    int? height,
+  ) =>
+      super.noSuchMethod(
+        Invocation.method(
+          #layout,
+          [
+            width,
+            height,
+          ],
+        ),
+        returnValueForMissingStub: null,
+      );
+
+  @override
+  void layoutInternal(
+    int? width,
+    int? height,
+  ) =>
+      super.noSuchMethod(
+        Invocation.method(
+          #layoutInternal,
+          [
+            width,
+            height,
+          ],
+        ),
+        returnValueForMissingStub: null,
+      );
+
+  @override
+  void addView(_i10.LayoutView? view) => super.noSuchMethod(
+        Invocation.method(
+          #addView,
+          [view],
+        ),
+        returnValueForMissingStub: null,
+      );
+
+  @override
+  void removeView(_i10.LayoutView? view) => super.noSuchMethod(
+        Invocation.method(
+          #removeView,
+          [view],
+        ),
+        returnValueForMissingStub: null,
+      );
+
+  @override
+  bool withinDrawArea(_i13.Point<num>? point) => (super.noSuchMethod(
+        Invocation.method(
+          #withinDrawArea,
+          [point],
+        ),
+        returnValue: false,
+        returnValueForMissingStub: false,
+      ) as bool);
+
+  @override
+  void draw(List<_i11.Series<dynamic, D>>? seriesList) => super.noSuchMethod(
+        Invocation.method(
+          #draw,
+          [seriesList],
+        ),
+        returnValueForMissingStub: null,
+      );
+
+  @override
+  void redraw({
+    bool? skipAnimation = false,
+    bool? skipLayout = false,
+  }) =>
+      super.noSuchMethod(
+        Invocation.method(
+          #redraw,
+          [],
+          {
+            #skipAnimation: skipAnimation,
+            #skipLayout: skipLayout,
+          },
+        ),
+        returnValueForMissingStub: null,
+      );
+
+  @override
+  void drawInternal(
+    List<_i11.MutableSeries<D>>? seriesList, {
+    bool? skipAnimation,
+    bool? skipLayout,
+  }) =>
+      super.noSuchMethod(
+        Invocation.method(
+          #drawInternal,
+          [seriesList],
+          {
+            #skipAnimation: skipAnimation,
+            #skipLayout: skipLayout,
+          },
+        ),
+        returnValueForMissingStub: null,
+      );
+
+  @override
+  void configureSeries(List<_i11.MutableSeries<D>>? seriesList) =>
+      super.noSuchMethod(
+        Invocation.method(
+          #configureSeries,
+          [seriesList],
+        ),
+        returnValueForMissingStub: null,
+      );
+
+  @override
+  void paint(_i19.ChartCanvas? canvas) => super.noSuchMethod(
+        Invocation.method(
+          #paint,
+          [canvas],
+        ),
+        returnValueForMissingStub: null,
+      );
+
+  @override
+  void fireOnDraw(List<_i11.MutableSeries<D>>? seriesList) =>
+      super.noSuchMethod(
+        Invocation.method(
+          #fireOnDraw,
+          [seriesList],
+        ),
+        returnValueForMissingStub: null,
+      );
+
+  @override
+  void fireOnPreprocess(List<_i11.MutableSeries<D>>? seriesList) =>
+      super.noSuchMethod(
+        Invocation.method(
+          #fireOnPreprocess,
+          [seriesList],
+        ),
+        returnValueForMissingStub: null,
+      );
+
+  @override
+  void fireOnPostprocess(List<_i11.MutableSeries<D>>? seriesList) =>
+      super.noSuchMethod(
+        Invocation.method(
+          #fireOnPostprocess,
+          [seriesList],
+        ),
+        returnValueForMissingStub: null,
+      );
+
+  @override
+  void fireOnAxisConfigured() => super.noSuchMethod(
+        Invocation.method(
+          #fireOnAxisConfigured,
+          [],
+        ),
+        returnValueForMissingStub: null,
+      );
+
+  @override
+  void fireOnPostrender(_i19.ChartCanvas? canvas) => super.noSuchMethod(
+        Invocation.method(
+          #fireOnPostrender,
+          [canvas],
+        ),
+        returnValueForMissingStub: null,
+      );
+
+  @override
+  void fireOnAnimationComplete() => super.noSuchMethod(
+        Invocation.method(
+          #fireOnAnimationComplete,
+          [],
+        ),
+        returnValueForMissingStub: null,
+      );
+
+  @override
+  void destroy() => super.noSuchMethod(
+        Invocation.method(
+          #destroy,
+          [],
         ),
         returnValueForMissingStub: null,
       );

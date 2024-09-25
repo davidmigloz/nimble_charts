@@ -4,13 +4,13 @@ on:
   pull_request:
     branches: [main]
   workflow_dispatch:
-  
+
 jobs:
-  cspell:
+  spell_check:
     name: 🔤 Check Spelling
     uses: VeryGoodOpenSource/very_good_workflows/.github/workflows/spell_check.yml@v1
     with:
-        config: cspell.config.yaml
+      config: cspell.config.yaml
 
   build:
     runs-on: ubuntu-latest
@@ -63,4 +63,8 @@ jobs:
         uses: VeryGoodOpenSource/very_good_coverage@v2
         with:
           path: 'charts_flutter/coverage/lcov.info'
-          min_coverage: 44.4
+          min_coverage: 53.1
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true

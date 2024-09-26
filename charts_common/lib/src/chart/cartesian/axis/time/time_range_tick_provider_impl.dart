@@ -101,7 +101,10 @@ class TimeRangeTickProviderImpl extends TimeRangeTickProvider {
     } else {
       allowedTickIncrements = timeStepper.allowedTickIncrements;
     }
-    assert(allowedTickIncrements.isNotEmpty);
+    assert(
+      allowedTickIncrements.isNotEmpty,
+      "Allowed tick increments can't be empty.",
+    );
 
     for (final tickIncrement in allowedTickIncrements) {
       // Create tick values with a specified increment.

@@ -252,9 +252,12 @@ LayoutPosition layoutPosition(
         position = LayoutPosition.FullTop;
       case LayoutPosition.Right:
         position = LayoutPosition.FullRight;
-
       // Ignore other positions, like DrawArea.
-      default:
+      case LayoutPosition.DrawArea:
+      case LayoutPosition.FullBottom:
+      case LayoutPosition.FullLeft:
+      case LayoutPosition.FullTop:
+      case LayoutPosition.FullRight:
         break;
     }
   }

@@ -254,7 +254,7 @@ class RangeTickDrawStrategy<D> extends SmallTickDrawStrategy<D> {
     // text and the axis baseline (even if it isn't drawn).
 
     final maxHorizontalSliceWidth = ticks.fold(0, (prevMax, tick) {
-      assert(tick.textElement != null);
+      assert(tick.textElement != null, 'Tick text element is null.');
       final labelElements = splitLabel(tick.textElement!);
       if (tick is RangeAxisTicks) {
         // Find the maximum within prevMax, label total height and

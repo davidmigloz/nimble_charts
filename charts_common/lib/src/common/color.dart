@@ -104,7 +104,7 @@ class Color {
   /// Converts the character into a #RGB hex string.
   String get hexString {
     // Alpha is not included in the hex string.
-    assert(a == 255);
+    assert(a == 255, 'hexString only works for opaque colors.');
     return '#${_get2CharHex(r)}${_get2CharHex(g)}${_get2CharHex(b)}';
   }
 

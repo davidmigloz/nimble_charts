@@ -514,9 +514,7 @@ abstract class BaseTickDrawStrategy<D> implements TickDrawStrategy<D> {
                     labelOffsetPx)
                 .toInt();
           case TextDirection.center:
-          default:
             x = (locationPx - labelOffsetPx).toInt();
-            break;
         }
       } else {
         if (orientation == AxisOrientation.left) {
@@ -555,9 +553,7 @@ abstract class BaseTickDrawStrategy<D> implements TickDrawStrategy<D> {
                     labelOffsetPx)
                 .toInt();
           case PixelVerticalDirection.center:
-          default:
             y = (locationPx - labelHeight / 2 + labelOffsetPx).toInt();
-            break;
         }
       }
       canvas.drawText(
@@ -591,7 +587,6 @@ abstract class BaseTickDrawStrategy<D> implements TickDrawStrategy<D> {
         }
         return TextDirection.center;
       case TickLabelAnchor.centered:
-      default:
         return TextDirection.center;
     }
   }
@@ -616,7 +611,6 @@ abstract class BaseTickDrawStrategy<D> implements TickDrawStrategy<D> {
         }
         return PixelVerticalDirection.center;
       case TickLabelAnchor.centered:
-      default:
         return PixelVerticalDirection.center;
     }
   }

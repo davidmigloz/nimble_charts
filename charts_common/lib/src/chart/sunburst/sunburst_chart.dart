@@ -43,7 +43,10 @@ class SunburstChart<D> extends BaseChart<D> {
       final rendererId = seriesDatum.series.getAttr(rendererIdKey);
       final renderer = getSeriesRenderer(rendererId);
 
-      assert(renderer is SunburstArcRenderer<D>);
+      assert(
+        renderer is SunburstArcRenderer<D>,
+        'Renderer must be a SunburstArcRenderer',
+      );
 
       final details = (renderer as SunburstArcRenderer<D>)
           .getExpandedDatumDetails(seriesDatum);
@@ -55,12 +58,18 @@ class SunburstChart<D> extends BaseChart<D> {
   }
 
   Rectangle<int>? get centerContentBounds {
-    assert(defaultRenderer is SunburstArcRenderer<D>);
+    assert(
+      defaultRenderer is SunburstArcRenderer<D>,
+      'Renderer must be a SunburstArcRenderer',
+    );
     return (defaultRenderer as SunburstArcRenderer<D>).centerContentBounds;
   }
 
   void expandNode(TreeNode<D> node) {
-    assert(defaultRenderer is SunburstArcRenderer<D>);
+    assert(
+      defaultRenderer is SunburstArcRenderer<D>,
+      'Renderer must be a SunburstArcRenderer',
+    );
     (defaultRenderer as SunburstArcRenderer<D>).expandNode(node);
   }
 }

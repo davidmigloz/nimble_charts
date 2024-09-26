@@ -14,6 +14,7 @@
 // limitations under the License.
 
 import 'package:example/gallery_scaffold.dart';
+import 'package:example/main.dart';
 import 'package:example/scatter_plot_chart/animation_zoom.dart';
 import 'package:example/scatter_plot_chart/bucketing_axis.dart';
 import 'package:example/scatter_plot_chart/comparison_points.dart';
@@ -38,28 +39,36 @@ const bucketingAxisScatterPlotChartSubtitle =
     'than 10% into a single region below the draw area';
 
 List<GalleryScaffold> buildGallery() => [
-      const GalleryScaffold(
-        listTileIcon: Icon(Icons.scatter_plot),
+      GalleryScaffold(
+        listTileIcon: const Icon(Icons.scatter_plot),
         title: simpleScatterPlotChartTitle,
         subtitle: simpleScatterPlotChartSubtitle,
-        childBuilder: SimpleScatterPlotChart.withRandomData,
+        childBuilder: appState.value.useRandomData
+            ? SimpleScatterPlotChart.withRandomData
+            : SimpleScatterPlotChart.withSampleData,
       ),
-      const GalleryScaffold(
-        listTileIcon: Icon(Icons.scatter_plot),
+      GalleryScaffold(
+        listTileIcon: const Icon(Icons.scatter_plot),
         title: comparisonPointsScatterPlotChartTitle,
         subtitle: comparisonPointsScatterPlotChartSubtitle,
-        childBuilder: ComparisonPointsScatterPlotChart.withRandomData,
+        childBuilder: appState.value.useRandomData
+            ? ComparisonPointsScatterPlotChart.withRandomData
+            : ComparisonPointsScatterPlotChart.withSampleData,
       ),
-      const GalleryScaffold(
-        listTileIcon: Icon(Icons.scatter_plot),
+      GalleryScaffold(
+        listTileIcon: const Icon(Icons.scatter_plot),
         title: panAndZoomScatterPlotChartTitle,
         subtitle: panAndZoomScatterPlotChartSubtitle,
-        childBuilder: ScatterPlotAnimationZoomChart.withRandomData,
+        childBuilder: appState.value.useRandomData
+            ? ScatterPlotAnimationZoomChart.withRandomData
+            : ScatterPlotAnimationZoomChart.withSampleData,
       ),
-      const GalleryScaffold(
-        listTileIcon: Icon(Icons.scatter_plot),
+      GalleryScaffold(
+        listTileIcon: const Icon(Icons.scatter_plot),
         title: bucketingAxisScatterPlotChartTitle,
         subtitle: bucketingAxisScatterPlotChartSubtitle,
-        childBuilder: BucketingAxisScatterPlotChart.withRandomData,
+        childBuilder: appState.value.useRandomData
+            ? BucketingAxisScatterPlotChart.withRandomData
+            : BucketingAxisScatterPlotChart.withSampleData,
       ),
     ];

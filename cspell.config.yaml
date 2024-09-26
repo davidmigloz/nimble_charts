@@ -63,3 +63,7 @@ words:
 - sublist
 - preprocess
 - lerp
+- rgba
+- argb
+- ltrb
+- buildable

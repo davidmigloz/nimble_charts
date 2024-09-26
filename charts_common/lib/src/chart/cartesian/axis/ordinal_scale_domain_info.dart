@@ -48,8 +48,8 @@ class OrdinalScaleDomainInfo {
   int? indexOf(String domain) => _domainsToOrder[domain];
 
   String getDomainAtIndex(int index) {
-    assert(index >= 0);
-    assert(index < _index);
+    assert(index >= 0, 'Index $index is out of bounds.');
+    assert(index < _index, 'Index $index is out of bounds.');
     return _domainList[index];
   }
 

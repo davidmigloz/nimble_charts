@@ -16,7 +16,6 @@
 import 'dart:math' as math show max, min;
 
 import 'package:nimble_charts_common/src/common/math.dart';
-
 import 'package:nimble_charts_common/src/common/style/style_factory.dart'
     show StyleFactory;
 
@@ -225,6 +224,22 @@ enum RangeBandType {
 ///
 /// <p>RangeBandConfig is immutable, See factory methods for creating one.
 class RangeBandConfig {
+  /// Creates a config that assigns the rangeBand according to the stylepack.
+  ///
+  /// <p>Note: renderers can detect this setting and update the percent based on
+  /// the number of series in their preprocess.
+  RangeBandConfig.styleAssignedPercent()
+      : type = RangeBandType.styleAssignedPercentOfStep,
+        size = StyleFactory.style.rangeBandSize;
+
+  /// Creates a config that defines the rangeBand as the stepSize - pixels.
+  ///
+  /// Where fixedPixels() gave you a constant rangBand in pixels, this will give
+  /// you a constant space between rangeBands in pixels.
+  const RangeBandConfig.fixedPixelSpaceBetweenStep(double pixels)
+      : type = RangeBandType.fixedPixelSpaceFromStep,
+        size = pixels;
+
   /// Creates a rangeBand definition of zero, no rangeBand.
   const RangeBandConfig.none()
       : type = RangeBandType.none,
@@ -254,25 +269,11 @@ class RangeBandConfig {
   /// [percentOfStepWidth] is the percentage of the step from 0.0 - 1.0.
   RangeBandConfig.percentOfStep(double percentOfStepWidth)
       : type = RangeBandType.fixedPercentOfStep,
-        size = percentOfStepWidth {
-    assert(percentOfStepWidth >= 0 && percentOfStepWidth <= 1.0);
-  }
-
-  /// Creates a config that assigns the rangeBand according to the stylepack.
-  ///
-  /// <p>Note: renderers can detect this setting and update the percent based on
-  /// the number of series in their preprocess.
-  RangeBandConfig.styleAssignedPercent()
-      : type = RangeBandType.styleAssignedPercentOfStep,
-        size = StyleFactory.style.rangeBandSize;
-
-  /// Creates a config that defines the rangeBand as the stepSize - pixels.
-  ///
-  /// Where fixedPixels() gave you a constant rangBand in pixels, this will give
-  /// you a constant space between rangeBands in pixels.
-  const RangeBandConfig.fixedPixelSpaceBetweenStep(double pixels)
-      : type = RangeBandType.fixedPixelSpaceFromStep,
-        size = pixels;
+        size = percentOfStepWidth,
+        assert(
+          percentOfStepWidth >= 0 && percentOfStepWidth <= 1.0,
+          'Percent must be between 0.0 and 1.0',
+        );
   final RangeBandType type;
 
   /// The width of the band in units specified by the bandType.

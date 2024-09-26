@@ -23,7 +23,7 @@ import 'package:nimble_charts_common/src/common/date_time_factory.dart';
 abstract class BaseTimeStepper implements TimeStepper {
   BaseTimeStepper(this.dateTimeFactory) {
     // Must have at least one increment option.
-    assert(allowedTickIncrements.isNotEmpty);
+    assert(allowedTickIncrements.isNotEmpty, 'No tick increments allowed.');
   }
 
   /// The factory to generate a DateTime object.

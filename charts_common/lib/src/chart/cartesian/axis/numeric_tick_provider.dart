@@ -173,7 +173,10 @@ class NumericTickProvider extends BaseTickProvider<num> {
       _desiredMinTickCount = null;
     }
 
-    assert((_desiredMinTickCount == null) == (_desiredMaxTickCount == null));
+    assert(
+      (_desiredMinTickCount == null) == (_desiredMaxTickCount == null),
+      'Desired minTickCount and maxTickCount must be set together.',
+    );
   }
 
   /// Sets the allowed step sizes this tick provider can choose from.
@@ -188,14 +191,14 @@ class NumericTickProvider extends BaseTickProvider<num> {
   ///
   /// [steps] allowed step sizes in the [1, 10) range.
   set allowedSteps(List<double> steps) {
-    assert(steps.isNotEmpty);
+    assert(steps.isNotEmpty, "Allowed steps can't be empty.");
     steps.sort();
 
     final stepSet = Set.of(steps);
     _allowedSteps = List<double>.filled(stepSet.length * 3, 0);
     var stepIndex = 0;
     for (final step in stepSet) {
-      assert(1.0 <= step && step < 10.0);
+      assert(1.0 <= step && step < 10.0, 'Step must be between 1 an 10.');
       _allowedSteps[stepIndex] = _removeRoundingErrors(step / 100);
       _allowedSteps[stepSet.length + stepIndex] =
           _removeRoundingErrors(step / 10);

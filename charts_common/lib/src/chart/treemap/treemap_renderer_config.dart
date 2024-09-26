@@ -94,7 +94,7 @@ class TreeMapRendererConfig<D> extends LayoutViewConfig
           config: this,
           rendererId: customRendererId,
         );
-      default:
+      case TreeMapTileType.squarified:
         return SquarifiedTreeMapRenderer<D>(
           config: this,
           rendererId: customRendererId,

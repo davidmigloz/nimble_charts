@@ -196,7 +196,7 @@ class ChartCanvas implements common.ChartCanvas {
         );
 
       case common.FillPatternType.solid:
-      default:
+      case null:
         // Use separate rect for drawing stroke
         _paint.color = Color.fromARGB(fill!.a, fill.r, fill.g, fill.b);
         _paint.style = PaintingStyle.fill;
@@ -212,7 +212,6 @@ class ChartCanvas implements common.ChartCanvas {
         }
 
         canvas.drawRect(_getRect(fillRectBounds), _paint);
-        break;
     }
 
     // [Canvas.drawRect] does not support drawing a rectangle with both a fill

@@ -158,7 +158,7 @@ class AutoAdjustingDateTimeTickProvider implements TickProvider<DateTime> {
     int? minDifference;
     late TimeRangeTickProvider closestTickProvider;
 
-    assert(_potentialTickProviders.isNotEmpty);
+    assert(_potentialTickProviders.isNotEmpty, 'No tick providers available');
     for (final tickProvider in _potentialTickProviders) {
       final difference =
           (stepSize - tickProvider.getClosestStepSize(stepSize)).abs();
@@ -167,7 +167,7 @@ class AutoAdjustingDateTimeTickProvider implements TickProvider<DateTime> {
         closestTickProvider = tickProvider;
       }
     }
-    assert(minDifference != null);
+    assert(minDifference != null, 'No closest tick provider found');
     return closestTickProvider;
   }
 

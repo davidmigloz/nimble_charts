@@ -194,9 +194,6 @@ class PercentInjector<D> implements ChartBehavior<D> {
 
           series.setAttr(percentInjectedKey, true);
         }
-
-      default:
-        throw ArgumentError('Unsupported totalType: $totalType');
     }
   }
 

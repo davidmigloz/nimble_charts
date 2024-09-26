@@ -127,7 +127,8 @@ class Slider<D> implements ChartBehavior<D> {
           onDragUpdate: _onSelect,
           onDragEnd: _onDragEnd,
         );
-      default:
+      case SelectionTrigger.hover:
+      case SelectionTrigger.tap:
         throw ArgumentError('Slider does not support the event trigger '
             '"$eventTrigger"');
     }
@@ -437,9 +438,6 @@ class Slider<D> implements ChartBehavior<D> {
           handleReferenceY = viewBounds.top;
         case SliderHandlePosition.manual:
           handleReferenceY = positionY;
-        default:
-          throw ArgumentError('Slider does not support the handle position '
-              '"${_style.handlePosition}"');
       }
 
       // Move the slider handle along the domain axis.

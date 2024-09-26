@@ -158,7 +158,8 @@ class Slider<D> extends ChartBehavior<D> {
           ..add(GestureType.onTap)
           ..add(GestureType.onLongPress)
           ..add(GestureType.onDrag);
-      default:
+      case common.SelectionTrigger.hover:
+      case common.SelectionTrigger.tap:
         throw ArgumentError(
           'Slider does not support the event trigger ' '"$eventTrigger"',
         );

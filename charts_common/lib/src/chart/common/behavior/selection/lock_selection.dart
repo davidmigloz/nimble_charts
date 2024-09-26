@@ -34,7 +34,10 @@ class LockSelection<D> implements ChartBehavior<D> {
     switch (eventTrigger) {
       case SelectionTrigger.tap:
         _listener = GestureListener(onTapTest: _onTapTest, onTap: _onSelect);
-      default:
+      case SelectionTrigger.hover:
+      case SelectionTrigger.tapAndDrag:
+      case SelectionTrigger.pressHold:
+      case SelectionTrigger.longPressHold:
         throw ArgumentError('LockSelection does not support the event '
             'trigger "$eventTrigger"');
     }
@@ -94,9 +97,7 @@ class LockSelection<D> implements ChartBehavior<D> {
       case SelectionTrigger.longPressHold:
         chart.registerTappable(this);
       case SelectionTrigger.hover:
-      default:
         chart.unregisterTappable(this);
-        break;
     }
   }
 

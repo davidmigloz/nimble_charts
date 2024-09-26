@@ -47,7 +47,7 @@ List<GalleryScaffold> buildGallery() => [
             ? SimpleScatterPlotChart.withRandomData
             : SimpleScatterPlotChart.withSampleData,
       ),
-       GalleryScaffold(
+      GalleryScaffold(
         listTileIcon: const Icon(Icons.scatter_plot),
         title: comparisonPointsScatterPlotChartTitle,
         subtitle: comparisonPointsScatterPlotChartSubtitle,
@@ -55,7 +55,7 @@ List<GalleryScaffold> buildGallery() => [
             ? ComparisonPointsScatterPlotChart.withRandomData
             : ComparisonPointsScatterPlotChart.withSampleData,
       ),
-       GalleryScaffold(
+      GalleryScaffold(
         listTileIcon: const Icon(Icons.scatter_plot),
         title: panAndZoomScatterPlotChartTitle,
         subtitle: panAndZoomScatterPlotChartSubtitle,
@@ -63,7 +63,7 @@ List<GalleryScaffold> buildGallery() => [
             ? ScatterPlotAnimationZoomChart.withRandomData
             : ScatterPlotAnimationZoomChart.withSampleData,
       ),
-       GalleryScaffold(
+      GalleryScaffold(
         listTileIcon: const Icon(Icons.scatter_plot),
         title: bucketingAxisScatterPlotChartTitle,
         subtitle: bucketingAxisScatterPlotChartSubtitle,

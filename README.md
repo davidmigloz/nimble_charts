@@ -79,6 +79,23 @@ void main() => runApp(
 
 For more examples and detailed documentation, please refer to the example app and documentation.
 
+## 🤝 Contributing
+
+Contributions are welcome! These are the people who've contributed, and the commit count since the fork.
+
+| Avatar | Username | Commits |
+|--------|----------|---------|
+| <img src="https://avatars.githubusercontent.com/u/16697547?v=4" width="50" height="50" alt="MelbourneDeveloper"> | [MelbourneDeveloper](https://github.com/MelbourneDeveloper) | 79 |
+| <img src="https://avatars.githubusercontent.com/u/60779242?v=4" width="50" height="50" alt="abdushakoor12"> | [abdushakoor12](https://github.com/abdushakoor12) | 11 |
+| <img src="https://avatars.githubusercontent.com/u/478541?v=4" width="50" height="50" alt="eseidel"> | [eseidel](https://github.com/eseidel) | 6 |
+| <img src="https://avatars.githubusercontent.com/in/15368?v=4" width="50" height="50" alt="github-actions[bot]"> | github-actions[bot] | 4 |
+
+We won't accept new features at this time, but we will accept tests, warning fixes, documentation updates, and bug fixes.
+
+Please pay attention to existing issues and branches before starting work. 
+
+Otherwise, please feel free to submit a Pull Request.
+
 ## ⚖️ License
 This project continues the original Google Charts library under the Apache 2.0 license. We honor the original licenses and attributions. See the [LICENSE](LICENSE) and [AUTHORS](AUTHORS) files for details. We are grateful to the Google team for their valuable work on this library.
 
@@ -101,12 +118,3 @@ The Fork occurred at 0.12.0 of the original charts_flutter
 - Uses the [austerity](https://pub.dev/packages/austerity) package to apply hotfixes and bring type safety to the code.
 - While the package may gain new features, we will attempt to keep the functionality in line with the original wherever possible.
 - We had to disable many existing tests, but we are working on new widget and integration tests to fill the gap. We will also resurrect many of the old tests when time permits. Until there is sufficient test coverage, the package will remain in beta.
-
-## 🤝 Contributing
-Contributions are welcome! 
-
-We won't accept new features at this time, but we will accept tests, warning fixes, documentation updates, and bug fixes.
-
-Please pay attention to existing issues and branches before starting work. 
-
-Otherwise, please feel free to submit a Pull Request.

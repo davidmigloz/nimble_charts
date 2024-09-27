@@ -188,8 +188,8 @@ void main() {
 
   group('accessorIfExists', () {
     test('calls function when not null', () {
-      dynamic getDomain(node, _) => node.domainId;
-      dynamic getMeasure(node, _) => node.measure;
+      dynamic getDomain(dynamic node, _) => node.domainId;
+      dynamic getMeasure(dynamic node, _) => node.measure;
 
       expect(
         accessorIfExists(

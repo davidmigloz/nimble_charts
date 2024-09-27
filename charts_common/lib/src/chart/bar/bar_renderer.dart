@@ -138,7 +138,7 @@ class BarRenderer<D>
   }
 
   @override
-  BarRendererElement<D> getBaseDetails(datum, int index) =>
+  BarRendererElement<D> getBaseDetails(dynamic datum, int index) =>
       BarRendererElement<D>();
 
   CornerStrategy get cornerStrategy =>
@@ -158,7 +158,7 @@ class BarRenderer<D>
     required int barGroupIndex,
     required int numBarGroups,
     List<int>? dashPattern,
-    datum,
+    dynamic datum,
     Color? color,
     D? domainValue,
     num? measureValue,
@@ -576,7 +576,7 @@ class BarRendererElement<D> extends BaseBarRendererElement
   @override
   dynamic get datum => _datum;
 
-  set datum(datum) {
+  set datum(dynamic datum) {
     _datum = datum;
     index = series?.data.indexOf(datum);
   }

@@ -142,7 +142,7 @@ class BarTargetLineRenderer<D> extends BaseBarRenderer<D,
   }
 
   @override
-  BarTargetLineRendererElement getBaseDetails(datum, int index) {
+  BarTargetLineRendererElement getBaseDetails(dynamic datum, int index) {
     final localConfig = config as BarTargetLineRendererConfig<D>;
     return BarTargetLineRendererElement(
       roundEndCaps: localConfig.roundEndCaps,
@@ -162,7 +162,7 @@ class BarTargetLineRenderer<D> extends BaseBarRenderer<D,
     required ImmutableAxis<num> measureAxis,
     required int barGroupIndex,
     required int numBarGroups,
-    datum,
+    dynamic datum,
     Color? color,
     List<int>? dashPattern,
     D? domainValue,

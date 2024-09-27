@@ -1152,7 +1152,7 @@ class LineRenderer<D> extends BaseCartesianRenderer<D> {
   bool get isRtl => _chart?.context.isRtl ?? false;
 
   _DatumPoint<D> _getPoint(
-    datum,
+    dynamic datum,
     D? domainValue,
     ImmutableSeries<D> series,
     ImmutableAxis<D> domainAxis,

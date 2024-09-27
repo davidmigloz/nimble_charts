@@ -350,7 +350,7 @@ abstract class BaseBarRenderer<D, R extends BaseBarRendererElement,
   /// This is intended to be overridden by child classes that need to add
   /// customized rendering properties.
   @protected
-  R getBaseDetails(datum, int index);
+  R getBaseDetails(dynamic datum, int index);
 
   @override
   void configureDomainAxes(List<MutableSeries<D>> seriesList) {
@@ -539,7 +539,7 @@ abstract class BaseBarRenderer<D, R extends BaseBarRendererElement,
     required num measureOffsetValue,
     required ImmutableAxis<num> measureAxis,
     required int numBarGroups,
-    datum,
+    dynamic datum,
     double? previousBarGroupWeight,
     double? barGroupWeight,
     List<double>? allBarGroupWeights,

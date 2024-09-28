@@ -167,13 +167,15 @@ class SunburstArcLabelDecorator<D> extends ArcLabelDecorator<D> {
     TextStyle labelStyle,
     int insideArcWidth,
     int outsideArcWidth,
-    ArcRendererElement arcRendererElement,
+    ArcRendererElement<D> arcRendererElement,
     ArcLabelPosition labelPosition,
   ) {
     assert(arcRendererElement is SunburstArcRendererElement);
 
-    if ((arcRendererElement as SunburstArcRendererElement).isOuterMostRing ==
-        true) {
+    final sunburstArcRendererElement =
+        arcRendererElement as SunburstArcRendererElement<D>;
+
+    if (sunburstArcRendererElement.isOuterMostRing ?? false) {
       return super.calculateLabelPosition(
         labelElement,
         labelStyle,

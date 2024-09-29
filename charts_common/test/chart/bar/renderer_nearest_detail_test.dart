@@ -52,8 +52,8 @@ void main() {
   /////////////////////////////////////////
   // Convenience methods for creating mocks.
   /////////////////////////////////////////
-  BaseBarRenderer configureBaseRenderer(
-    BaseBarRenderer renderer,
+  BaseBarRenderer<dynamic, dynamic, dynamic> configureBaseRenderer(
+    BaseBarRenderer<dynamic, dynamic, dynamic> renderer,
     bool vertical,
   ) {
     final context = MockChartContext();
@@ -71,7 +71,7 @@ void main() {
     return renderer;
   }
 
-  BaseBarRenderer makeBarRenderer({
+  BaseBarRenderer<dynamic, dynamic, dynamic> makeBarRenderer({
     required bool vertical,
     required BarGroupingType groupType,
   }) {
@@ -81,7 +81,7 @@ void main() {
     return renderer;
   }
 
-  BaseBarRenderer makeBarTargetRenderer({
+  BaseBarRenderer<dynamic, dynamic, dynamic> makeBarTargetRenderer({
     required bool vertical,
     required BarGroupingType groupType,
   }) {
@@ -92,7 +92,7 @@ void main() {
     return renderer;
   }
 
-  MutableSeries makeSeries({
+  MutableSeries<String> makeSeries({
     required String id,
     String? seriesCategory,
     bool vertical = true,
@@ -152,7 +152,7 @@ void main() {
     return series;
   }
 
-  MutableSeries makeDateTimeSeries({
+  MutableSeries<DateTime> makeDateTimeSeries({
     required String id,
     String? seriesCategory,
     bool vertical = true,
@@ -215,7 +215,7 @@ void main() {
       // Setup
       final renderer =
           makeBarRenderer(vertical: true, groupType: BarGroupingType.grouped);
-      final seriesList = <MutableSeries>[
+      final seriesList = <MutableSeries<String>>[
         makeSeries(id: 'foo')..data.clear(),
         makeSeries(id: 'bar'),
       ];
@@ -247,7 +247,7 @@ void main() {
       // Setup
       final renderer =
           makeBarRenderer(vertical: true, groupType: BarGroupingType.grouped);
-      final seriesList = <MutableSeries>[
+      final seriesList = <MutableSeries<String>>[
         makeSeries(id: 'foo')..data.clear(),
         makeSeries(id: 'bar')..data.clear(),
       ];
@@ -272,7 +272,7 @@ void main() {
       // Setup
       final renderer =
           makeBarRenderer(vertical: true, groupType: BarGroupingType.grouped);
-      final seriesList = <MutableSeries>[
+      final seriesList = <MutableSeries<String>>[
         makeSeries(id: 'foo')..overlaySeries = true,
         makeSeries(id: 'bar'),
       ];
@@ -304,7 +304,7 @@ void main() {
       // Setup
       final renderer =
           makeBarRenderer(vertical: true, groupType: BarGroupingType.grouped);
-      final seriesList = <MutableSeries>[
+      final seriesList = <MutableSeries<String>>[
         makeSeries(id: 'foo')..overlaySeries = true,
         makeSeries(id: 'bar')..overlaySeries = true,
       ];
@@ -334,7 +334,7 @@ void main() {
       // Setup
       final renderer =
           makeBarRenderer(vertical: true, groupType: BarGroupingType.stacked);
-      final seriesList = <MutableSeries>[makeSeries(id: 'foo')];
+      final seriesList = <MutableSeries<String>>[makeSeries(id: 'foo')];
       renderer
         ..configureSeries(seriesList)
         ..preprocessSeries(seriesList)
@@ -362,7 +362,7 @@ void main() {
       // Setup
       final renderer =
           makeBarRenderer(vertical: true, groupType: BarGroupingType.grouped);
-      final seriesList = <MutableSeries>[
+      final seriesList = <MutableSeries<String>>[
         makeSeries(id: 'foo'),
         makeSeries(id: 'bar'),
       ];
@@ -401,7 +401,7 @@ void main() {
       // Setup
       final renderer =
           makeBarRenderer(vertical: true, groupType: BarGroupingType.stacked);
-      final seriesList = <MutableSeries>[
+      final seriesList = <MutableSeries<String>>[
         makeSeries(id: 'foo'),
         makeSeries(id: 'bar'),
       ];
@@ -443,7 +443,7 @@ void main() {
         vertical: true,
         groupType: BarGroupingType.groupedStacked,
       );
-      final seriesList = <MutableSeries>[
+      final seriesList = <MutableSeries<String>>[
         makeSeries(id: 'foo0', seriesCategory: 'c0'),
         makeSeries(id: 'bar0', seriesCategory: 'c0'),
         makeSeries(id: 'foo1', seriesCategory: 'c1'),
@@ -499,7 +499,7 @@ void main() {
       // Setup
       final renderer =
           makeBarRenderer(vertical: true, groupType: BarGroupingType.stacked);
-      final seriesList = <MutableSeries>[makeSeries(id: 'foo')];
+      final seriesList = <MutableSeries<String>>[makeSeries(id: 'foo')];
       renderer
         ..configureSeries(seriesList)
         ..preprocessSeries(seriesList)
@@ -527,7 +527,7 @@ void main() {
       // Setup
       final renderer =
           makeBarRenderer(vertical: true, groupType: BarGroupingType.grouped);
-      final seriesList = <MutableSeries>[
+      final seriesList = <MutableSeries<String>>[
         makeSeries(id: 'foo'),
         makeSeries(id: 'bar'),
       ];
@@ -566,7 +566,7 @@ void main() {
       // Setup
       final renderer =
           makeBarRenderer(vertical: true, groupType: BarGroupingType.grouped);
-      final seriesList = <MutableSeries>[
+      final seriesList = <MutableSeries<String>>[
         makeSeries(id: 'foo')..data.add(MyRow('outsideViewport', 20)),
       ];
       renderer
@@ -596,7 +596,7 @@ void main() {
       // Setup
       final renderer =
           makeBarRenderer(vertical: false, groupType: BarGroupingType.stacked);
-      final seriesList = <MutableSeries>[
+      final seriesList = <MutableSeries<String>>[
         makeSeries(id: 'foo', vertical: false),
       ];
       renderer
@@ -626,7 +626,7 @@ void main() {
       // Setup
       final renderer =
           makeBarRenderer(vertical: false, groupType: BarGroupingType.grouped);
-      final seriesList = <MutableSeries>[
+      final seriesList = <MutableSeries<String>>[
         makeSeries(id: 'foo', vertical: false),
         makeSeries(id: 'bar', vertical: false),
       ];
@@ -665,7 +665,7 @@ void main() {
       // Setup
       final renderer =
           makeBarRenderer(vertical: false, groupType: BarGroupingType.stacked);
-      final seriesList = <MutableSeries>[
+      final seriesList = <MutableSeries<String>>[
         makeSeries(id: 'foo', vertical: false),
         makeSeries(id: 'bar', vertical: false),
       ];
@@ -706,7 +706,7 @@ void main() {
         vertical: false,
         groupType: BarGroupingType.groupedStacked,
       );
-      final seriesList = <MutableSeries>[
+      final seriesList = <MutableSeries<String>>[
         makeSeries(id: 'foo0', seriesCategory: 'c0', vertical: false),
         makeSeries(id: 'bar0', seriesCategory: 'c0', vertical: false),
         makeSeries(id: 'foo1', seriesCategory: 'c1', vertical: false),
@@ -761,7 +761,7 @@ void main() {
       // Setup
       final renderer =
           makeBarRenderer(vertical: false, groupType: BarGroupingType.stacked);
-      final seriesList = <MutableSeries>[
+      final seriesList = <MutableSeries<String>>[
         makeSeries(id: 'foo', vertical: false),
       ];
       renderer
@@ -791,7 +791,7 @@ void main() {
       // Setup
       final renderer =
           makeBarRenderer(vertical: false, groupType: BarGroupingType.grouped);
-      final seriesList = <MutableSeries>[
+      final seriesList = <MutableSeries<String>>[
         makeSeries(id: 'foo', vertical: false),
         makeSeries(id: 'bar', vertical: false),
       ];
@@ -837,7 +837,7 @@ void main() {
         vertical: true,
         groupType: BarGroupingType.stacked,
       );
-      final seriesList = <MutableSeries>[makeSeries(id: 'foo')];
+      final seriesList = <MutableSeries<String>>[makeSeries(id: 'foo')];
       renderer
         ..configureSeries(seriesList)
         ..preprocessSeries(seriesList)
@@ -867,7 +867,7 @@ void main() {
         vertical: true,
         groupType: BarGroupingType.grouped,
       );
-      final seriesList = <MutableSeries>[
+      final seriesList = <MutableSeries<String>>[
         makeSeries(id: 'foo'),
         makeSeries(id: 'bar'),
       ];
@@ -908,7 +908,7 @@ void main() {
         vertical: true,
         groupType: BarGroupingType.stacked,
       );
-      final seriesList = <MutableSeries>[
+      final seriesList = <MutableSeries<String>>[
         makeSeries(id: 'foo'),
         makeSeries(id: 'bar'),
       ];
@@ -950,7 +950,7 @@ void main() {
         vertical: true,
         groupType: BarGroupingType.groupedStacked,
       );
-      final seriesList = <MutableSeries>[
+      final seriesList = <MutableSeries<String>>[
         makeSeries(id: 'foo0', seriesCategory: 'c0'),
         makeSeries(id: 'bar0', seriesCategory: 'c0'),
         makeSeries(id: 'foo1', seriesCategory: 'c1'),
@@ -1008,7 +1008,7 @@ void main() {
         vertical: true,
         groupType: BarGroupingType.grouped,
       );
-      final seriesList = <MutableSeries>[
+      final seriesList = <MutableSeries<String>>[
         makeSeries(id: 'foo'),
         makeSeries(id: 'bar'),
       ];
@@ -1049,7 +1049,7 @@ void main() {
         vertical: true,
         groupType: BarGroupingType.grouped,
       );
-      final seriesList = <MutableSeries>[
+      final seriesList = <MutableSeries<String>>[
         makeSeries(id: 'foo')..data.add(MyRow('outsideViewport', 20)),
       ];
       renderer
@@ -1081,7 +1081,7 @@ void main() {
         vertical: false,
         groupType: BarGroupingType.stacked,
       );
-      final seriesList = <MutableSeries>[
+      final seriesList = <MutableSeries<String>>[
         makeSeries(id: 'foo', vertical: false),
       ];
       renderer
@@ -1113,7 +1113,7 @@ void main() {
         vertical: false,
         groupType: BarGroupingType.grouped,
       );
-      final seriesList = <MutableSeries>[
+      final seriesList = <MutableSeries<String>>[
         makeSeries(id: 'foo', vertical: false),
         makeSeries(id: 'bar', vertical: false),
       ];
@@ -1154,7 +1154,7 @@ void main() {
         vertical: false,
         groupType: BarGroupingType.stacked,
       );
-      final seriesList = <MutableSeries>[
+      final seriesList = <MutableSeries<String>>[
         makeSeries(id: 'foo', vertical: false),
         makeSeries(id: 'bar', vertical: false),
       ];
@@ -1195,7 +1195,7 @@ void main() {
         vertical: false,
         groupType: BarGroupingType.groupedStacked,
       );
-      final seriesList = <MutableSeries>[
+      final seriesList = <MutableSeries<String>>[
         makeSeries(id: 'foo0', seriesCategory: 'c0', vertical: false),
         makeSeries(id: 'bar0', seriesCategory: 'c0', vertical: false),
         makeSeries(id: 'foo1', seriesCategory: 'c1', vertical: false),
@@ -1252,7 +1252,7 @@ void main() {
         vertical: false,
         groupType: BarGroupingType.grouped,
       );
-      final seriesList = <MutableSeries>[
+      final seriesList = <MutableSeries<String>>[
         makeSeries(id: 'foo', vertical: false),
         makeSeries(id: 'bar', vertical: false),
       ];
@@ -1296,7 +1296,9 @@ void main() {
       // Setup
       final renderer =
           makeBarRenderer(vertical: true, groupType: BarGroupingType.stacked);
-      final seriesList = <MutableSeries>[makeDateTimeSeries(id: 'foo')];
+      final seriesList = <MutableSeries<DateTime>>[
+        makeDateTimeSeries(id: 'foo'),
+      ];
       renderer
         ..configureSeries(seriesList)
         ..preprocessSeries(seriesList)
@@ -1324,7 +1326,7 @@ void main() {
       // Setup
       final renderer =
           makeBarRenderer(vertical: true, groupType: BarGroupingType.grouped);
-      final seriesList = <MutableSeries>[
+      final seriesList = <MutableSeries<DateTime>>[
         makeDateTimeSeries(id: 'foo'),
         makeDateTimeSeries(id: 'bar'),
       ];
@@ -1365,7 +1367,7 @@ void main() {
         vertical: true,
         groupType: BarGroupingType.stacked,
       );
-      final seriesList = <MutableSeries>[
+      final seriesList = <MutableSeries<DateTime>>[
         makeDateTimeSeries(id: 'foo'),
         makeDateTimeSeries(id: 'bar'),
       ];
@@ -1407,7 +1409,7 @@ void main() {
         vertical: true,
         groupType: BarGroupingType.groupedStacked,
       );
-      final seriesList = <MutableSeries>[
+      final seriesList = <MutableSeries<DateTime>>[
         makeDateTimeSeries(id: 'foo0', seriesCategory: 'c0'),
         makeDateTimeSeries(id: 'bar0', seriesCategory: 'c0'),
         makeDateTimeSeries(id: 'foo1', seriesCategory: 'c1'),
@@ -1465,7 +1467,7 @@ void main() {
         vertical: true,
         groupType: BarGroupingType.grouped,
       );
-      final seriesList = <MutableSeries>[
+      final seriesList = <MutableSeries<DateTime>>[
         makeDateTimeSeries(id: 'foo'),
         makeDateTimeSeries(id: 'bar'),
       ];
@@ -1506,7 +1508,7 @@ void main() {
         vertical: true,
         groupType: BarGroupingType.grouped,
       );
-      final seriesList = <MutableSeries>[
+      final seriesList = <MutableSeries<DateTime>>[
         makeDateTimeSeries(id: 'foo')
           ..data.add(MyDateTimeRow(dateOutsideViewport, 20)),
       ];

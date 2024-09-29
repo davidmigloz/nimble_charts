@@ -57,14 +57,14 @@ class MockCanvas extends Mock implements ChartCanvas {
 }
 
 void main() {
-  late BarTargetLineRenderer renderer;
+  late BarTargetLineRenderer<dynamic> renderer;
   late List<MutableSeries<String>> seriesList;
 
   /////////////////////////////////////////
   // Convenience methods for creating mocks.
   /////////////////////////////////////////
-  BaseBarRenderer configureBaseRenderer(
-    BaseBarRenderer renderer,
+  BaseBarRenderer<dynamic, dynamic, dynamic> configureBaseRenderer(
+    BaseBarRenderer<dynamic, dynamic, dynamic> renderer,
     bool vertical,
   ) {
     final context = MockChartContext();
@@ -78,8 +78,8 @@ void main() {
     return renderer;
   }
 
-  BarTargetLineRenderer makeRenderer({
-    required BarTargetLineRendererConfig config,
+  BarTargetLineRenderer<dynamic> makeRenderer({
+    required BarTargetLineRendererConfig<dynamic> config,
   }) {
     final renderer = BarTargetLineRenderer(config: config);
     configureBaseRenderer(renderer, true);

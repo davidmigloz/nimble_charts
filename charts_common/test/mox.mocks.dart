@@ -3386,3 +3386,426 @@ class MockChart<D> extends _i1.Mock implements _i11.CartesianChart<D> {
         returnValueForMissingStub: null,
       );
 }
+
+/// A class which mocks [OrdinalAxis].
+///
+/// See the documentation for Mockito's code generation for more information.
+class MockOrdinalAxis extends _i1.Mock implements _i14.OrdinalAxis {
+  @override
+  set scale(_i12.MutableScale<String>? _scale) => super.noSuchMethod(
+        Invocation.setter(
+          #scale,
+          _scale,
+        ),
+        returnValueForMissingStub: null,
+      );
+
+  @override
+  set tickProvider(_i22.TickProvider<String>? _tickProvider) =>
+      super.noSuchMethod(
+        Invocation.setter(
+          #tickProvider,
+          _tickProvider,
+        ),
+        returnValueForMissingStub: null,
+      );
+
+  @override
+  set tickDrawStrategy(_i21.TickDrawStrategy<String>? _tickDrawStrategy) =>
+      super.noSuchMethod(
+        Invocation.setter(
+          #tickDrawStrategy,
+          _tickDrawStrategy,
+        ),
+        returnValueForMissingStub: null,
+      );
+
+  @override
+  set axisOrientation(_i14.AxisOrientation? _axisOrientation) =>
+      super.noSuchMethod(
+        Invocation.setter(
+          #axisOrientation,
+          _axisOrientation,
+        ),
+        returnValueForMissingStub: null,
+      );
+
+  @override
+  set context(_i7.ChartContext? _context) => super.noSuchMethod(
+        Invocation.setter(
+          #context,
+          _context,
+        ),
+        returnValueForMissingStub: null,
+      );
+
+  @override
+  bool get reverseOutputRange => (super.noSuchMethod(
+        Invocation.getter(#reverseOutputRange),
+        returnValue: false,
+        returnValueForMissingStub: false,
+      ) as bool);
+
+  @override
+  set reverseOutputRange(bool? _reverseOutputRange) => super.noSuchMethod(
+        Invocation.setter(
+          #reverseOutputRange,
+          _reverseOutputRange,
+        ),
+        returnValueForMissingStub: null,
+      );
+
+  @override
+  bool get autoViewport => (super.noSuchMethod(
+        Invocation.getter(#autoViewport),
+        returnValue: false,
+        returnValueForMissingStub: false,
+      ) as bool);
+
+  @override
+  set autoViewport(bool? _autoViewport) => super.noSuchMethod(
+        Invocation.setter(
+          #autoViewport,
+          _autoViewport,
+        ),
+        returnValueForMissingStub: null,
+      );
+
+  @override
+  set forceDrawAxisLine(bool? _forceDrawAxisLine) => super.noSuchMethod(
+        Invocation.setter(
+          #forceDrawAxisLine,
+          _forceDrawAxisLine,
+        ),
+        returnValueForMissingStub: null,
+      );
+
+  @override
+  bool get lockAxis => (super.noSuchMethod(
+        Invocation.getter(#lockAxis),
+        returnValue: false,
+        returnValueForMissingStub: false,
+      ) as bool);
+
+  @override
+  set lockAxis(bool? _lockAxis) => super.noSuchMethod(
+        Invocation.setter(
+          #lockAxis,
+          _lockAxis,
+        ),
+        returnValueForMissingStub: null,
+      );
+
+  @override
+  int get layoutPaintOrder => (super.noSuchMethod(
+        Invocation.getter(#layoutPaintOrder),
+        returnValue: 0,
+        returnValueForMissingStub: 0,
+      ) as int);
+
+  @override
+  set layoutPaintOrder(int? _layoutPaintOrder) => super.noSuchMethod(
+        Invocation.setter(
+          #layoutPaintOrder,
+          _layoutPaintOrder,
+        ),
+        returnValueForMissingStub: null,
+      );
+
+  @override
+  bool get hasTickCollision => (super.noSuchMethod(
+        Invocation.getter(#hasTickCollision),
+        returnValue: false,
+        returnValueForMissingStub: false,
+      ) as bool);
+
+  @override
+  set hasTickCollision(bool? _hasTickCollision) => super.noSuchMethod(
+        Invocation.setter(
+          #hasTickCollision,
+          _hasTickCollision,
+        ),
+        returnValueForMissingStub: null,
+      );
+
+  @override
+  set graphicsFactory(_i8.GraphicsFactory? _graphicsFactory) =>
+      super.noSuchMethod(
+        Invocation.setter(
+          #graphicsFactory,
+          _graphicsFactory,
+        ),
+        returnValueForMissingStub: null,
+      );
+
+  @override
+  set tickFormatter(_i11.TickFormatter<String>? formatter) =>
+      super.noSuchMethod(
+        Invocation.setter(
+          #tickFormatter,
+          formatter,
+        ),
+        returnValueForMissingStub: null,
+      );
+
+  @override
+  double get rangeBand => (super.noSuchMethod(
+        Invocation.getter(#rangeBand),
+        returnValue: 0.0,
+        returnValueForMissingStub: 0.0,
+      ) as double);
+
+  @override
+  double get stepSize => (super.noSuchMethod(
+        Invocation.getter(#stepSize),
+        returnValue: 0.0,
+        returnValueForMissingStub: 0.0,
+      ) as double);
+
+  @override
+  bool get hasValidBarChartRangeBandConfig => (super.noSuchMethod(
+        Invocation.getter(#hasValidBarChartRangeBandConfig),
+        returnValue: false,
+        returnValueForMissingStub: false,
+      ) as bool);
+
+  @override
+  double get viewportScalingFactor => (super.noSuchMethod(
+        Invocation.getter(#viewportScalingFactor),
+        returnValue: 0.0,
+        returnValueForMissingStub: 0.0,
+      ) as double);
+
+  @override
+  double get viewportTranslatePx => (super.noSuchMethod(
+        Invocation.getter(#viewportTranslatePx),
+        returnValue: 0.0,
+        returnValueForMissingStub: 0.0,
+      ) as double);
+
+  @override
+  _i10.LayoutViewConfig get layoutConfig => (super.noSuchMethod(
+        Invocation.getter(#layoutConfig),
+        returnValue: _FakeLayoutViewConfig_9(
+          this,
+          Invocation.getter(#layoutConfig),
+        ),
+        returnValueForMissingStub: _FakeLayoutViewConfig_9(
+          this,
+          Invocation.getter(#layoutConfig),
+        ),
+      ) as _i10.LayoutViewConfig);
+
+  @override
+  bool get isVertical => (super.noSuchMethod(
+        Invocation.getter(#isVertical),
+        returnValue: false,
+        returnValueForMissingStub: false,
+      ) as bool);
+
+  @override
+  bool get isSeriesRenderer => (super.noSuchMethod(
+        Invocation.getter(#isSeriesRenderer),
+        returnValue: false,
+        returnValueForMissingStub: false,
+      ) as bool);
+
+  @override
+  bool get drawAxisLine => (super.noSuchMethod(
+        Invocation.getter(#drawAxisLine),
+        returnValue: false,
+        returnValueForMissingStub: false,
+      ) as bool);
+
+  @override
+  void setScaleViewport(_i14.OrdinalViewport? viewport) => super.noSuchMethod(
+        Invocation.method(
+          #setScaleViewport,
+          [viewport],
+        ),
+        returnValueForMissingStub: null,
+      );
+
+  @override
+  void layout(
+    _i13.Rectangle<int>? componentBounds,
+    _i13.Rectangle<int>? drawAreaBounds,
+  ) =>
+      super.noSuchMethod(
+        Invocation.method(
+          #layout,
+          [
+            componentBounds,
+            drawAreaBounds,
+          ],
+        ),
+        returnValueForMissingStub: null,
+      );
+
+  @override
+  void setRangeBandConfig(_i12.RangeBandConfig? rangeBandConfig) =>
+      super.noSuchMethod(
+        Invocation.method(
+          #setRangeBandConfig,
+          [rangeBandConfig],
+        ),
+        returnValueForMissingStub: null,
+      );
+
+  @override
+  void addDomainValue(String? domain) => super.noSuchMethod(
+        Invocation.method(
+          #addDomainValue,
+          [domain],
+        ),
+        returnValueForMissingStub: null,
+      );
+
+  @override
+  void resetDefaultConfiguration() => super.noSuchMethod(
+        Invocation.method(
+          #resetDefaultConfiguration,
+          [],
+        ),
+        returnValueForMissingStub: null,
+      );
+
+  @override
+  void resetDomains() => super.noSuchMethod(
+        Invocation.method(
+          #resetDomains,
+          [],
+        ),
+        returnValueForMissingStub: null,
+      );
+
+  @override
+  String getDomain(double? location) => (super.noSuchMethod(
+        Invocation.method(
+          #getDomain,
+          [location],
+        ),
+        returnValue: _i16.dummyValue<String>(
+          this,
+          Invocation.method(
+            #getDomain,
+            [location],
+          ),
+        ),
+        returnValueForMissingStub: _i16.dummyValue<String>(
+          this,
+          Invocation.method(
+            #getDomain,
+            [location],
+          ),
+        ),
+      ) as String);
+
+  @override
+  int compareDomainValueToViewport(String? domain) => (super.noSuchMethod(
+        Invocation.method(
+          #compareDomainValueToViewport,
+          [domain],
+        ),
+        returnValue: 0,
+        returnValueForMissingStub: 0,
+      ) as int);
+
+  @override
+  void setOutputRange(
+    int? start,
+    int? end,
+  ) =>
+      super.noSuchMethod(
+        Invocation.method(
+          #setOutputRange,
+          [
+            start,
+            end,
+          ],
+        ),
+        returnValueForMissingStub: null,
+      );
+
+  @override
+  void updateTicks() => super.noSuchMethod(
+        Invocation.method(
+          #updateTicks,
+          [],
+        ),
+        returnValueForMissingStub: null,
+      );
+
+  @override
+  void setViewportSettings(
+    double? viewportScale,
+    double? viewportTranslatePx, {
+    int? drawAreaWidth,
+    int? drawAreaHeight,
+  }) =>
+      super.noSuchMethod(
+        Invocation.method(
+          #setViewportSettings,
+          [
+            viewportScale,
+            viewportTranslatePx,
+          ],
+          {
+            #drawAreaWidth: drawAreaWidth,
+            #drawAreaHeight: drawAreaHeight,
+          },
+        ),
+        returnValueForMissingStub: null,
+      );
+
+  @override
+  _i10.ViewMeasuredSizes measure(
+    int? maxWidth,
+    int? maxHeight,
+  ) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #measure,
+          [
+            maxWidth,
+            maxHeight,
+          ],
+        ),
+        returnValue: _FakeViewMeasuredSizes_8(
+          this,
+          Invocation.method(
+            #measure,
+            [
+              maxWidth,
+              maxHeight,
+            ],
+          ),
+        ),
+        returnValueForMissingStub: _FakeViewMeasuredSizes_8(
+          this,
+          Invocation.method(
+            #measure,
+            [
+              maxWidth,
+              maxHeight,
+            ],
+          ),
+        ),
+      ) as _i10.ViewMeasuredSizes);
+
+  @override
+  void paint(
+    _i19.ChartCanvas? canvas,
+    double? animationPercent,
+  ) =>
+      super.noSuchMethod(
+        Invocation.method(
+          #paint,
+          [
+            canvas,
+            animationPercent,
+          ],
+        ),
+        returnValueForMissingStub: null,
+      );
+}

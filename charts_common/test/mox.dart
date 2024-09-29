@@ -17,5 +17,6 @@ import 'package:nimble_charts_common/common.dart';
   MockSpec<NumericScale>(as: #MockNumericScale),
   MockSpec<TextStyle>(as: #MockTextStyle),
   MockSpec<CartesianChart>(as: #MockChart),
+  MockSpec<OrdinalAxis>(),
 ])
 void main() {}

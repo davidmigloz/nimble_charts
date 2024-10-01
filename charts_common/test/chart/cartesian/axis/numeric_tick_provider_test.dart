@@ -35,7 +35,6 @@ import 'package:test/test.dart';
 
 import '../../../mox.mocks.dart';
 
-
 /// A fake draw strategy that reports collision and alternate ticks
 ///
 /// Reports collision when the tick count is greater than or equal to

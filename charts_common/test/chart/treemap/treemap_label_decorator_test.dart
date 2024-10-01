@@ -402,7 +402,7 @@ void main() {
       final data = ['A'];
       final renderElement = FakeTreeMapRendererElement(
         (_) => 'ThisLabelistoolongforasinglelinethereforeitwillbeellipsizedwith' // cspell:ignore ThisLabelistoolongforasinglelinethereforeitwillbeellipsizedwith
-            'ellipsisattheendofthenewtruncated label',
+            'ellipsisattheendofthenewtruncated label', // cspell:ignore ellipsisattheendofthenewtruncated
         data,
         boundingRect: drawBounds,
         index: 0,
@@ -427,12 +427,12 @@ void main() {
       // First line.
       expect(
           captured[0].text,
-          'ThisLabelistoolongforasinglelinethereforeitwillbeellipsizedwithelli'
-          'psisattheendofthenewtrunc');
+          'ThisLabelistoolongforasinglelinethereforeitwillbeellipsizedwithelli' // cspell:ignore ThisLabelistoolongforasinglelinethereforeitwillbeellipsizedwithelli
+          'psisattheendofthenewtrunc'); cspell:ignore psisattheendofthenewtrunc
       expect(captured[1], equals(drawBounds.width - decorator.labelPadding));
       expect(captured[2], equals(decorator.labelPadding));
       // Second line.
-      expect(captured[3].text, 'ated label');
+      expect(captured[3].text, 'ated label'); cspell:ignore ated label
       expect(captured[4], equals(drawBounds.width - decorator.labelPadding));
       expect(
         captured[5],

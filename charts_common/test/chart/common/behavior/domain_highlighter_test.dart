@@ -106,7 +106,7 @@ void main() {
     )..measureFn = (_) => 0.0;
   });
 
-  group('DomainHighligher', () {
+  group('DomainHighlighter', () {
     test('darkens the selected bars', () {
       // Setup
       final behavior = DomainHighlighter();

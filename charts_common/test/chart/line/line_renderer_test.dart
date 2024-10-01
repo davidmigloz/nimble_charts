@@ -720,7 +720,7 @@ void main() {
       expect(tester.seriesKeys, equals(['a', 'b', 'c', 'd']));
     });
 
-    test('replacement begining', () {
+    test('replacement beginning', () {
       final tester = LineRendererTester(LineRenderer<num>())
         ..setSeriesKeys(['a', 'b', 'c'])
         ..merge(series(['d', 'b', 'c']));

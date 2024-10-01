@@ -152,14 +152,14 @@ void main() {
       scale.stepSizeConfig = const StepSizeConfig.auto();
     });
 
-    test('to fixed domain throw arugment exception', () {
+    test('to fixed domain throw argument exception', () {
       expect(
         () => scale.stepSizeConfig = const StepSizeConfig.fixedDomain(1),
         throwsArgumentError,
       );
     });
 
-    test('to fixed pixel throw arugment exception', () {
+    test('to fixed pixel throw argument exception', () {
       expect(
         () => scale.stepSizeConfig = const StepSizeConfig.fixedPixels(1),
         throwsArgumentError,

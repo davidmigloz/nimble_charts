@@ -401,7 +401,7 @@ void main() {
         'two pieces', () {
       final data = ['A'];
       final renderElement = FakeTreeMapRendererElement(
-        (_) => 'ThisLabelistoolongforasinglelinethereforeitwillbeellipsizedwith'
+        (_) => 'ThisLabelistoolongforasinglelinethereforeitwillbeellipsizedwith' // cspell:ignore ThisLabelistoolongforasinglelinethereforeitwillbeellipsizedwith
             'ellipsisattheendofthenewtruncated label',
         data,
         boundingRect: drawBounds,

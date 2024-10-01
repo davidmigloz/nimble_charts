@@ -283,7 +283,7 @@ void main() {
     expect(legendEntries[1].isSelected, isFalse);
   });
 
-  test('hidden series removed from chart and later readded is visible', () {
+  test('hidden series removed from chart and later re-added is visible', () {
     final seriesList = [series1, series2];
     const selectionType = SelectionModelType.info;
     final legend =

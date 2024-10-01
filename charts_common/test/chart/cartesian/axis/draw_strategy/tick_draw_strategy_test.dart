@@ -698,7 +698,7 @@ void main() {
       expect(sizes.preferredHeight, 500);
     });
 
-    test('measureVerticallyDrawnTicks - negativate labelOffsetFromAxisPx', () {
+    test('measureVerticallyDrawnTicks - negative labelOffsetFromAxisPx', () {
       const offset = -500;
       drawStrategy = BaseTickDrawStrategyImpl(
         chartContext,

@@ -75,7 +75,7 @@ void main() {
       verifyNoMoreInteractions(namedBehavior);
     });
 
-    test('deteach is called once', () {
+    test('detach is called once', () {
       chart.addBehavior(namedBehavior);
       verify(namedBehavior.attachTo(chart)).called(1);
 
@@ -136,7 +136,7 @@ void main() {
       final parentBehavior = ParentBehavior(unnamedBehavior);
 
       chart.addBehavior(parentBehavior);
-      // The parent should add the child behavoir.
+      // The parent should add the child behavior.
       verify(unnamedBehavior.attachTo(chart)).called(1);
 
       chart.destroy();

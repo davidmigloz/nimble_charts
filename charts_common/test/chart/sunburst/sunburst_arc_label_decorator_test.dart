@@ -124,7 +124,7 @@ class MockImmutableSeries<D> extends Mock implements ImmutableSeries<D> {}
 
 /// Test for SunburstArcLabelDecorator. It should behave the mostly the same as
 /// the ArcLabelDecorator except:
-/// If ArcLabelPosition is set tooutside, only label the outer most ring will be
+/// If ArcLabelPosition is set to outside, only label the outer most ring will be
 /// drawn.
 /// If ArcLabelPosition is set to auto, the label on the outer most ring will
 /// follow the computation of the ArcLabelDecorator and the label of the inner

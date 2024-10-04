@@ -13,12 +13,6 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-@Tags(['skip-file'])
-library;
-
-import 'package:test/test.dart';
-/*
-
 import 'package:mockito/mockito.dart';
 import 'package:nimble_charts_common/src/chart/cartesian/axis/draw_strategy/base_tick_draw_strategy.dart';
 import 'package:nimble_charts_common/src/chart/cartesian/axis/linear/linear_scale.dart';
@@ -27,17 +21,9 @@ import 'package:nimble_charts_common/src/chart/cartesian/axis/spec/tick_spec.dar
 import 'package:nimble_charts_common/src/chart/cartesian/axis/static_tick_provider.dart';
 import 'package:nimble_charts_common/src/chart/cartesian/axis/tick_formatter.dart';
 import 'package:nimble_charts_common/src/chart/common/chart_context.dart';
-import 'package:nimble_charts_common/src/common/graphics_factory.dart';
-import 'package:nimble_charts_common/src/common/text_element.dart';
 import 'package:test/test.dart';
 
-class MockChartContext extends Mock implements ChartContext {}
-
-class MockGraphicsFactory extends Mock implements GraphicsFactory {}
-
-class MockTextElement extends Mock implements TextElement {}
-
-class MockNumericTickFormatter extends Mock implements TickFormatter<num> {}
+import '../../../mox.mocks.dart';
 
 class FakeNumericTickFormatter implements TickFormatter<num> {
   int calledTimes = 0;
@@ -46,7 +32,7 @@ class FakeNumericTickFormatter implements TickFormatter<num> {
   List<String> format(
     List<num> tickValues,
     Map<num, String> cache, {
-    num stepSize,
+    num? stepSize,
   }) {
     calledTimes += 1;
 
@@ -54,14 +40,12 @@ class FakeNumericTickFormatter implements TickFormatter<num> {
   }
 }
 
-class MockDrawStrategy<D> extends Mock implements BaseTickDrawStrategy<D> {}
-
 void main() {
-  ChartContext context;
-  GraphicsFactory graphicsFactory;
-  TickFormatter<num> formatter;
-  BaseTickDrawStrategy<num> drawStrategy;
-  LinearScale scale;
+  late ChartContext context;
+  late MockGraphicsFactory graphicsFactory;
+  late TickFormatter<num> formatter;
+  late BaseTickDrawStrategy<num> drawStrategy;
+  late LinearScale scale;
 
   setUp(() {
     context = MockChartContext();
@@ -81,8 +65,9 @@ void main() {
         const TickSpec<num>(100, label: '100'),
       ]);
 
-      scale.addDomain(60);
-      scale.addDomain(80);
+      scale
+        ..addDomain(60)
+        ..addDomain(80);
 
       expect(scale.dataExtent.min, equals(60));
       expect(scale.dataExtent.max, equals(80));
@@ -108,8 +93,9 @@ void main() {
         const TickSpec<num>(100, label: '100'),
       ]);
 
-      scale.addDomain(0);
-      scale.addDomain(150);
+      scale
+        ..addDomain(0)
+        ..addDomain(150);
 
       expect(scale.dataExtent.min, equals(0));
       expect(scale.dataExtent.max, equals(150));
@@ -224,5 +210,3 @@ void main() {
     });
   });
 }
-
-*/

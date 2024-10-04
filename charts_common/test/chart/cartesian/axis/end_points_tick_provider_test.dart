@@ -13,27 +13,18 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-@Tags(['skip-file'])
-library;
-
-import 'package:test/test.dart';
-/*
-
 import 'dart:math';
 
-import 'package:meta/meta.dart' show required;
 import 'package:mockito/mockito.dart';
 import 'package:nimble_charts_common/src/chart/cartesian/axis/axis.dart';
 import 'package:nimble_charts_common/src/chart/cartesian/axis/collision_report.dart';
 import 'package:nimble_charts_common/src/chart/cartesian/axis/draw_strategy/base_tick_draw_strategy.dart';
 import 'package:nimble_charts_common/src/chart/cartesian/axis/end_points_tick_provider.dart';
 import 'package:nimble_charts_common/src/chart/cartesian/axis/numeric_extents.dart';
-import 'package:nimble_charts_common/src/chart/cartesian/axis/numeric_scale.dart';
 import 'package:nimble_charts_common/src/chart/cartesian/axis/simple_ordinal_scale.dart';
 import 'package:nimble_charts_common/src/chart/cartesian/axis/tick.dart';
 import 'package:nimble_charts_common/src/chart/cartesian/axis/tick_formatter.dart';
 import 'package:nimble_charts_common/src/chart/cartesian/axis/time/date_time_extents.dart';
-import 'package:nimble_charts_common/src/chart/cartesian/axis/time/date_time_scale.dart';
 import 'package:nimble_charts_common/src/chart/cartesian/axis/time/date_time_tick_formatter.dart';
 import 'package:nimble_charts_common/src/chart/common/chart_canvas.dart';
 import 'package:nimble_charts_common/src/chart/common/chart_context.dart';
@@ -43,13 +34,9 @@ import 'package:nimble_charts_common/src/common/text_element.dart';
 import 'package:nimble_charts_common/src/common/text_style.dart';
 import 'package:test/test.dart';
 
+import '../../../mox.mocks.dart';
+import '../cartesian_chart_test.dart';
 import 'time/simple_date_time_factory.dart' show SimpleDateTimeFactory;
-
-class MockDateTimeScale extends Mock implements DateTimeScale {}
-
-class MockNumericScale extends Mock implements NumericScale {}
-
-class MockOrdinalScale extends Mock implements SimpleOrdinalScale {}
 
 /// A fake draw strategy that reports collision and alternate ticks
 ///
@@ -62,14 +49,18 @@ class FakeDrawStrategy<D> extends BaseTickDrawStrategy<D> {
   FakeDrawStrategy(
     this.collidesAfterTickCount,
     this.alternateRenderingAfterTickCount,
-  ) : super(null, FakeGraphicsFactory());
+  ) : super(MockContext(), FakeGraphicsFactory());
   final int collidesAfterTickCount;
   final int alternateRenderingAfterTickCount;
 
   @override
-  CollisionReport<D> collides(List<Tick<D>> ticks, _) {
-    final ticksCollide = ticks.length >= collidesAfterTickCount;
-    final alternateTicksUsed = ticks.length >= alternateRenderingAfterTickCount;
+  CollisionReport<D> collides(
+    List<Tick<D>>? ticks,
+    AxisOrientation? orientation,
+  ) {
+    final ticksCollide = (ticks?.length ?? 0) >= collidesAfterTickCount;
+    final alternateTicksUsed =
+        (ticks?.length ?? 0) >= alternateRenderingAfterTickCount;
 
     return CollisionReport(
       ticksCollide: ticksCollide,
@@ -103,19 +94,11 @@ class FakeGraphicsFactory extends GraphicsFactory {
   LineStyle createLinePaint() => MockLinePaint();
 }
 
-class MockTextStyle extends Mock implements TextStyle {}
-
-class MockTextElement extends Mock implements TextElement {}
-
-class MockLinePaint extends Mock implements LineStyle {}
-
-class MockChartContext extends Mock implements ChartContext {}
-
 void main() {
   const dateTimeFactory = SimpleDateTimeFactory();
-  FakeGraphicsFactory graphicsFactory;
-  EndPointsTickProvider tickProvider;
-  ChartContext context;
+  late FakeGraphicsFactory graphicsFactory;
+  EndPointsTickProvider<dynamic> tickProvider;
+  late ChartContext context;
 
   setUp(() {
     graphicsFactory = FakeGraphicsFactory();
@@ -179,11 +162,11 @@ void main() {
 
   test('ordinal_choosesEndPointTicks', () {
     const formatter = OrdinalTickFormatter();
-    final scale = SimpleOrdinalScale();
-    scale.addDomain('A');
-    scale.addDomain('B');
-    scale.addDomain('C');
-    scale.addDomain('D');
+    final scale = SimpleOrdinalScale()
+      ..addDomain('A')
+      ..addDomain('B')
+      ..addDomain('C')
+      ..addDomain('D');
     tickProvider = EndPointsTickProvider<String>();
 
     final drawStrategy = FakeDrawStrategy<String>(10, 10);
@@ -260,5 +243,3 @@ void main() {
     expect(ticks, hasLength(0));
   });
 }
-
-*/

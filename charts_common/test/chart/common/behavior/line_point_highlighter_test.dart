@@ -13,6 +13,10 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+@Tags(['skip-file'])
+library;
+
+import 'package:test/test.dart';
 /*
 
 import 'dart:math' show Point, Rectangle;

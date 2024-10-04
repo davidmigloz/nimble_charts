@@ -15,6 +15,10 @@
 
 // ignore_for_file: lines_longer_than_80_chars
 
+@Tags(['skip-file'])
+library;
+
+import 'package:test/test.dart';
 /*
 
 import 'dart:math';

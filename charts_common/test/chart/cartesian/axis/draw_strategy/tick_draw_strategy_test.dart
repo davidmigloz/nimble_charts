@@ -13,6 +13,10 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+@Tags(['skip-file'])
+library;
+
+import 'package:test/test.dart';
 /*
 
 import 'dart:math';
@@ -677,7 +681,10 @@ void main() {
           drawStrategy.calculateHeightForRotatedLabel(
         collisionRotationDegrees,
         baseHeight.toDouble(),
-        60, /* width of longest label */
+        60, @Tags(['skip-file'])
+library;
+import 'package:test/test.dart';
+/* width of longest label */
       );
 
       expect(sizes.preferredHeight, (heightAdjustedForAngle + offset).ceil());

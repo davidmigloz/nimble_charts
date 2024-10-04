@@ -13,6 +13,10 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+@Tags(['skip-file'])
+library;
+
+import 'package:test/test.dart';
 /*
 
 import 'dart:math' show Rectangle, pi;
@@ -129,7 +133,10 @@ class FakeTreeMapRendererElement extends TreeMapRendererElement<String> {
   FakeTreeMapRendererElement(
     this.labelAccessor,
     this.data, {
-    required Rectangle<num> /*?*/ super.boundingRect,
+    required Rectangle<num> @Tags(['skip-file'])
+library;
+import 'package:test/test.dart';
+/*?*/ super.boundingRect,
     required super.index,
     required super.isLeaf,
   }) : super(

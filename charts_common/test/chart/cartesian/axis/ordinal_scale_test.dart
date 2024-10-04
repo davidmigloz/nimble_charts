@@ -13,6 +13,10 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+@Tags(['skip-file'])
+library;
+
+import 'package:test/test.dart';
 /*
 
 import 'package:nimble_charts_common/src/chart/cartesian/axis/scale.dart';

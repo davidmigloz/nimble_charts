@@ -22,5 +22,6 @@ import 'package:nimble_charts_common/src/chart/cartesian/axis/time/date_time_sca
   MockSpec<CartesianChart>(as: #MockChart),
   MockSpec<OrdinalAxis>(),
   MockSpec<DateTimeScale>(),
+  MockSpec<ChartBehavior>(as: #MockBehavior),
 ])
 void main() {}

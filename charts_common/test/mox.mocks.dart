@@ -4120,3 +4120,39 @@ class MockDateTimeScale extends _i1.Mock implements _i15.DateTimeScale {
         returnValueForMissingStub: false,
       ) as bool);
 }
+
+/// A class which mocks [ChartBehavior].
+///
+/// See the documentation for Mockito's code generation for more information.
+class MockBehavior<D> extends _i1.Mock implements _i11.ChartBehavior<D> {
+  @override
+  String get role => (super.noSuchMethod(
+        Invocation.getter(#role),
+        returnValue: _i17.dummyValue<String>(
+          this,
+          Invocation.getter(#role),
+        ),
+        returnValueForMissingStub: _i17.dummyValue<String>(
+          this,
+          Invocation.getter(#role),
+        ),
+      ) as String);
+
+  @override
+  void attachTo(_i11.BaseChart<D>? chart) => super.noSuchMethod(
+        Invocation.method(
+          #attachTo,
+          [chart],
+        ),
+        returnValueForMissingStub: null,
+      );
+
+  @override
+  void removeFrom(_i11.BaseChart<D>? chart) => super.noSuchMethod(
+        Invocation.method(
+          #removeFrom,
+          [chart],
+        ),
+        returnValueForMissingStub: null,
+      );
+}

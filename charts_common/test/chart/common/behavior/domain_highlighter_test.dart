@@ -118,8 +118,7 @@ void main() {
     test('darkens the selected bars', () {
       // Setup
       // ignore: unused_local_variable
-      final behavior = DomainHighlighter<String>()
-      ..attachTo(chart);
+      final behavior = DomainHighlighter<String>()..attachTo(chart);
       setupSelection([s1D2, s2D2]);
       final seriesList = [series1, series2];
 
@@ -163,8 +162,7 @@ void main() {
     test('leaves everything alone with no selection', () {
       // Setup
       // ignore: unused_local_variable
-      final behavior = DomainHighlighter<String>()
-      ..attachTo(chart);
+      final behavior = DomainHighlighter<String>()..attachTo(chart);
       setupSelection([]);
       final seriesList = [series1, series2];
 

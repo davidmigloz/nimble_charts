@@ -13,12 +13,6 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-@Tags(['skip-file'])
-library;
-
-import 'package:test/test.dart';
-/*
-
 import 'dart:math';
 
 import 'package:nimble_charts_common/src/chart/common/base_chart.dart';
@@ -37,53 +31,59 @@ class FakeRenderer<D> extends BaseSeriesRenderer<D> {
 
   @override
   DatumDetails<D> addPositionToDetailsForSeriesDatum(
-      DatumDetails<D> details, SeriesDatum<D> seriesDatum,) => null;
+    DatumDetails<D> details,
+    SeriesDatum<D> seriesDatum,
+  ) =>
+      throw UnimplementedError();
 
   @override
   List<DatumDetails<D>> getNearestDatumDetailPerSeries(
     Point<double> chartPoint,
     bool byDomain,
-    Rectangle<int> boundsOverride, {
+    Rectangle<int>? boundsOverride, {
     bool selectOverlappingPoints = false,
     bool selectExactEventLocation = false,
-  }) =>
-      null;
+  }) {
+    throw UnimplementedError();
+  }
 
   @override
   void paint(ChartCanvas canvas, double animationPercent) {}
 
   @override
-  void update(List<ImmutableSeries> seriesList, bool isAnimating) {}
+  void update(List<ImmutableSeries<D>> seriesList, bool isAnimating) {}
 }
 
-class FakeChart extends BaseChart {
+class FakeChart extends BaseChart<dynamic> {
   @override
-  List<DatumDetails> getDatumDetails(SelectionModelType type) => [];
+  List<DatumDetails<dynamic>> getDatumDetails(SelectionModelType type) => [];
 
   @override
-  SeriesRenderer makeDefaultRenderer() => FakeRenderer();
+  SeriesRenderer<dynamic> makeDefaultRenderer() => FakeRenderer();
 
-  void requestOnDraw(List<MutableSeries> seriesList) {
+  void requestOnDraw(List<MutableSeries<dynamic>> seriesList) {
     fireOnDraw(seriesList);
   }
 }
 
 void main() {
-  FakeChart chart;
-  MutableSeries series1;
-  MutableSeries series2;
-  MutableSeries series3;
-  MutableSeries series4;
+  late FakeChart chart;
+  late MutableSeries<dynamic> series1;
+  late MutableSeries<dynamic> series2;
+  late MutableSeries<dynamic> series3;
+  late MutableSeries<dynamic> series4;
   const infoSelectionType = SelectionModelType.info;
 
-  InitialSelection makeBehavior(SelectionModelType selectionModelType,
-      {List<String> selectedSeries, List<SeriesDatumConfig> selectedData,}) {
-    final var behavior = InitialSelection(
-        selectionModelType: selectionModelType,
-        selectedSeriesConfig: selectedSeries,
-        selectedDataConfig: selectedData,);
-
-    behavior.attachTo(chart);
+  InitialSelection<dynamic> makeBehavior(
+    SelectionModelType selectionModelType, {
+    List<SeriesDatumConfig<dynamic>>? selectedData,
+    List<String>? selectedSeries,
+  }) {
+    final behavior = InitialSelection(
+      selectionModelType: selectionModelType,
+      selectedSeriesConfig: selectedSeries,
+      selectedDataConfig: selectedData,
+    )..attachTo(chart);
 
     return behavior;
   }
@@ -91,34 +91,48 @@ void main() {
   setUp(() {
     chart = FakeChart();
 
-    series1 = MutableSeries(Series(
+    series1 = MutableSeries(
+      Series(
         id: 'mySeries1',
         data: ['A', 'B', 'C', 'D'],
         domainFn: (datum, __) => datum,
-        measureFn: (_, __) => null,),);
+        measureFn: (_, __) => null,
+      ),
+    );
 
-    series2 = MutableSeries(Series(
+    series2 = MutableSeries(
+      Series(
         id: 'mySeries2',
         data: ['W', 'X', 'Y', 'Z'],
         domainFn: (datum, __) => datum,
-        measureFn: (_, __) => null,),);
+        measureFn: (_, __) => null,
+      ),
+    );
 
-    series3 = MutableSeries(Series(
+    series3 = MutableSeries(
+      Series(
         id: 'mySeries3',
         data: ['W', 'X', 'Y', 'Z'],
         domainFn: (datum, __) => datum,
-        measureFn: (_, __) => null,),);
+        measureFn: (_, __) => null,
+      ),
+    );
 
-    series4 = MutableSeries(Series(
+    series4 = MutableSeries(
+      Series(
         id: 'mySeries4',
         data: ['W', 'X', 'Y', 'Z'],
         domainFn: (datum, __) => datum,
-        measureFn: (_, __) => null,),);
+        measureFn: (_, __) => null,
+      ),
+    );
   });
 
   test('selects initial datum', () {
-    makeBehavior(infoSelectionType,
-        selectedData: [SeriesDatumConfig('mySeries1', 'C')],);
+    makeBehavior(
+      infoSelectionType,
+      selectedData: [SeriesDatumConfig('mySeries1', 'C')],
+    );
 
     chart.requestOnDraw([series1, series2]);
 
@@ -132,10 +146,13 @@ void main() {
   });
 
   test('selects multiple initial data', () {
-    makeBehavior(infoSelectionType, selectedData: [
-      SeriesDatumConfig('mySeries1', 'C'),
-      SeriesDatumConfig('mySeries1', 'D'),
-    ],);
+    makeBehavior(
+      infoSelectionType,
+      selectedData: [
+        SeriesDatumConfig('mySeries1', 'C'),
+        SeriesDatumConfig('mySeries1', 'D'),
+      ],
+    );
 
     chart.requestOnDraw([series1, series2]);
 
@@ -163,8 +180,10 @@ void main() {
   });
 
   test('selects multiple series', () {
-    makeBehavior(infoSelectionType,
-        selectedSeries: ['mySeries2', 'mySeries4'],);
+    makeBehavior(
+      infoSelectionType,
+      selectedSeries: ['mySeries2', 'mySeries4'],
+    );
 
     chart.requestOnDraw([series1, series2, series3, series4]);
 
@@ -177,9 +196,11 @@ void main() {
   });
 
   test('selects series and datum', () {
-    makeBehavior(infoSelectionType,
-        selectedData: [SeriesDatumConfig('mySeries1', 'C')],
-        selectedSeries: ['mySeries4'],);
+    makeBehavior(
+      infoSelectionType,
+      selectedData: [SeriesDatumConfig('mySeries1', 'C')],
+      selectedSeries: ['mySeries4'],
+    );
 
     chart.requestOnDraw([series1, series2, series3, series4]);
 
@@ -208,10 +229,11 @@ void main() {
     chart.draw(
       [
         Series(
-            id: 'mySeries2',
-            data: ['W', 'X', 'Y', 'Z'],
-            domainFn: (datum, __) => datum,
-            measureFn: (_, __) => null,),
+          id: 'mySeries2',
+          data: ['W', 'X', 'Y', 'Z'],
+          domainFn: (datum, __) => datum,
+          measureFn: (_, __) => null,
+        ),
       ],
     );
 
@@ -220,5 +242,3 @@ void main() {
     expect(model.selectedDatum, isEmpty);
   });
 }
-
-*/

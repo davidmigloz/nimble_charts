@@ -4,6 +4,7 @@ import 'package:example/gallery_app.dart';
 import 'package:example/line_chart/line_gallery.dart';
 import 'package:example/main.dart';
 import 'package:example/original.dart';
+import 'package:example/pie_chart/pie_gallery.dart';
 import 'package:example/scatter_plot_chart/scatter_plot_gallery.dart';
 import 'package:example/time_series_chart/time_series_gallery.dart';
 import 'package:flutter/material.dart';
@@ -438,6 +439,22 @@ void main() {
           tester.navigateToChartAndGolden<charts.ScatterPlotChart>(
         scatterPlotComboLineChartTitle,
         scrollDelta: 300,
+      ),
+    );
+
+    testWidgets(
+      'Navigates to Pie Chart and Renders',
+      (tester) async => tester.navigateToChartAndGolden<charts.PieChart<num>>(
+        simplePieChartTitle,
+        scrollDelta: 350,
+      ),
+    );
+
+    testWidgets(
+      'Navigates to Partial Pie Chart and Renders',
+      (tester) async => tester.navigateToChartAndGolden<charts.PieChart<num>>(
+        partialPieChartTitle,
+        scrollDelta: 350,
       ),
     );
   });

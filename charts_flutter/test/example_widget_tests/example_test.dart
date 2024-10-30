@@ -1,3 +1,4 @@
+import 'package:example/axes/axes_gallery.dart';
 import 'package:example/bar_chart/bar_gallery.dart';
 import 'package:example/combo_chart/combo_gallery.dart';
 import 'package:example/gallery_app.dart';
@@ -455,6 +456,134 @@ void main() {
       (tester) async => tester.navigateToChartAndGolden<charts.PieChart<num>>(
         partialPieChartTitle,
         scrollDelta: 350,
+      ),
+    );
+
+    testWidgets(
+      'Navigates to Bar chart with Secondary Measure Axis and Renders',
+      (tester) async => tester.navigateToChartAndGolden<charts.BarChart>(
+        kBarChartWithSecondaryAxisTitle,
+        scrollDelta: 350,
+      ),
+    );
+
+    testWidgets(
+      'Navigates to Bar chart with Secondary Measure Axis Only and Renders',
+      (tester) async => tester.navigateToChartAndGolden<charts.BarChart>(
+        kBarChartWithSecondaryAxisOnlyTitle,
+        scrollDelta: 350,
+      ),
+    );
+
+    testWidgets(
+      'Navigates to Horizontal Bar chart with Secondary Measure Axis, Renders',
+      (tester) async => tester.navigateToChartAndGolden<charts.BarChart>(
+        kHorizontalBarChartWithSecondaryAxisTitle,
+        scrollDelta: 400,
+      ),
+    );
+
+    testWidgets(
+      'Navigates to Short Ticks Axis and Renders',
+      (tester) async => tester.navigateToChartAndGolden<charts.BarChart>(
+        kShortTicksAxisTitle,
+        scrollDelta: 350,
+      ),
+    );
+
+    testWidgets(
+      'Navigates to Custom Axis Fonts and Renders',
+      (tester) async => tester.navigateToChartAndGolden<charts.BarChart>(
+        kCustomAxisFontsTitle,
+        scrollDelta: 350,
+      ),
+    );
+
+    testWidgets(
+      'Navigates to Label Alignment Axis and Renders',
+      (tester) async => tester.navigateToChartAndGolden<charts.BarChart>(
+        kLabelAlignmentAxisTitle,
+        scrollDelta: 350,
+      ),
+    );
+
+    testWidgets(
+      'Navigates to No Axis and Renders',
+      (tester) async => tester.navigateToChartAndGolden<charts.BarChart>(
+        kNoAxisTitle,
+        scrollDelta: 350,
+      ),
+    );
+
+    testWidgets(
+      'Navigates to Statically Provided Ticks and Renders',
+      (tester) async => tester.navigateToChartAndGolden<charts.BarChart>(
+        kStaticallyProvidedTicksTitle,
+        scrollDelta: 400,
+      ),
+    );
+
+    testWidgets(
+      'Navigates to Custom Formatter and Renders',
+      (tester) async => tester.navigateToChartAndGolden<charts.TimeSeriesChart>(
+        kCustomFormatterTitle,
+        scrollDelta: 350,
+      ),
+    );
+
+    testWidgets(
+      'Navigates to Custom Tick Count and Renders',
+      (tester) async => tester.navigateToChartAndGolden<charts.TimeSeriesChart>(
+        kCustomTickCountTitle,
+        scrollDelta: 350,
+      ),
+    );
+
+    testWidgets(
+      'Navigates to Integer Measure Ticks and Renders',
+      (tester) async => tester.navigateToChartAndGolden<charts.TimeSeriesChart>(
+        kIntegerMeasureTicksTitle,
+        scrollDelta: 350,
+      ),
+    );
+
+    testWidgets(
+      'Navigates to Non-zero bound Axis and Renders',
+      (tester) async => tester.navigateToChartAndGolden<charts.TimeSeriesChart>(
+        kNonZeroBoundAxisTitle,
+        scrollDelta: 350,
+      ),
+    );
+
+    testWidgets(
+      'Navigates to Ordinal axis with initial viewport and Renders',
+      (tester) async => tester.navigateToChartAndGolden<charts.BarChart>(
+        kOrdinalAxisWithInitialViewportTitle,
+        scrollDelta: 350,
+      ),
+    );
+
+    testWidgets(
+      'Navigates to Numeric axis with initial viewport and Renders',
+      (tester) async => tester.navigateToChartAndGolden<charts.LineChart>(
+        kNumericAxisWithInitialViewportTitle,
+        scrollDelta: 400,
+      ),
+    );
+
+    testWidgets(
+      'Navigates to Gridline dash pattern and Renders',
+      (tester) async => tester.navigateToChartAndGolden<charts.TimeSeriesChart>(
+        kGridlineDashPatternTitle,
+        scrollDelta: 300,
+      ),
+    );
+
+    testWidgets(
+      'Navigates to Disjoint measure axes and Renders',
+      (tester) async => tester.navigateToChartAndGolden<charts.LineChart>(
+        kDisjointMeasureAxesTitle,
+        scrollDelta: 300,
       ),
     );
   });

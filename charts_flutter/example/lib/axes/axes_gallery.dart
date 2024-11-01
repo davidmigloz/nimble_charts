@@ -30,107 +30,205 @@ import 'package:example/axes/ordinal_initial_viewport.dart';
 import 'package:example/axes/short_tick_length_axis.dart';
 import 'package:example/axes/statically_provided_ticks.dart';
 import 'package:example/gallery_scaffold.dart';
+import 'package:example/main.dart';
 import 'package:flutter/material.dart';
 
+const kBarChartWithSecondaryAxisTitle = 'Bar chart with Secondary Measure Axis';
+const kBarChartWithSecondaryAxisSubtitle =
+    'Bar chart with a series using a secondary measure axis';
+
+const kBarChartWithSecondaryAxisOnlyTitle =
+    'Bar chart with Secondary Measure Axis only';
+const kBarChartWithSecondaryAxisOnlySubtitle =
+    'Bar chart with both series using secondary measure axis';
+
+const kHorizontalBarChartWithSecondaryAxisTitle =
+    'Horizontal bar chart with Secondary Measure Axis';
+const kHorizontalBarChartWithSecondaryAxisSubtitle =
+    'Horizontal Bar chart with a series using secondary measure axis';
+
+const kShortTicksAxisTitle = 'Short Ticks Axis';
+const kShortTicksAxisSubtitle =
+    'Bar chart with the primary measure axis having short ticks';
+
+const kCustomAxisFontsTitle = 'Custom Axis Fonts';
+const kCustomAxisFontsSubtitle =
+    'Bar chart with custom axis font size and color';
+
+const kLabelAlignmentAxisTitle = 'Label Alignment Axis';
+const kLabelAlignmentAxisSubtitle =
+    'Bar chart with custom measure axis label alignments';
+
+const kNoAxisTitle = 'No Axis';
+const kNoAxisSubtitle = 'Bar chart with only the axis line drawn';
+
+const kStaticallyProvidedTicksTitle = 'Statically Provided Ticks';
+const kStaticallyProvidedTicksSubtitle =
+    'Bar chart with statically provided ticks';
+
+const kCustomFormatterTitle = 'Custom Formatter';
+const kCustomFormatterSubtitle =
+    'Timeseries with custom domain and measure tick formatters';
+
+const kCustomTickCountTitle = 'Custom Tick Count';
+const kCustomTickCountSubtitle =
+    'Timeseries with custom measure axis tick count';
+
+const kIntegerMeasureTicksTitle = 'Integer Measure Ticks';
+const kIntegerMeasureTicksSubtitle =
+    'Timeseries with only whole number measure axis ticks';
+
+const kNonZeroBoundAxisTitle = 'Non-zero bound Axis';
+const kNonZeroBoundAxisSubtitle =
+    'Timeseries with measure axis that does not include zero';
+
+const kOrdinalAxisWithInitialViewportTitle =
+    'Ordinal axis with initial viewport';
+const kOrdinalAxisWithInitialViewportSubtitle =
+    'Single series with initial viewport';
+
+const kNumericAxisWithInitialViewportTitle =
+    'Numeric axis with initial viewport';
+const kNumericAxisWithInitialViewportSubtitle =
+    'Initial viewport is set to a subset of the data';
+
+const kGridlineDashPatternTitle = 'Gridline dash pattern';
+const kGridlineDashPatternSubtitle =
+    'Timeseries with measure gridlines that have a dash pattern';
+
+const kDisjointMeasureAxesTitle = 'Disjoint Measure Axes';
+const kDisjointMeasureAxesSubtitle = 'Line chart with disjoint measure axes';
+
 List<GalleryScaffold> buildGallery() => [
-      const GalleryScaffold(
-        listTileIcon: Icon(Icons.insert_chart),
-        title: 'Bar chart with Secondary Measure Axis',
-        subtitle: 'Bar chart with a series using a secondary measure axis',
-        childBuilder: BarChartWithSecondaryAxis.withRandomData,
+      GalleryScaffold(
+        listTileIcon: const Icon(Icons.insert_chart),
+        title: kBarChartWithSecondaryAxisTitle,
+        subtitle: kBarChartWithSecondaryAxisSubtitle,
+        childBuilder: appState.value.useRandomData
+            ? BarChartWithSecondaryAxis.withRandomData
+            : BarChartWithSecondaryAxis.withSampleData,
       ),
-      const GalleryScaffold(
-        listTileIcon: Icon(Icons.insert_chart),
-        title: 'Bar chart with Secondary Measure Axis only',
-        subtitle: 'Bar chart with both series using secondary measure axis',
-        childBuilder: BarChartWithSecondaryAxisOnly.withRandomData,
+      GalleryScaffold(
+        listTileIcon: const Icon(Icons.insert_chart),
+        title: kBarChartWithSecondaryAxisOnlyTitle,
+        subtitle: kBarChartWithSecondaryAxisOnlySubtitle,
+        childBuilder: appState.value.useRandomData
+            ? BarChartWithSecondaryAxisOnly.withRandomData
+            : BarChartWithSecondaryAxisOnly.withSampleData,
       ),
       GalleryScaffold(
         listTileIcon: Transform.rotate(
           angle: 1.5708,
           child: const Icon(Icons.insert_chart),
         ),
-        title: 'Horizontal bar chart with Secondary Measure Axis',
-        subtitle:
-            'Horizontal Bar chart with a series using secondary measure axis',
-        childBuilder: HorizontalBarChartWithSecondaryAxis.withRandomData,
+        title: kHorizontalBarChartWithSecondaryAxisTitle,
+        subtitle: kHorizontalBarChartWithSecondaryAxisSubtitle,
+        childBuilder: appState.value.useRandomData
+            ? HorizontalBarChartWithSecondaryAxis.withRandomData
+            : HorizontalBarChartWithSecondaryAxis.withSampleData,
       ),
-      const GalleryScaffold(
-        listTileIcon: Icon(Icons.insert_chart),
-        title: 'Short Ticks Axis',
-        subtitle: 'Bar chart with the primary measure axis having short ticks',
-        childBuilder: ShortTickLengthAxis.withRandomData,
+      GalleryScaffold(
+        listTileIcon: const Icon(Icons.insert_chart),
+        title: kShortTicksAxisTitle,
+        subtitle: kShortTicksAxisSubtitle,
+        childBuilder: appState.value.useRandomData
+            ? ShortTickLengthAxis.withRandomData
+            : ShortTickLengthAxis.withSampleData,
       ),
-      const GalleryScaffold(
-        listTileIcon: Icon(Icons.insert_chart),
-        title: 'Custom Axis Fonts',
-        subtitle: 'Bar chart with custom axis font size and color',
-        childBuilder: CustomFontSizeAndColor.withRandomData,
+      GalleryScaffold(
+        listTileIcon: const Icon(Icons.insert_chart),
+        title: kCustomAxisFontsTitle,
+        subtitle: kCustomAxisFontsSubtitle,
+        childBuilder: appState.value.useRandomData
+            ? CustomFontSizeAndColor.withRandomData
+            : CustomFontSizeAndColor.withSampleData,
       ),
-      const GalleryScaffold(
-        listTileIcon: Icon(Icons.insert_chart),
-        title: 'Label Alignment Axis',
-        subtitle: 'Bar chart with custom measure axis label alignments',
-        childBuilder: MeasureAxisLabelAlignment.withRandomData,
+      GalleryScaffold(
+        listTileIcon: const Icon(Icons.insert_chart),
+        title: kLabelAlignmentAxisTitle,
+        subtitle: kLabelAlignmentAxisSubtitle,
+        childBuilder: appState.value.useRandomData
+            ? MeasureAxisLabelAlignment.withRandomData
+            : MeasureAxisLabelAlignment.withSampleData,
       ),
-      const GalleryScaffold(
-        listTileIcon: Icon(Icons.insert_chart),
-        title: 'No Axis',
-        subtitle: 'Bar chart with only the axis line drawn',
-        childBuilder: HiddenTicksAndLabelsAxis.withRandomData,
+      GalleryScaffold(
+        listTileIcon: const Icon(Icons.insert_chart),
+        title: kNoAxisTitle,
+        subtitle: kNoAxisSubtitle,
+        childBuilder: appState.value.useRandomData
+            ? HiddenTicksAndLabelsAxis.withRandomData
+            : HiddenTicksAndLabelsAxis.withSampleData,
       ),
-      const GalleryScaffold(
-        listTileIcon: Icon(Icons.insert_chart),
-        title: 'Statically Provided Ticks',
-        subtitle: 'Bar chart with statically provided ticks',
-        childBuilder: StaticallyProvidedTicks.withRandomData,
+      GalleryScaffold(
+        listTileIcon: const Icon(Icons.insert_chart),
+        title: kStaticallyProvidedTicksTitle,
+        subtitle: kStaticallyProvidedTicksSubtitle,
+        childBuilder: appState.value.useRandomData
+            ? StaticallyProvidedTicks.withRandomData
+            : StaticallyProvidedTicks.withSampleData,
       ),
-      const GalleryScaffold(
-        listTileIcon: Icon(Icons.show_chart),
-        title: 'Custom Formatter',
-        subtitle: 'Timeseries with custom domain and measure tick formatters',
-        childBuilder: CustomAxisTickFormatters.withRandomData,
+      GalleryScaffold(
+        listTileIcon: const Icon(Icons.show_chart),
+        title: kCustomFormatterTitle,
+        subtitle: kCustomFormatterSubtitle,
+        childBuilder: appState.value.useRandomData
+            ? CustomAxisTickFormatters.withRandomData
+            : CustomAxisTickFormatters.withSampleData,
       ),
-      const GalleryScaffold(
-        listTileIcon: Icon(Icons.show_chart),
-        title: 'Custom Tick Count',
-        subtitle: 'Timeseries with custom measure axis tick count',
-        childBuilder: CustomMeasureTickCount.withRandomData,
+      GalleryScaffold(
+        listTileIcon: const Icon(Icons.show_chart),
+        title: kCustomTickCountTitle,
+        subtitle: kCustomTickCountSubtitle,
+        childBuilder: appState.value.useRandomData
+            ? CustomMeasureTickCount.withRandomData
+            : CustomMeasureTickCount.withSampleData,
       ),
-      const GalleryScaffold(
-        listTileIcon: Icon(Icons.show_chart),
-        title: 'Integer Measure Ticks',
-        subtitle: 'Timeseries with only whole number measure axis ticks',
-        childBuilder: IntegerOnlyMeasureAxis.withRandomData,
+      GalleryScaffold(
+        listTileIcon: const Icon(Icons.show_chart),
+        title: kIntegerMeasureTicksTitle,
+        subtitle: kIntegerMeasureTicksSubtitle,
+        childBuilder: appState.value.useRandomData
+            ? IntegerOnlyMeasureAxis.withRandomData
+            : IntegerOnlyMeasureAxis.withSampleData,
       ),
-      const GalleryScaffold(
-        listTileIcon: Icon(Icons.show_chart),
-        title: 'Non-zero bound Axis',
-        subtitle: 'Timeseries with measure axis that does not include zero',
-        childBuilder: NonzeroBoundMeasureAxis.withRandomData,
+      GalleryScaffold(
+        listTileIcon: const Icon(Icons.show_chart),
+        title: kNonZeroBoundAxisTitle,
+        subtitle: kNonZeroBoundAxisSubtitle,
+        childBuilder: appState.value.useRandomData
+            ? NonzeroBoundMeasureAxis.withRandomData
+            : NonzeroBoundMeasureAxis.withSampleData,
       ),
-      const GalleryScaffold(
-        listTileIcon: Icon(Icons.insert_chart),
-        title: 'Ordinal axis with initial viewport',
-        subtitle: 'Single series with initial viewport',
-        childBuilder: OrdinalInitialViewport.withRandomData,
+      GalleryScaffold(
+        listTileIcon: const Icon(Icons.insert_chart),
+        title: kOrdinalAxisWithInitialViewportTitle,
+        subtitle: kOrdinalAxisWithInitialViewportSubtitle,
+        childBuilder: appState.value.useRandomData
+            ? OrdinalInitialViewport.withRandomData
+            : OrdinalInitialViewport.withSampleData,
       ),
-      const GalleryScaffold(
-        listTileIcon: Icon(Icons.show_chart),
-        title: 'Numeric axis with initial viewport',
-        subtitle: 'Initial viewport is set to a subset of the data',
-        childBuilder: NumericInitialViewport.withRandomData,
+      GalleryScaffold(
+        listTileIcon: const Icon(Icons.show_chart),
+        title: kNumericAxisWithInitialViewportTitle,
+        subtitle: kNumericAxisWithInitialViewportSubtitle,
+        childBuilder: appState.value.useRandomData
+            ? NumericInitialViewport.withRandomData
+            : NumericInitialViewport.withSampleData,
       ),
-      const GalleryScaffold(
-        listTileIcon: Icon(Icons.show_chart),
-        title: 'Gridline dash pattern',
-        subtitle: 'Timeseries with measure gridlines that have a dash pattern',
-        childBuilder: GridlineDashPattern.withRandomData,
+      GalleryScaffold(
+        listTileIcon: const Icon(Icons.show_chart),
+        title: kGridlineDashPatternTitle,
+        subtitle: kGridlineDashPatternSubtitle,
+        childBuilder: appState.value.useRandomData
+            ? GridlineDashPattern.withRandomData
+            : GridlineDashPattern.withSampleData,
       ),
-      const GalleryScaffold(
-        listTileIcon: Icon(Icons.show_chart),
-        title: 'Disjoint Measure Axes',
-        subtitle: 'Line chart with disjoint measure axes',
-        childBuilder: DisjointMeasureAxisLineChart.withRandomData,
+      GalleryScaffold(
+        listTileIcon: const Icon(Icons.show_chart),
+        title: kDisjointMeasureAxesTitle,
+        subtitle: kDisjointMeasureAxesSubtitle,
+        childBuilder: appState.value.useRandomData
+            ? DisjointMeasureAxisLineChart.withRandomData
+            : DisjointMeasureAxisLineChart.withSampleData,
       ),
     ];

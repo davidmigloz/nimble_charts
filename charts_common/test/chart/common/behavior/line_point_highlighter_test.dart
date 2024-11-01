@@ -13,17 +13,10 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-@Tags(['skip-file'])
-library;
-
-import 'package:test/test.dart';
-/*
-
 import 'dart:math' show Point, Rectangle;
 
 import 'package:mockito/mockito.dart';
 import 'package:nimble_charts_common/src/chart/cartesian/axis/axis.dart';
-import 'package:nimble_charts_common/src/chart/cartesian/cartesian_chart.dart';
 import 'package:nimble_charts_common/src/chart/common/base_chart.dart';
 import 'package:nimble_charts_common/src/chart/common/behavior/line_point_highlighter.dart';
 import 'package:nimble_charts_common/src/chart/common/datum_details.dart';
@@ -36,15 +29,21 @@ import 'package:nimble_charts_common/src/common/math.dart';
 import 'package:nimble_charts_common/src/data/series.dart';
 import 'package:test/test.dart';
 
-class MockChart extends Mock implements CartesianChart {
-  LifecycleListener lastListener;
+import '../../../mox.mocks.dart';
+
+class MockCartesianChart extends MockChart<dynamic> {
+  LifecycleListener<dynamic>? lastListener;
 
   @override
-  LifecycleListener addLifecycleListener(LifecycleListener listener) =>
-      lastListener = listener;
+  LifecycleListener<dynamic> addLifecycleListener(
+    LifecycleListener<dynamic>? listener,
+  ) {
+    lastListener = listener;
+    return lastListener!;
+  }
 
   @override
-  bool removeLifecycleListener(LifecycleListener listener) {
+  bool removeLifecycleListener(LifecycleListener<dynamic>? listener) {
     expect(listener, equals(lastListener));
     lastListener = null;
     return true;
@@ -54,15 +53,17 @@ class MockChart extends Mock implements CartesianChart {
   bool get vertical => true;
 }
 
-class MockSelectionModel extends Mock implements MutableSelectionModel {
-  SelectionModelListener lastListener;
+class MockSelectionModel extends MockMutableSelectionModel<dynamic> {
+  SelectionModelListener<dynamic>? lastListener;
 
   @override
-  void addSelectionChangedListener(SelectionModelListener listener) =>
+  void addSelectionChangedListener(SelectionModelListener<dynamic>? listener) =>
       lastListener = listener;
 
   @override
-  void removeSelectionChangedListener(SelectionModelListener listener) {
+  void removeSelectionChangedListener(
+    SelectionModelListener<dynamic>? listener,
+  ) {
     expect(listener, equals(lastListener));
     lastListener = null;
   }
@@ -70,7 +71,7 @@ class MockSelectionModel extends Mock implements MutableSelectionModel {
 
 class MockNumericAxis extends Mock implements NumericAxis {
   @override
-  double getLocation(num domain) => 10;
+  double? getLocation(num? domain) => 10;
 }
 
 class MockSeriesRenderer<D> extends BaseSeriesRenderer<D> {
@@ -86,11 +87,12 @@ class MockSeriesRenderer<D> extends BaseSeriesRenderer<D> {
   List<DatumDetails<D>> getNearestDatumDetailPerSeries(
     Point<double> chartPoint,
     bool byDomain,
-    Rectangle<int> boundsOverride, {
+    Rectangle<int>? boundsOverride, {
     bool selectOverlappingPoints = false,
     bool selectExactEventLocation = false,
-  }) =>
-      null;
+  }) {
+    throw UnimplementedError();
+  }
 
   @override
   DatumDetails<D> addPositionToDetailsForSeriesDatum(
@@ -101,22 +103,24 @@ class MockSeriesRenderer<D> extends BaseSeriesRenderer<D> {
 }
 
 void main() {
-  MockChart chart;
-  MockSelectionModel selectionModel;
-  MockSeriesRenderer seriesRenderer;
+  late MockCartesianChart chart;
+  late MockSelectionModel selectionModel;
+  late MockSeriesRenderer<dynamic> seriesRenderer;
 
-  MutableSeries<int> series1;
+  late MutableSeries<int> series1;
   final s1D1 = MyRow(1, 11);
   final s1D2 = MyRow(2, 12);
   final s1D3 = MyRow(3, 13);
 
-  MutableSeries<int> series2;
+  late MutableSeries<int> series2;
   final s2D1 = MyRow(4, 21);
   final s2D2 = MyRow(5, 22);
   final s2D3 = MyRow(6, 23);
 
-  List<DatumDetails> mockGetSelectedDatumDetails(List<SeriesDatum> selection) {
-    final details = <DatumDetails>[];
+  List<DatumDetails<dynamic>> mockGetSelectedDatumDetails(
+    List<SeriesDatum<dynamic>> selection,
+  ) {
+    final details = <DatumDetails<dynamic>>[];
 
     for (final seriesDatum in selection) {
       details.add(seriesRenderer.getDetailsForSeriesDatum(seriesDatum));
@@ -125,7 +129,7 @@ void main() {
     return details;
   }
 
-  void setupSelection(List<SeriesDatum> selection) {
+  void setupSelection(List<SeriesDatum<int>> selection) {
     final selected = <MyRow>[];
 
     for (var i = 0; i < selection.length; i++) {
@@ -150,7 +154,7 @@ void main() {
   }
 
   setUp(() {
-    chart = MockChart();
+    chart = MockCartesianChart();
 
     seriesRenderer = MockSeriesRenderer();
 
@@ -192,22 +196,24 @@ void main() {
       ]);
 
       // Mock axes for returning fake domain locations.
-      final Axis domainAxis = MockNumericAxis();
-      final Axis primaryMeasureAxis = MockNumericAxis();
+      final Axis<num> domainAxis = MockNumericAxis();
+      final Axis<num> primaryMeasureAxis = MockNumericAxis();
 
-      series1.setAttr(domainAxisKey, domainAxis);
-      series1.setAttr(measureAxisKey, primaryMeasureAxis);
-      series1.measureOffsetFn = (_) => 0.0;
+      series1
+        ..setAttr(domainAxisKey, domainAxis)
+        ..setAttr(measureAxisKey, primaryMeasureAxis)
+        ..measureOffsetFn = (_) => 0.0;
 
-      series2.setAttr(domainAxisKey, domainAxis);
-      series2.setAttr(measureAxisKey, primaryMeasureAxis);
-      series2.measureOffsetFn = (_) => 0.0;
+      series2
+        ..setAttr(domainAxisKey, domainAxis)
+        ..setAttr(measureAxisKey, primaryMeasureAxis)
+        ..measureOffsetFn = (_) => 0.0;
 
       // Act
-      selectionModel.lastListener(selectionModel);
+      selectionModel.lastListener?.call(selectionModel);
       verify(chart.redraw(skipAnimation: true, skipLayout: true));
 
-      chart.lastListener.onAxisConfigured();
+      chart.lastListener?.onAxisConfigured?.call();
 
       // Verify
       expect(tester.getSelectionLength(), equals(2));
@@ -245,9 +251,9 @@ void main() {
       setupSelection([]);
 
       // Act
-      selectionModel.lastListener(selectionModel);
+      selectionModel.lastListener?.call(selectionModel);
       verify(chart.redraw(skipAnimation: true, skipLayout: true));
-      chart.lastListener.onAxisConfigured();
+      chart.lastListener?.onAxisConfigured?.call();
 
       // Verify
       expect(tester.getSelectionLength(), equals(0));
@@ -264,8 +270,8 @@ void main() {
     test('cleans up', () {
       // Setup
       final behavior =
-          LinePointHighlighter(selectionModelType: SelectionModelType.info);
-      behavior.attachTo(chart);
+          LinePointHighlighter(selectionModelType: SelectionModelType.info)
+            ..attachTo(chart);
       setupSelection([
         SeriesDatum(series1, s1D2),
         SeriesDatum(series2, s2D2),
@@ -286,5 +292,3 @@ class MyRow {
   final int campaign;
   final int count;
 }
-
-*/

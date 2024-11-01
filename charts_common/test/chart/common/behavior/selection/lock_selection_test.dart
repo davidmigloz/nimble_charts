@@ -22,51 +22,63 @@ import 'package:test/test.dart';
 import 'dart:math';
 
 import 'package:mockito/mockito.dart';
-import 'package:nimble_charts_common/src/chart/common/base_chart.dart';
 import 'package:nimble_charts_common/src/chart/common/behavior/selection/lock_selection.dart';
 import 'package:nimble_charts_common/src/chart/common/selection_model/selection_model.dart';
 import 'package:nimble_charts_common/src/common/gesture_listener.dart';
 import 'package:test/test.dart';
 
-class MockChart extends Mock implements BaseChart {
-  GestureListener lastListener;
+import '../../../../mox.mocks.dart';
+
+class MockChart extends MockBaseChart<dynamic> {
+  GestureListener? lastListener;
 
   @override
-  GestureListener addGestureListener(GestureListener listener) {
+  GestureListener addGestureListener(GestureListener? listener) {
     lastListener = listener;
-    return listener;
+    return listener!;
   }
 
   @override
-  void removeGestureListener(GestureListener listener) {
+  void removeGestureListener(GestureListener? listener) {
     expect(listener, equals(lastListener));
     lastListener = null;
   }
 }
 
-class MockSelectionModel extends Mock implements MutableSelectionModel {
+class MockSelectionModel extends MockMutableSelectionModel<dynamic> {
+  bool _locked = false;
+
   @override
-  bool locked = false;
+  bool get locked => _locked;
+
+  @override
+  set locked(bool? value) {
+    if (value != null) {
+      _locked = value;
+    }
+  }
 }
 
 void main() {
-  MockChart chart;
-  MockSelectionModel hoverSelectionModel;
-  MockSelectionModel clickSelectionModel;
+  late MockChart chart;
+  late MockSelectionModel hoverSelectionModel;
+  late MockSelectionModel clickSelectionModel;
 
-  LockSelection makeLockSelectionBehavior(
-      SelectionModelType selectionModelType,) {
-    final var behavior =
-        LockSelection(selectionModelType: selectionModelType);
-
-    behavior.attachTo(chart);
+  LockSelection<dynamic> makeLockSelectionBehavior(
+    SelectionModelType selectionModelType,
+  ) {
+    final behavior = LockSelection(selectionModelType: selectionModelType)
+      ..attachTo(chart);
 
     return behavior;
   }
 
-  void setupChart({Point<double> forPoint, bool isWithinRenderer}) {
+  void setupChart({
+    required Point<double> forPoint,
+    required bool isWithinRenderer,
+  }) {
     when(chart.pointWithinRenderer(forPoint)).thenReturn(isWithinRenderer);
-    }
+  }
 
   setUp(() {
     hoverSelectionModel = MockSelectionModel();
@@ -83,14 +95,14 @@ void main() {
     test('can lock model with a selection', () {
       // Setup chart matches point with single domain single series.
       makeLockSelectionBehavior(SelectionModelType.info);
-      const var point = Point<double>(100, 100);
+      const point = Point<double>(100, 100);
       setupChart(forPoint: point, isWithinRenderer: true);
 
       when(hoverSelectionModel.hasAnySelection).thenReturn(true);
 
       // Act
-      chart.lastListener.onTapTest(point);
-      chart.lastListener.onTap(point);
+      chart.lastListener?.onTapTest(point);
+      chart.lastListener?.onTap?.call(point);
 
       // Validate
       verify(hoverSelectionModel.hasAnySelection);
@@ -102,22 +114,26 @@ void main() {
     test('can lock and unlock model', () {
       // Setup chart matches point with single domain single series.
       makeLockSelectionBehavior(SelectionModelType.info);
-      const var point = Point<double>(100, 100);
+      const point = Point<double>(100, 100);
       setupChart(forPoint: point, isWithinRenderer: true);
 
       when(hoverSelectionModel.hasAnySelection).thenReturn(true);
 
+      //TODO: this makes the test pass, but not sure if it's the 
+      //right way to do it
+      //when(hoverSelectionModel.clearSelection()).thenReturn(true);
+
       // Act
-      chart.lastListener.onTapTest(point);
-      chart.lastListener.onTap(point);
+      chart.lastListener?.onTapTest(point);
+      chart.lastListener?.onTap?.call(point);
 
       // Validate
       verify(hoverSelectionModel.hasAnySelection);
       expect(hoverSelectionModel.locked, equals(true));
 
       // Act
-      chart.lastListener.onTapTest(point);
-      chart.lastListener.onTap(point);
+      chart.lastListener?.onTapTest(point);
+      chart.lastListener?.onTap?.call(point);
 
       // Validate
       verify(hoverSelectionModel.clearSelection());
@@ -135,8 +151,8 @@ void main() {
       when(hoverSelectionModel.hasAnySelection).thenReturn(false);
 
       // Act
-      chart.lastListener.onTapTest(point);
-      chart.lastListener.onTap(point);
+      chart.lastListener?.onTapTest(point);
+      chart.lastListener?.onTap?.call(point);
 
       // Validate
       verify(hoverSelectionModel.hasAnySelection);

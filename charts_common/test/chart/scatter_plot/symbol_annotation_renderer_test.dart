@@ -13,12 +13,6 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-@Tags(['skip-file'])
-library;
-
-import 'package:test/test.dart';
-/*
-
 import 'package:nimble_charts_common/src/chart/common/processed_series.dart'
     show MutableSeries;
 import 'package:nimble_charts_common/src/chart/scatter_plot/point_renderer.dart';
@@ -45,14 +39,15 @@ class MyRow {
   final int campaign;
   final int campaignLower;
   final int campaignUpper;
-  final double radius;
-  final double boundsRadius;
-  final String shape;
+  final double? radius;
+  final double? boundsRadius;
+  final String? shape;
 }
 
 void main() {
-  SymbolAnnotationRenderer renderer;
-  List<MutableSeries<int>> numericSeriesList;
+  // ignore: unused_local_variable
+  late SymbolAnnotationRenderer<dynamic> renderer;
+  late List<MutableSeries<int>> numericSeriesList;
 
   setUp(() {
     final myFakeDesktopData = [
@@ -74,13 +69,14 @@ void main() {
           domainUpperBoundFn: (row, _) => row.campaignUpper,
           measureFn: (row, _) => 0,
           measureOffsetFn: (row, _) => 0,
-          radiusPxFn: (row, _) => row.radius,
+          radiusPxFn: (row, _) => row.radius ?? 5, // default
           data: myFakeDesktopData,
         )
           // Define a bounds line radius function.
           ..setAttribute(
             boundsLineRadiusPxFnKey,
-            (index) => myFakeDesktopData[index].boundsRadius,
+            // ignore: avoid_types_on_closure_parameters
+            (int? index) => myFakeDesktopData[index!].boundsRadius,
           ),
       ),
     ];
@@ -90,9 +86,7 @@ void main() {
     test('with numeric data and simple points', () {
       renderer = SymbolAnnotationRenderer<int>(
         config: SymbolAnnotationRendererConfig(),
-      );
-
-      renderer.preprocessSeries(numericSeriesList);
+      )..preprocessSeries(numericSeriesList);
 
       expect(numericSeriesList.length, equals(1));
 
@@ -102,7 +96,7 @@ void main() {
       final keyFn = series.keyFn;
 
       final elementsList = series.getAttr(pointElementsKey);
-      expect(elementsList.length, equals(4));
+      expect(elementsList!.length, equals(4));
 
       expect(elementsList[0].radiusPx, equals(3.0));
       expect(elementsList[1].radiusPx, equals(5.0));
@@ -119,12 +113,10 @@ void main() {
       expect(elementsList[2].symbolRendererId, equals(defaultSymbolRendererId));
       expect(elementsList[3].symbolRendererId, equals(defaultSymbolRendererId));
 
-      expect(keyFn(0), equals('Desktop__0__0__0'));
+      expect(keyFn!(0), equals('Desktop__0__0__0'));
       expect(keyFn(1), equals('Desktop__10__10__12'));
       expect(keyFn(2), equals('Desktop__10__10__14'));
       expect(keyFn(3), equals('Desktop__13__12__15'));
     });
   });
 }
-
-*/

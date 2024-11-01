@@ -13,12 +13,6 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-@Tags(['skip-file'])
-library;
-
-import 'package:test/test.dart';
-/*
-
 import 'package:nimble_charts_common/src/chart/cartesian/axis/axis.dart';
 import 'package:nimble_charts_common/src/chart/common/base_chart.dart';
 import 'package:nimble_charts_common/src/chart/common/behavior/legend/legend_entry_generator.dart';
@@ -49,7 +43,8 @@ class ConcreteChart extends BaseChart<String> {
   List<MutableSeries<String>> get currentSeriesList => _seriesList;
 
   @override
-  List<DatumDetails<String>> getDatumDetails(SelectionModelType _) => null;
+  List<DatumDetails<String>> getDatumDetails(SelectionModelType _) =>
+      throw UnimplementedError();
 
   set seriesList(List<MutableSeries<String>> seriesList) {
     _seriesList = seriesList;
@@ -74,12 +69,9 @@ class ConcreteChart extends BaseChart<String> {
 
 class ConcreteSeriesLegend<D> extends SeriesLegend<D> {
   ConcreteSeriesLegend({
-    SelectionModelType selectionModelType,
-    LegendEntryGenerator<D> legendEntryGenerator,
-  }) : super(
-          selectionModelType: selectionModelType,
-          legendEntryGenerator: legendEntryGenerator,
-        );
+    required SelectionModelType super.selectionModelType,
+    super.legendEntryGenerator,
+  });
 
   @override
   bool isSeriesRenderer = false;
@@ -96,12 +88,12 @@ class ConcreteSeriesLegend<D> extends SeriesLegend<D> {
 }
 
 void main() {
-  MutableSeries<String> series1;
+  late MutableSeries<String> series1;
   final s1D1 = MyRow('s1d1', 11);
   final s1D2 = MyRow('s1d2', 12);
   final s1D3 = MyRow('s1d3', 13);
 
-  MutableSeries<String> series2;
+  late MutableSeries<String> series2;
   final s2D1 = MyRow('s2d1', 21);
   final s2D2 = MyRow('s2d2', 22);
   final s2D3 = MyRow('s2d3', 23);
@@ -163,15 +155,15 @@ void main() {
     final seriesList = [series1, series2];
     const selectionType = SelectionModelType.info;
     final legend =
-        ConcreteSeriesLegend<String>(selectionModelType: selectionType);
-
-    legend.defaultHiddenSeries = ['s2'];
+        ConcreteSeriesLegend<String>(selectionModelType: selectionType)
+          ..defaultHiddenSeries = ['s2'];
 
     chart = ConcreteChart(seriesList);
     legend.attachTo(chart);
-    chart.callOnDraw();
-    chart.callConfigureSeries();
-    chart.callOnPreProcess();
+    chart
+      ..callOnDraw()
+      ..callConfigureSeries()
+      ..callOnPreProcess();
 
     expect(legend.isSeriesHidden('s1'), isFalse);
     expect(legend.isSeriesHidden('s2'), isTrue);
@@ -187,11 +179,13 @@ void main() {
         ConcreteSeriesLegend<String>(selectionModelType: selectionType);
 
     chart = ConcreteChart(seriesList);
-    legend.attachTo(chart);
-    legend.hideSeries('s1');
-    chart.callOnDraw();
-    chart.callConfigureSeries();
-    chart.callOnPreProcess();
+    legend
+      ..attachTo(chart)
+      ..hideSeries('s1');
+    chart
+      ..callOnDraw()
+      ..callConfigureSeries()
+      ..callOnPreProcess();
 
     expect(legend.isSeriesHidden('s1'), isTrue);
     expect(legend.isSeriesHidden('s2'), isFalse);
@@ -208,13 +202,15 @@ void main() {
         ConcreteSeriesLegend<String>(selectionModelType: selectionType);
 
     chart = ConcreteChart(seriesList);
-    legend.attachTo(chart);
+    legend
+      ..attachTo(chart)
 
-    // First hide the series.
-    legend.hideSeries('s1');
-    chart.callOnDraw();
-    chart.callConfigureSeries();
-    chart.callOnPreProcess();
+      // First hide the series.
+      ..hideSeries('s1');
+    chart
+      ..callOnDraw()
+      ..callConfigureSeries()
+      ..callOnPreProcess();
 
     expect(legend.isSeriesHidden('s1'), isTrue);
     expect(legend.isSeriesHidden('s2'), isFalse);
@@ -226,9 +222,10 @@ void main() {
     // chart, which creates a fresh copy of the original data from the user
     // during each draw cycle.
     legend.showSeries('s1');
-    chart.seriesList = seriesList2;
-    chart.callOnDraw();
-    chart.callOnPreProcess();
+    chart
+      ..seriesList = seriesList2
+      ..callOnDraw()
+      ..callOnPreProcess();
 
     expect(legend.isSeriesHidden('s1'), isFalse);
     expect(legend.isSeriesHidden('s2'), isFalse);
@@ -242,17 +239,16 @@ void main() {
     final seriesList = [series1, series2];
     const selectionType = SelectionModelType.info;
     final legend =
-        ConcreteSeriesLegend<String>(selectionModelType: selectionType);
-
-    legend.alwaysVisibleSeries = ['s1'];
-
-    legend.hideSeries('s1');
-    legend.hideSeries('s2');
+        ConcreteSeriesLegend<String>(selectionModelType: selectionType)
+          ..alwaysVisibleSeries = ['s1']
+          ..hideSeries('s1')
+          ..hideSeries('s2');
     chart = ConcreteChart(seriesList);
     legend.attachTo(chart);
-    chart.callOnDraw();
-    chart.callConfigureSeries();
-    chart.callOnPreProcess();
+    chart
+      ..callOnDraw()
+      ..callConfigureSeries()
+      ..callOnPreProcess();
 
     expect(legend.isSeriesHidden('s1'), isFalse);
     expect(legend.isSeriesHidden('s2'), isTrue);
@@ -268,10 +264,11 @@ void main() {
 
     chart = ConcreteChart(seriesList);
     legend.attachTo(chart);
-    chart.callOnDraw();
-    chart.callConfigureSeries();
-    chart.callOnPreProcess();
-    chart.callOnPostProcess();
+    chart
+      ..callOnDraw()
+      ..callConfigureSeries()
+      ..callOnPreProcess()
+      ..callOnPostProcess();
     chart.getSelectionModel(selectionType).updateSelection([], [series1]);
 
     final legendEntries = legend.legendState.legendEntries;
@@ -294,13 +291,15 @@ void main() {
         ConcreteSeriesLegend<String>(selectionModelType: selectionType);
 
     chart = ConcreteChart(seriesList);
-    legend.attachTo(chart);
+    legend
+      ..attachTo(chart)
 
-    // First hide the series.
-    legend.hideSeries('s1');
-    chart.callOnDraw();
-    chart.callConfigureSeries();
-    chart.callOnPreProcess();
+      // First hide the series.
+      ..hideSeries('s1');
+    chart
+      ..callOnDraw()
+      ..callConfigureSeries()
+      ..callOnPreProcess();
 
     expect(legend.isSeriesHidden('s1'), isTrue);
     expect(legend.isSeriesHidden('s2'), isFalse);
@@ -311,10 +310,11 @@ void main() {
     // Validate that drawing the same set of series again maintains the hidden
     // states.
     final seriesList2 = [series1, series2];
-    chart.seriesList = seriesList2;
-    chart.callOnDraw();
-    chart.callConfigureSeries();
-    chart.callOnPreProcess();
+    chart
+      ..seriesList = seriesList2
+      ..callOnDraw()
+      ..callConfigureSeries()
+      ..callOnPreProcess();
 
     expect(legend.isSeriesHidden('s1'), isTrue);
     expect(legend.isSeriesHidden('s2'), isFalse);
@@ -325,10 +325,11 @@ void main() {
     // Next, redraw the chart with only the visible series2.
     final seriesList3 = [series2];
 
-    chart.seriesList = seriesList3;
-    chart.callOnDraw();
-    chart.callConfigureSeries();
-    chart.callOnPreProcess();
+    chart
+      ..seriesList = seriesList3
+      ..callOnDraw()
+      ..callConfigureSeries()
+      ..callOnPreProcess();
 
     expect(legend.isSeriesHidden('s2'), isFalse);
 
@@ -338,10 +339,11 @@ void main() {
     // Finally, add series1 back to the chart, and validate that it is not
     // hidden.
     final seriesList4 = [series1, series2];
-    chart.seriesList = seriesList4;
-    chart.callOnDraw();
-    chart.callConfigureSeries();
-    chart.callOnPreProcess();
+    chart
+      ..seriesList = seriesList4
+      ..callOnDraw()
+      ..callConfigureSeries()
+      ..callOnPreProcess();
 
     expect(legend.isSeriesHidden('s1'), isFalse);
     expect(legend.isSeriesHidden('s2'), isFalse);
@@ -354,9 +356,10 @@ void main() {
   test('generated legend entries use provided formatters', () {
     final seriesList = [series1, series2];
     const selectionType = SelectionModelType.info;
-    String measureFormatter(num value) => 'measure ${value.toStringAsFixed(0)}';
-    String secondaryMeasureFormatter(num value) =>
-        'secondary ${value.toStringAsFixed(0)}';
+    String measureFormatter(num? value) =>
+        'measure ${value?.toStringAsFixed(0)}';
+    String secondaryMeasureFormatter(num? value) =>
+        'secondary ${value?.toStringAsFixed(0)}';
     final legend = SeriesLegend<String>(
       selectionModelType: selectionType,
       measureFormatter: measureFormatter,
@@ -366,10 +369,11 @@ void main() {
     series2.setAttr(measureAxisIdKey, 'secondaryMeasureAxisId');
     chart = ConcreteChart(seriesList);
     legend.attachTo(chart);
-    chart.callOnDraw();
-    chart.callConfigureSeries();
-    chart.callOnPreProcess();
-    chart.callOnPostProcess();
+    chart
+      ..callOnDraw()
+      ..callConfigureSeries()
+      ..callOnPreProcess()
+      ..callOnPostProcess();
     chart.getSelectionModel(selectionType).updateSelection(
       [SeriesDatum(series1, s1D1), SeriesDatum(series2, s2D1)],
       [series1, series2],
@@ -393,7 +397,7 @@ void main() {
   test('series legend - show measure sum when there is no selection', () {
     final seriesList = [series1, series2];
     const selectionType = SelectionModelType.info;
-    String measureFormatter(num value) => value.toStringAsFixed(0);
+    String measureFormatter(num? value) => value?.toStringAsFixed(0) ?? '';
     final legend = SeriesLegend<String>(
       selectionModelType: selectionType,
       legendDefaultMeasure: LegendDefaultMeasure.sum,
@@ -402,10 +406,11 @@ void main() {
 
     chart = ConcreteChart(seriesList);
     legend.attachTo(chart);
-    chart.callOnDraw();
-    chart.callConfigureSeries();
-    chart.callOnPreProcess();
-    chart.callOnPostProcess();
+    chart
+      ..callOnDraw()
+      ..callConfigureSeries()
+      ..callOnPreProcess()
+      ..callOnPostProcess();
 
     final legendEntries = legend.legendState.legendEntries;
     expect(legendEntries, hasLength(2));
@@ -427,7 +432,7 @@ void main() {
   test('series legend - show measure average when there is no selection', () {
     final seriesList = [series1, series2];
     const selectionType = SelectionModelType.info;
-    String measureFormatter(num value) => value.toStringAsFixed(0);
+    String measureFormatter(num? value) => value?.toStringAsFixed(0) ?? '';
     final legend = SeriesLegend<String>(
       selectionModelType: selectionType,
       legendDefaultMeasure: LegendDefaultMeasure.average,
@@ -436,10 +441,11 @@ void main() {
 
     chart = ConcreteChart(seriesList);
     legend.attachTo(chart);
-    chart.callOnDraw();
-    chart.callConfigureSeries();
-    chart.callOnPreProcess();
-    chart.callOnPostProcess();
+    chart
+      ..callOnDraw()
+      ..callConfigureSeries()
+      ..callOnPreProcess()
+      ..callOnPostProcess();
 
     final legendEntries = legend.legendState.legendEntries;
     expect(legendEntries, hasLength(2));
@@ -461,7 +467,7 @@ void main() {
   test('series legend - show first measure when there is no selection', () {
     final seriesList = [series1, series2];
     const selectionType = SelectionModelType.info;
-    String measureFormatter(num value) => value.toStringAsFixed(0);
+    String measureFormatter(num? value) => value?.toStringAsFixed(0) ?? '';
     final legend = SeriesLegend<String>(
       selectionModelType: selectionType,
       legendDefaultMeasure: LegendDefaultMeasure.firstValue,
@@ -470,10 +476,11 @@ void main() {
 
     chart = ConcreteChart(seriesList);
     legend.attachTo(chart);
-    chart.callOnDraw();
-    chart.callConfigureSeries();
-    chart.callOnPreProcess();
-    chart.callOnPostProcess();
+    chart
+      ..callOnDraw()
+      ..callConfigureSeries()
+      ..callOnPreProcess()
+      ..callOnPostProcess();
 
     final legendEntries = legend.legendState.legendEntries;
     expect(legendEntries, hasLength(2));
@@ -495,7 +502,7 @@ void main() {
   test('series legend - show last measure when there is no selection', () {
     final seriesList = [series1, series2];
     const selectionType = SelectionModelType.info;
-    String measureFormatter(num value) => value.toStringAsFixed(0);
+    String measureFormatter(num? value) => value?.toStringAsFixed(0) ?? '';
     final legend = SeriesLegend<String>(
       selectionModelType: selectionType,
       legendDefaultMeasure: LegendDefaultMeasure.lastValue,
@@ -504,10 +511,11 @@ void main() {
 
     chart = ConcreteChart(seriesList);
     legend.attachTo(chart);
-    chart.callOnDraw();
-    chart.callConfigureSeries();
-    chart.callOnPreProcess();
-    chart.callOnPostProcess();
+    chart
+      ..callOnDraw()
+      ..callConfigureSeries()
+      ..callOnPreProcess()
+      ..callOnPostProcess();
 
     final legendEntries = legend.legendState.legendEntries;
     expect(legendEntries, hasLength(2));
@@ -532,5 +540,3 @@ class MyRow {
   final String campaign;
   final int count;
 }
-
-*/

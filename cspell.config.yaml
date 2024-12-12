@@ -1,6 +1,6 @@
 $schema: https://raw.githubusercontent.com/streetsidesoftware/cspell/main/cspell.schema.json
 version: "0.2"
-ignorePaths:
+ignorePaths: 
   # Various platform-specific API names we can just ignore.
   - charts_flutter/example/windows/
   - charts_flutter/example/macos/

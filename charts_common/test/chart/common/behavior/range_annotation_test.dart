@@ -13,33 +13,24 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-@Tags(['skip-file'])
-library;
-
-import 'package:test/test.dart';
-/*
-
 import 'dart:math' show Rectangle;
 
 import 'package:mockito/mockito.dart';
 import 'package:nimble_charts_common/src/chart/cartesian/axis/axis.dart';
 import 'package:nimble_charts_common/src/chart/cartesian/axis/collision_report.dart';
-import 'package:nimble_charts_common/src/chart/cartesian/axis/draw_strategy/tick_draw_strategy.dart';
-import 'package:nimble_charts_common/src/chart/cartesian/axis/numeric_tick_provider.dart';
 import 'package:nimble_charts_common/src/chart/cartesian/axis/tick.dart';
 import 'package:nimble_charts_common/src/chart/common/base_chart.dart';
 import 'package:nimble_charts_common/src/chart/common/behavior/range_annotation.dart';
-import 'package:nimble_charts_common/src/chart/common/chart_context.dart';
 import 'package:nimble_charts_common/src/chart/line/line_chart.dart';
 import 'package:nimble_charts_common/src/common/graphics_factory.dart';
 import 'package:nimble_charts_common/src/common/material_palette.dart';
 import 'package:nimble_charts_common/src/data/series.dart';
 import 'package:test/test.dart';
 
-class MockContext extends Mock implements ChartContext {}
+import '../../../mox.mocks.dart';
 
 class ConcreteChart extends LineChart {
-  LifecycleListener<num> lastListener;
+  LifecycleListener<num>? lastListener;
 
   final _domainAxis = ConcreteNumericAxis();
 
@@ -62,51 +53,47 @@ class ConcreteChart extends LineChart {
   Axis<num> get domainAxis => _domainAxis;
 
   @override
-  NumericAxis getMeasureAxis({String axisId}) => _primaryMeasureAxis;
+  NumericAxis getMeasureAxis({String? axisId}) => _primaryMeasureAxis;
 }
 
 class ConcreteNumericAxis extends NumericAxis {
   ConcreteNumericAxis()
       : super(
-          tickProvider: MockTickProvider(),
+          tickProvider: MockNumericTickProvider(),
         );
 }
 
-class MockTickProvider extends Mock implements NumericTickProvider {}
-
 class MockGraphicsFactory extends Mock implements GraphicsFactory {}
 
-class MockTickDrawStrategy extends Mock implements TickDrawStrategy<num> {}
-
 void main() {
-  Rectangle<int> drawBounds;
-  Rectangle<int> domainAxisBounds;
-  Rectangle<int> measureAxisBounds;
+  late Rectangle<int> drawBounds;
+  late Rectangle<int> domainAxisBounds;
+  late Rectangle<int> measureAxisBounds;
 
-  ConcreteChart chart0;
+  late ConcreteChart chart0;
 
-  Series<MyRow, int> series1;
+  late Series<MyRow, int> series1;
   final s1D1 = MyRow(0, 11);
   final s1D2 = MyRow(1, 12);
   final s1D3 = MyRow(2, 13);
 
-  Series<MyRow, int> series2;
+  late Series<MyRow, int> series2;
   final s2D1 = MyRow(3, 21);
   final s2D2 = MyRow(4, 22);
   final s2D3 = MyRow(5, 23);
 
   const dashPattern = <int>[2, 3];
 
-  List<RangeAnnotationSegment<num>> annotations1;
+  late List<RangeAnnotationSegment<num>> annotations1;
 
-  List<RangeAnnotationSegment<num>> annotations2;
+  late List<RangeAnnotationSegment<num>> annotations2;
 
-  List<LineAnnotationSegment<num>> annotations3;
+  late List<LineAnnotationSegment<num>> annotations3;
 
   ConcreteChart makeChart() {
     final chart = ConcreteChart();
 
-    final context = MockContext();
+    final context = MockChartContext();
     when(context.chartContainerIsRtl).thenReturn(false);
     when(context.isRtl).thenReturn(false);
     chart.context = context;
@@ -122,7 +109,7 @@ void main() {
   ) {
     final graphicsFactory = MockGraphicsFactory();
     final drawStrategy = MockTickDrawStrategy();
-    final tickProvider = MockTickProvider();
+    final tickProvider = MockNumericTickProvider();
     final ticks = <Tick<num>>[];
     when(
       tickProvider.getTicks(
@@ -164,7 +151,7 @@ void main() {
 
     chart0.getMeasureAxis().layout(measureAxisBounds, drawBounds);
 
-    chart0.lastListener.onAxisConfigured();
+    chart0.lastListener?.onAxisConfigured?.call();
   }
 
   setUpAll(() {
@@ -303,7 +290,7 @@ void main() {
       );
 
       // Verify measure annotations
-      expect(chart0.getMeasureAxis().getLocation(11).round(), equals(33));
+      expect(chart0.getMeasureAxis().getLocation(11)!.round(), equals(33));
       expect(
         tester.doesAnnotationExist(
           startPosition: 0.0,
@@ -437,11 +424,12 @@ void main() {
 
     test('cleans up', () {
       // Setup
-      final behavior = RangeAnnotation<num>(annotations2);
-      behavior.attachTo(chart0);
+      // ignore: unused_local_variable
+      final behavior = RangeAnnotation<num>(annotations2)
+        ..attachTo(chart0)
 
-      // Act
-      behavior.removeFrom(chart0);
+        // Act
+        ..removeFrom(chart0);
 
       // Verify
       expect(chart0.lastListener, isNull);
@@ -454,5 +442,3 @@ class MyRow {
   final int campaign;
   final int count;
 }
-
-*/

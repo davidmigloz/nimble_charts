@@ -2,6 +2,7 @@
 
 import 'package:mockito/annotations.dart';
 import 'package:nimble_charts_common/common.dart';
+import 'package:nimble_charts_common/src/chart/cartesian/axis/numeric_tick_provider.dart';
 import 'package:nimble_charts_common/src/chart/cartesian/axis/time/date_time_scale.dart';
 
 // dart run build_runner build --delete-conflicting-outputs
@@ -25,5 +26,6 @@ import 'package:nimble_charts_common/src/chart/cartesian/axis/time/date_time_sca
   MockSpec<DateTimeScale>(),
   MockSpec<ChartBehavior>(as: #MockBehavior),
   MockSpec<MutableSelectionModel>(),
+  MockSpec<NumericTickProvider>(),
 ])
 void main() {}

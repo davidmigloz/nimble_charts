@@ -7,6 +7,7 @@ ignorePaths:
   - charts_flutter/example/ios/
   - charts_flutter/example/linux/
   - charts_flutter/example/android/
+  - .gitignore
   - "gradlew"
   - "gradlew.bat"
   - "build"
@@ -69,4 +70,3 @@ words:
 - buildable
 - abdushakoor
 - eseidel
-- xcconfig

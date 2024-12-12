@@ -29,3 +29,5 @@ charts_common/.DS_Store
 charts_common/test/chart/.DS_Store
 
 .DS_Store
+
+.idea/

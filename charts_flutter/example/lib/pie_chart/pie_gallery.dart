@@ -15,6 +15,7 @@
 
 import 'package:example/gallery_scaffold.dart';
 import 'package:example/main.dart';
+import 'package:example/pie_chart/outside_label.dart';
 import 'package:example/pie_chart/partial_pie.dart';
 import 'package:example/pie_chart/simple.dart';
 import 'package:flutter/material.dart';
@@ -34,13 +35,13 @@ List<GalleryScaffold> buildGallery() => [
             ? SimplePieChart.withRandomData
             : SimplePieChart.withSampleData,
       ),
-      //TODO:
-      // new GalleryScaffold(
-      //   listTileIcon: new Icon(Icons.pie_chart),
-      //   title: 'Outside Label Pie Chart',
-      //   subtitle: 'With a single series and labels outside the arcs',
-      //   childBuilder: () => new PieOutsideLabelChart.withRandomData(),
-      // ),
+
+      const GalleryScaffold(
+        listTileIcon: Icon(Icons.pie_chart),
+        title: 'Outside Label Pie Chart',
+        subtitle: 'With a single series and labels outside the arcs',
+        childBuilder: PieOutsideLabelChart.withRandomData,
+      ),
       GalleryScaffold(
         listTileIcon: const Icon(Icons.pie_chart),
         title: partialPieChartTitle,

@@ -595,6 +595,7 @@ extension ExampleWidgetTestExtensions on WidgetTester {
     String tileText, {
     Future<void> Function()? extra,
     double? scrollDelta,
+    bool skipGolden = false,
   }) async {
     //Create and pump
     const galleryApp = GalleryApp();
@@ -633,6 +634,10 @@ extension ExampleWidgetTestExtensions on WidgetTester {
 
     // Do extra assertions
     await extra?.call();
+
+    if (skipGolden) {
+      return;
+    }
 
     await matchesGolden<T>(
       'example_${tileText.replaceAll(' ', '_').toLowerCase()}',

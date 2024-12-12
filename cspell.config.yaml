@@ -7,10 +7,13 @@ ignorePaths:
   - charts_flutter/example/ios/
   - charts_flutter/example/linux/
   - charts_flutter/example/android/
+  - .gitignore
   - "gradlew"
   - "gradlew.bat"
   - "build"
   - "*.iml"
+  - "*.yml"
+  - "*.yaml"
   - "charts_common/test/data/"
   - 'coverage'
 words:

@@ -15,7 +15,6 @@
 
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
-import 'package:nimble_charts/flutter.dart';
 import 'package:nimble_charts/src/behaviors/chart_behavior.dart';
 import 'package:nimble_charts_common/common.dart' as common;
 
@@ -107,7 +106,7 @@ class LinePointHighlighter<D> extends ChartBehavior<D> {
       drawFollowLinesAcrossChart == other.drawFollowLinesAcrossChart;
 
   @override
-  int get hashCode => hashValues(
+  int get hashCode => Object.hash(
         selectionModelType,
         defaultRadiusPx,
         radiusPaddingPx,

@@ -36,7 +36,7 @@ void main() {
         await tester.pumpAndSettle();
 
         final listView = tester.widget<ListView>(find.byType(ListView));
-        expect(listView.semanticChildCount, equals(91));
+        expect(listView.semanticChildCount, equals(92));
 
         await matchesGolden<GalleryApp>(
           'example_menu',

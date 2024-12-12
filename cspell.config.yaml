@@ -12,6 +12,8 @@ ignorePaths:
   - "gradlew.bat"
   - "build"
   - "*.iml"
+  - "*.yml"
+  - "*.yaml"
   - "charts_common/test/data/"
   - 'coverage'
 words:

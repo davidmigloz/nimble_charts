@@ -471,7 +471,7 @@ void main() {
       'Navigates to Bar chart with Secondary Measure Axis Only and Renders',
       (tester) async => tester.navigateToChartAndGolden<charts.BarChart>(
         kBarChartWithSecondaryAxisOnlyTitle,
-        scrollDelta: 350,
+        scrollDelta: 380,
       ),
     );
 
@@ -511,7 +511,7 @@ void main() {
       'Navigates to No Axis and Renders',
       (tester) async => tester.navigateToChartAndGolden<charts.BarChart>(
         kNoAxisTitle,
-        scrollDelta: 350,
+        scrollDelta: 380,
       ),
     );
 

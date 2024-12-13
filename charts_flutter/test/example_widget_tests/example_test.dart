@@ -635,7 +635,7 @@ extension ExampleWidgetTestExtensions on WidgetTester {
       },
     );
 
-    //TODO: figure out who draguntilvisible is not working
+    //TODO: figure out who drag until visible is not working
     //It never seems to find the tile... Specifying the scrollDelta is a
     //workaround
     // Scroll to the button if needed.

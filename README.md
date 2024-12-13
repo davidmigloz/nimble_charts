@@ -78,17 +78,18 @@ void main() => runApp(
 ```
 
 For more examples and detailed documentation, please refer to the example app and documentation.
-
+ 
 ## 🤝 Contributing
 
 Contributions are welcome! These are the people who've contributed, and the commit count since the fork.
 
-| Avatar | Username | Commits |
-|--------|----------|---------|
-| <img src="https://avatars.githubusercontent.com/u/16697547?v=4" width="50" height="50" alt="MelbourneDeveloper"> | [MelbourneDeveloper](https://github.com/MelbourneDeveloper) | 79 |
-| <img src="https://avatars.githubusercontent.com/u/60779242?v=4" width="50" height="50" alt="abdushakoor12"> | [abdushakoor12](https://github.com/abdushakoor12) | 11 |
-| <img src="https://avatars.githubusercontent.com/u/478541?v=4" width="50" height="50" alt="eseidel"> | [eseidel](https://github.com/eseidel) | 6 |
-| <img src="https://avatars.githubusercontent.com/in/15368?v=4" width="50" height="50" alt="github-actions[bot]"> | github-actions[bot] | 4 |
+| Avatar                                                                                                           | Username                                                      | Commits |
+| ---------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------- | ------- |
+| <img src="https://avatars.githubusercontent.com/u/16697547?v=4" width="50" height="50" alt="MelbourneDeveloper"> | [MelbourneDeveloper](https://github.com/MelbourneDeveloper)   | 70      |
+| <img src="https://avatars.githubusercontent.com/u/60779242?v=4" width="50" height="50" alt="abdushakoor12">      | [abdushakoor12](https://github.com/abdushakoor12)             | 20      |
+| <img src="https://avatars.githubusercontent.com/u/478541?v=4" width="50" height="50" alt="eseidel">              | [eseidel](https://github.com/eseidel)                         | 6       |
+| <img src="https://avatars.githubusercontent.com/in/15368?v=4" width="50" height="50" alt="github-actions[bot]">  | [github-actions[bot]](https://github.com/github-actions[bot]) | 3       |
+| <img src="https://avatars.githubusercontent.com/u/6546265?v=4" width="50" height="50" alt="davidmigloz">         | [davidmigloz](https://github.com/davidmigloz)                 | 1       |
 
 We won't accept new features at this time, but we will accept tests, warning fixes, documentation updates, and bug fixes.
 

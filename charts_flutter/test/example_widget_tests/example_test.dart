@@ -36,7 +36,7 @@ void main() {
         await tester.pumpAndSettle();
 
         final listView = tester.widget<ListView>(find.byType(ListView));
-        expect(listView.semanticChildCount, equals(91));
+        expect(listView.semanticChildCount, equals(93));
 
         await matchesGolden<GalleryApp>(
           'example_menu',
@@ -452,6 +452,22 @@ void main() {
     );
 
     testWidgets(
+      'Navigates to Outside Label Pie Chart',
+      (tester) async => tester.navigateToChartAndGolden<charts.PieChart<num>>(
+        'Outside Label Pie Chart',
+        scrollDelta: 350,
+      ),
+    );
+
+    testWidgets(
+      'Navigates to Auto Label Donut Chart',
+      (tester) async => tester.navigateToChartAndGolden<charts.PieChart<num>>(
+        'Auto Label Donut Chart',
+        scrollDelta: 350,
+      ),
+    );
+
+    testWidgets(
       'Navigates to Partial Pie Chart and Renders',
       (tester) async => tester.navigateToChartAndGolden<charts.PieChart<num>>(
         partialPieChartTitle,
@@ -463,7 +479,7 @@ void main() {
       'Navigates to Bar chart with Secondary Measure Axis and Renders',
       (tester) async => tester.navigateToChartAndGolden<charts.BarChart>(
         kBarChartWithSecondaryAxisTitle,
-        scrollDelta: 350,
+        scrollDelta: 370,
       ),
     );
 
@@ -471,7 +487,7 @@ void main() {
       'Navigates to Bar chart with Secondary Measure Axis Only and Renders',
       (tester) async => tester.navigateToChartAndGolden<charts.BarChart>(
         kBarChartWithSecondaryAxisOnlyTitle,
-        scrollDelta: 350,
+        scrollDelta: 380,
       ),
     );
 
@@ -479,7 +495,7 @@ void main() {
       'Navigates to Horizontal Bar chart with Secondary Measure Axis, Renders',
       (tester) async => tester.navigateToChartAndGolden<charts.BarChart>(
         kHorizontalBarChartWithSecondaryAxisTitle,
-        scrollDelta: 400,
+        scrollDelta: 420,
       ),
     );
 
@@ -503,7 +519,7 @@ void main() {
       'Navigates to Label Alignment Axis and Renders',
       (tester) async => tester.navigateToChartAndGolden<charts.BarChart>(
         kLabelAlignmentAxisTitle,
-        scrollDelta: 350,
+        scrollDelta: 370,
       ),
     );
 
@@ -511,7 +527,7 @@ void main() {
       'Navigates to No Axis and Renders',
       (tester) async => tester.navigateToChartAndGolden<charts.BarChart>(
         kNoAxisTitle,
-        scrollDelta: 350,
+        scrollDelta: 380,
       ),
     );
 
@@ -519,7 +535,7 @@ void main() {
       'Navigates to Statically Provided Ticks and Renders',
       (tester) async => tester.navigateToChartAndGolden<charts.BarChart>(
         kStaticallyProvidedTicksTitle,
-        scrollDelta: 400,
+        scrollDelta: 420,
       ),
     );
 
@@ -595,6 +611,7 @@ extension ExampleWidgetTestExtensions on WidgetTester {
     String tileText, {
     Future<void> Function()? extra,
     double? scrollDelta,
+    bool skipGolden = false,
   }) async {
     //Create and pump
     const galleryApp = GalleryApp();
@@ -618,6 +635,9 @@ extension ExampleWidgetTestExtensions on WidgetTester {
       },
     );
 
+    //TODO: figure out who drag until visible is not working
+    //It never seems to find the tile... Specifying the scrollDelta is a
+    //workaround
     // Scroll to the button if needed.
     if (scrollDelta != null) {
       await scrollUntilVisible(tileFinder, scrollDelta);
@@ -633,6 +653,10 @@ extension ExampleWidgetTestExtensions on WidgetTester {
 
     // Do extra assertions
     await extra?.call();
+
+    if (skipGolden) {
+      return;
+    }
 
     await matchesGolden<T>(
       'example_${tileText.replaceAll(' ', '_').toLowerCase()}',

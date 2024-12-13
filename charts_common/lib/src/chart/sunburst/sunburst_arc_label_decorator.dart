@@ -35,7 +35,7 @@ import 'package:nimble_charts_common/src/common/text_style.dart' show TextStyle;
 /// inner arcs' label versus the outer arcs.
 ///
 /// TODO: Improve label handling for sunburst chart.
-class SunburstArcLabelDecorator<D> extends ArcLabelDecorator<D> {
+class SunburstArcLabelDecorator<D extends Object> extends ArcLabelDecorator<D> {
   SunburstArcLabelDecorator({
     super.insideLabelStyleSpec,
     super.outsideLabelStyleSpec,

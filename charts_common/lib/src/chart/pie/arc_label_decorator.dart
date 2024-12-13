@@ -28,7 +28,7 @@ import 'package:nimble_charts_common/src/data/series.dart' show AccessorFn;
 /// This decorator performs very basic label collision detection. If the y
 /// position of a label positioned outside collides with the previously drawn
 /// label (on the same side of the chart), then that label will be skipped.
-class ArcLabelDecorator<D> extends ArcRendererDecorator<D> {
+class ArcLabelDecorator<D extends Object> extends ArcRendererDecorator<D> {
   ArcLabelDecorator({
     TextStyleSpec? insideLabelStyleSpec,
     TextStyleSpec? outsideLabelStyleSpec,

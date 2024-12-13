@@ -1,3 +1,6 @@
+# 0.5.0-beta
+* Tighten up type safety by requiring ArcLabelDecorator's type argument to be an object. This caused bugs in samples.
+
 # 0.4.0-beta
 * Fix readme image
 

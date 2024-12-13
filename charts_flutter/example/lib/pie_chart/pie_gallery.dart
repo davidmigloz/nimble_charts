@@ -15,6 +15,7 @@
 
 import 'package:example/gallery_scaffold.dart';
 import 'package:example/main.dart';
+import 'package:example/pie_chart/auto_label.dart';
 import 'package:example/pie_chart/partial_pie.dart';
 import 'package:example/pie_chart/simple.dart';
 import 'package:flutter/material.dart';
@@ -34,13 +35,14 @@ List<GalleryScaffold> buildGallery() => [
             ? SimplePieChart.withRandomData
             : SimplePieChart.withSampleData,
       ),
-      //TODO:
-      // new GalleryScaffold(
-      //   listTileIcon: new Icon(Icons.pie_chart),
-      //   title: 'Outside Label Pie Chart',
-      //   subtitle: 'With a single series and labels outside the arcs',
-      //   childBuilder: () => new PieOutsideLabelChart.withRandomData(),
-      // ),
+      GalleryScaffold(
+        listTileIcon: const Icon(Icons.pie_chart),
+        title: 'Outside Label Pie Chart',
+        subtitle: 'With a single series and labels outside the arcs',
+        childBuilder: appState.value.useRandomData
+            ? PartialPieChart.withRandomData
+            : PartialPieChart.withSampleData,
+      ),
       GalleryScaffold(
         listTileIcon: const Icon(Icons.pie_chart),
         title: partialPieChartTitle,
@@ -55,19 +57,17 @@ List<GalleryScaffold> buildGallery() => [
       //   title: 'Simple Donut Chart',
       //   subtitle: 'With a single series and a hole in the middle',
       //   childBuilder: () => new DonutPieChart.withRandomData(),
-      // ),
-      // new GalleryScaffold(
-      //   listTileIcon: new Icon(Icons.pie_chart),
-      //   title: 'Auto Label Donut Chart',
-      //   subtitle:
-      //       'With a single series, a hole in the middle, '
-      //'and auto-positioned labels',
+      const GalleryScaffold(
+        listTileIcon: Icon(Icons.pie_chart),
+        title: 'Auto Label Donut Chart',
+        subtitle: 'With a single series, a hole in the middle, '
+            'and auto-positioned labels',
+        childBuilder: DonutAutoLabelChart.withSampleData,
+      ),
       //   childBuilder: () => new DonutAutoLabelChart.withRandomData(),
       // ),
       // new GalleryScaffold(
       //   listTileIcon: new Icon(Icons.pie_chart),
       //   title: 'Gauge Chart',
       //   subtitle: 'That doesn\'t cover a full revolution',
-      //   childBuilder: () => new GaugeChart.withRandomData(),
-      // ),
     ];

@@ -78,7 +78,7 @@ void main() => runApp(
 ```
 
 For more examples and detailed documentation, please refer to the example app and documentation.
-
+ 
 ## 🤝 Contributing
 
 Contributions are welcome! These are the people who've contributed, and the commit count since the fork.

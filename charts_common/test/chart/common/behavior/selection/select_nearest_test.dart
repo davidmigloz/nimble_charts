@@ -13,16 +13,9 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-@Tags(['skip-file'])
-library;
-
-import 'package:test/test.dart';
-/*
-
 import 'dart:math';
 
 import 'package:mockito/mockito.dart';
-import 'package:nimble_charts_common/src/chart/common/base_chart.dart';
 import 'package:nimble_charts_common/src/chart/common/behavior/selection/select_nearest.dart';
 import 'package:nimble_charts_common/src/chart/common/behavior/selection/selection_trigger.dart';
 import 'package:nimble_charts_common/src/chart/common/datum_details.dart';
@@ -33,69 +26,70 @@ import 'package:nimble_charts_common/src/common/gesture_listener.dart';
 import 'package:nimble_charts_common/src/data/series.dart';
 import 'package:test/test.dart';
 
-class MockChart extends Mock implements BaseChart<String> {
-  GestureListener lastListener;
+import '../../../../mox.mocks.dart';
+
+class MockChart extends MockBaseChart<String> {
+  GestureListener? lastListener;
 
   @override
-  GestureListener addGestureListener(GestureListener listener) {
+  GestureListener addGestureListener(GestureListener? listener) {
     lastListener = listener;
-    return listener;
+    return listener!;
   }
 
   @override
-  void removeGestureListener(GestureListener listener) {
+  void removeGestureListener(GestureListener? listener) {
     expect(listener, equals(lastListener));
     lastListener = null;
   }
 }
 
-class MockSelectionModel extends Mock
-    implements MutableSelectionModel<String> {}
-
 void main() {
-  MockChart chart;
-  MockSelectionModel hoverSelectionModel;
-  MockSelectionModel clickSelectionModel;
-  List<String> series1Data;
-  List<String> series2Data;
-  MutableSeries<String> series1;
-  MutableSeries<String> series2;
-  DatumDetails<String> details10;
-  DatumDetails<String> details1Series2;
-  DatumDetails<String> details20;
-  DatumDetails<String> details3;
+  late MockChart chart;
+  late MockMutableSelectionModel<String> hoverSelectionModel;
+  late MockMutableSelectionModel<String> clickSelectionModel;
+  late List<String> series1Data;
+  late List<String> series2Data;
+  late MutableSeries<String> series1;
+  late MutableSeries<String> series2;
+  late DatumDetails<String> details10;
+  late DatumDetails<String> details1Series2;
+  late DatumDetails<String> details20;
+  late DatumDetails<String> details3;
 
   SelectNearest<String> makeBehavior(
-      SelectionModelType selectionModelType, SelectionTrigger eventTrigger,
-      {bool selectClosestSeries,
-      SelectionMode selectionMode = SelectionMode.expandToDomain,
-      int maximumDomainDistancePx,}) {
-    final var behavior = SelectNearest<String>(
-        selectionModelType: selectionModelType,
-        selectionMode: selectionMode,
-        selectClosestSeries: selectClosestSeries,
-        eventTrigger: eventTrigger,
-        maximumDomainDistancePx: maximumDomainDistancePx,);
-
-    behavior.attachTo(chart);
+    SelectionModelType selectionModelType,
+    SelectionTrigger eventTrigger, {
+    int? maximumDomainDistancePx,
+    bool selectClosestSeries = false,
+    SelectionMode selectionMode = SelectionMode.expandToDomain,
+  }) {
+    final behavior = SelectNearest<String>(
+      selectionModelType: selectionModelType,
+      selectionMode: selectionMode,
+      selectClosestSeries: selectClosestSeries,
+      eventTrigger: eventTrigger,
+      maximumDomainDistancePx: maximumDomainDistancePx,
+    )..attachTo(chart);
 
     return behavior;
   }
 
-  void setupChart(
-      {Point<double> forPoint,
-      bool isWithinRenderer,
-      List<DatumDetails<String>> respondWithDetails,
-      List<MutableSeries<String>> seriesList,}) {
+  void setupChart({
+    required Point<double> forPoint,
+    required bool isWithinRenderer,
+    List<DatumDetails<String>> respondWithDetails = const [],
+    List<MutableSeries<String>> seriesList = const [],
+  }) {
     when(chart.pointWithinRenderer(forPoint)).thenReturn(isWithinRenderer);
-      when(chart.getNearestDatumDetailPerSeries(forPoint, true))
+    when(chart.getNearestDatumDetailPerSeries(forPoint, true))
         .thenReturn(respondWithDetails);
-      when(chart.currentSeriesList).thenReturn(seriesList);
-    }
+    when(chart.currentSeriesList).thenReturn(seriesList);
+  }
 
   setUp(() {
-    hoverSelectionModel = MockSelectionModel();
-    clickSelectionModel = MockSelectionModel();
+    hoverSelectionModel = MockMutableSelectionModel();
+    clickSelectionModel = MockMutableSelectionModel();
 
     chart = MockChart();
     when(chart.getSelectionModel(SelectionModelType.info))
@@ -105,45 +99,55 @@ void main() {
 
     series1Data = ['myDomain1', 'myDomain2', 'myDomain3'];
 
-    series1 = MutableSeries<String>(Series(
+    series1 = MutableSeries<String>(
+      Series(
         id: 'mySeries1',
         data: ['myDatum1', 'myDatum2', 'myDatum3'],
-        domainFn: (_, i) => series1Data[i],
-        measureFn: (_, __) => null,),);
+        domainFn: (_, i) => series1Data[i!],
+        measureFn: (_, __) => null,
+      ),
+    );
 
     details10 = DatumDetails(
-        datum: 'myDatum1',
-        domain: 'myDomain1',
-        series: series1,
-        domainDistance: 10,
-        measureDistance: 20,);
+      datum: 'myDatum1',
+      domain: 'myDomain1',
+      series: series1,
+      domainDistance: 10,
+      measureDistance: 20,
+    );
     details20 = DatumDetails(
-        datum: 'myDatum2',
-        domain: 'myDomain2',
-        series: series1,
-        domainDistance: 10,
-        measureDistance: 20,);
+      datum: 'myDatum2',
+      domain: 'myDomain2',
+      series: series1,
+      domainDistance: 10,
+      measureDistance: 20,
+    );
     details3 = DatumDetails(
-        datum: 'myDatum3',
-        domain: 'myDomain3',
-        series: series1,
-        domainDistance: 10,
-        measureDistance: 20,);
+      datum: 'myDatum3',
+      domain: 'myDomain3',
+      series: series1,
+      domainDistance: 10,
+      measureDistance: 20,
+    );
 
     series2Data = ['myDomain1'];
 
-    series2 = MutableSeries<String>(Series(
+    series2 = MutableSeries<String>(
+      Series(
         id: 'mySeries2',
         data: ['myDatum1s2'],
-        domainFn: (_, i) => series2Data[i],
-        measureFn: (_, __) => null,),);
+        domainFn: (_, i) => series2Data[i!],
+        measureFn: (_, __) => null,
+      ),
+    );
 
     details1Series2 = DatumDetails(
-        datum: 'myDatum1s2',
-        domain: 'myDomain1',
-        series: series2,
-        domainDistance: 10,
-        measureDistance: 20,);
+      datum: 'myDatum1s2',
+      domain: 'myDomain1',
+      series: series2,
+      domainDistance: 10,
+      measureDistance: 20,
+    );
   });
 
   tearDown(resetMockitoState);
@@ -151,97 +155,128 @@ void main() {
   group('SelectNearest trigger handling', () {
     test('single series selects detail', () {
       // Setup chart matches point with single domain single series.
-      makeBehavior(SelectionModelType.info, SelectionTrigger.hover,
-          selectClosestSeries: true,);
-      const var point = Point<double>(100, 100);
+      makeBehavior(
+        SelectionModelType.info,
+        SelectionTrigger.hover,
+        selectClosestSeries: true,
+      );
+      const point = Point<double>(100, 100);
       setupChart(
-          forPoint: point,
-          isWithinRenderer: true,
-          respondWithDetails: [details10],
-          seriesList: [series1],);
+        forPoint: point,
+        isWithinRenderer: true,
+        respondWithDetails: [details10],
+        seriesList: [series1],
+      );
 
       // Act
-      chart.lastListener.onHover(point);
+      chart.lastListener?.onHover?.call(point);
 
       // Validate
-      verify(hoverSelectionModel.updateSelection(
-          [SeriesDatum(series1, details10.datum)], [series1],),);
+      verify(
+        hoverSelectionModel.updateSelection(
+          [SeriesDatum(series1, details10.datum)],
+          [series1],
+        ),
+      );
       verifyNoMoreInteractions(hoverSelectionModel);
       verifyNoMoreInteractions(clickSelectionModel);
       // Shouldn't be listening to anything else.
-      expect(chart.lastListener.onTap, isNull);
-      expect(chart.lastListener.onDragStart, isNull);
+      expect(chart.lastListener!.onTap, isNull);
+      expect(chart.lastListener!.onDragStart, isNull);
     });
 
     test('can listen to tap', () {
       // Setup chart matches point with single domain single series.
-      makeBehavior(SelectionModelType.action, SelectionTrigger.tap,
-          selectClosestSeries: true,);
+      makeBehavior(
+        SelectionModelType.action,
+        SelectionTrigger.tap,
+        selectClosestSeries: true,
+      );
       const point = Point<double>(100, 100);
       setupChart(
-          forPoint: point,
-          isWithinRenderer: true,
-          respondWithDetails: [details10],
-          seriesList: [series1],);
+        forPoint: point,
+        isWithinRenderer: true,
+        respondWithDetails: [details10],
+        seriesList: [series1],
+      );
 
       // Act
-      chart.lastListener.onTapTest(point);
-      chart.lastListener.onTap(point);
+      chart.lastListener!.onTapTest(point);
+      chart.lastListener!.onTap!(point);
 
       // Validate
-      verify(clickSelectionModel.updateSelection(
-          [SeriesDatum(series1, details10.datum)], [series1],),);
+      verify(
+        clickSelectionModel.updateSelection(
+          [SeriesDatum(series1, details10.datum)],
+          [series1],
+        ),
+      );
       verifyNoMoreInteractions(hoverSelectionModel);
       verifyNoMoreInteractions(clickSelectionModel);
     });
 
     test('can listen to drag', () {
       // Setup chart matches point with single domain single series.
-      makeBehavior(SelectionModelType.info, SelectionTrigger.pressHold,
-          selectClosestSeries: true,);
+      makeBehavior(
+        SelectionModelType.info,
+        SelectionTrigger.pressHold,
+        selectClosestSeries: true,
+      );
 
-      const var startPoint = Point<double>(100, 100);
+      const startPoint = Point<double>(100, 100);
       setupChart(
-          forPoint: startPoint,
-          isWithinRenderer: true,
-          respondWithDetails: [details10],
-          seriesList: [series1],);
+        forPoint: startPoint,
+        isWithinRenderer: true,
+        respondWithDetails: [details10],
+        seriesList: [series1],
+      );
 
-      const var updatePoint1 = Point<double>(200, 100);
+      const updatePoint1 = Point<double>(200, 100);
       setupChart(
-          forPoint: updatePoint1,
-          isWithinRenderer: true,
-          respondWithDetails: [details10],
-          seriesList: [series1],);
+        forPoint: updatePoint1,
+        isWithinRenderer: true,
+        respondWithDetails: [details10],
+        seriesList: [series1],
+      );
 
       const updatePoint2 = Point<double>(300, 100);
       setupChart(
-          forPoint: updatePoint2,
-          isWithinRenderer: true,
-          respondWithDetails: [details20],
-          seriesList: [series1],);
+        forPoint: updatePoint2,
+        isWithinRenderer: true,
+        respondWithDetails: [details20],
+        seriesList: [series1],
+      );
 
-      const var endPoint = Point<double>(400, 100);
+      const endPoint = Point<double>(400, 100);
       setupChart(
-          forPoint: endPoint,
-          isWithinRenderer: true,
-          respondWithDetails: [details3],
-          seriesList: [series1],);
+        forPoint: endPoint,
+        isWithinRenderer: true,
+        respondWithDetails: [details3],
+        seriesList: [series1],
+      );
 
       // Act
-      chart.lastListener.onTapTest(startPoint);
-      chart.lastListener.onDragStart(startPoint);
-      chart.lastListener.onDragUpdate(updatePoint1, 1);
-      chart.lastListener.onDragUpdate(updatePoint2, 1);
-      chart.lastListener.onDragEnd(endPoint, 1, 0);
+      chart.lastListener!.onTapTest(startPoint);
+      chart.lastListener!.onDragStart!(startPoint);
+      chart.lastListener!.onDragUpdate!(updatePoint1, 1);
+      chart.lastListener!.onDragUpdate!(updatePoint2, 1);
+      chart.lastListener!.onDragEnd!(endPoint, 1, 0);
 
       // Validate
       // details1 was tripped 2 times (startPoint & updatePoint1)
-      verify(hoverSelectionModel.updateSelection(
-          [SeriesDatum(series1, details10.datum)], [series1],),).called(2);
+      verify(
+        hoverSelectionModel.updateSelection(
+          [SeriesDatum(series1, details10.datum)],
+          [series1],
+        ),
+      ).called(2);
       // details2 was tripped for updatePoint2
-      verify(hoverSelectionModel.updateSelection(
-          [SeriesDatum(series1, details20.datum)], [series1],),);
+      verify(
+        hoverSelectionModel.updateSelection(
+          [SeriesDatum(series1, details20.datum)],
+          [series1],
+        ),
+      );
       // dragEnd deselects even though we are over details3.
       verify(hoverSelectionModel.updateSelection([], []));
       verifyNoMoreInteractions(hoverSelectionModel);
@@ -250,48 +285,62 @@ void main() {
 
     test('can listen to drag after long press', () {
       // Setup chart matches point with single domain single series.
-      makeBehavior(SelectionModelType.info, SelectionTrigger.longPressHold,
-          selectClosestSeries: true,);
+      makeBehavior(
+        SelectionModelType.info,
+        SelectionTrigger.longPressHold,
+        selectClosestSeries: true,
+      );
 
       const startPoint = Point<double>(100, 100);
       setupChart(
-          forPoint: startPoint,
-          isWithinRenderer: true,
-          respondWithDetails: [details10],
-          seriesList: [series1],);
+        forPoint: startPoint,
+        isWithinRenderer: true,
+        respondWithDetails: [details10],
+        seriesList: [series1],
+      );
 
-      const var updatePoint1 = Point<double>(200, 100);
+      const updatePoint1 = Point<double>(200, 100);
       setupChart(
-          forPoint: updatePoint1,
-          isWithinRenderer: true,
-          respondWithDetails: [details20],
-          seriesList: [series1],);
+        forPoint: updatePoint1,
+        isWithinRenderer: true,
+        respondWithDetails: [details20],
+        seriesList: [series1],
+      );
 
-      const var endPoint = Point<double>(400, 100);
+      const endPoint = Point<double>(400, 100);
       setupChart(
-          forPoint: endPoint,
-          isWithinRenderer: true,
-          respondWithDetails: [details3],
-          seriesList: [series1],);
+        forPoint: endPoint,
+        isWithinRenderer: true,
+        respondWithDetails: [details3],
+        seriesList: [series1],
+      );
 
       // Act 1
-      chart.lastListener.onTapTest(startPoint);
+      chart.lastListener!.onTapTest(startPoint);
       verifyNoMoreInteractions(hoverSelectionModel);
       verifyNoMoreInteractions(clickSelectionModel);
 
       // Act 2
       // verify no interaction yet.
-      chart.lastListener.onLongPress(startPoint);
-      chart.lastListener.onDragStart(startPoint);
-      chart.lastListener.onDragUpdate(updatePoint1, 1);
-      chart.lastListener.onDragEnd(endPoint, 1, 0);
+      chart.lastListener!.onLongPress!(startPoint);
+      chart.lastListener!.onDragStart!(startPoint);
+      chart.lastListener!.onDragUpdate!(updatePoint1, 1);
+      chart.lastListener!.onDragEnd!(endPoint, 1, 0);
 
       // Validate
       // details1 was tripped 2 times (longPress & dragStart)
-      verify(hoverSelectionModel.updateSelection(
-          [SeriesDatum(series1, details10.datum)], [series1],),).called(2);
-      verify(hoverSelectionModel.updateSelection(
-          [SeriesDatum(series1, details20.datum)], [series1],),);
+      verify(
+        hoverSelectionModel.updateSelection(
+          [SeriesDatum(series1, details10.datum)],
+          [series1],
+        ),
+      ).called(2);
+      verify(
+        hoverSelectionModel.updateSelection(
+          [SeriesDatum(series1, details20.datum)],
+          [series1],
+        ),
+      );
       // dragEnd deselects even though we are over details3.
       verify(hoverSelectionModel.updateSelection([], []));
       verifyNoMoreInteractions(hoverSelectionModel);
@@ -300,35 +349,41 @@ void main() {
 
     test('no trigger before long press', () {
       // Setup chart matches point with single domain single series.
-      makeBehavior(SelectionModelType.info, SelectionTrigger.longPressHold,
-          selectClosestSeries: true,);
+      makeBehavior(
+        SelectionModelType.info,
+        SelectionTrigger.longPressHold,
+        selectClosestSeries: true,
+      );
 
       const startPoint = Point<double>(100, 100);
       setupChart(
-          forPoint: startPoint,
-          isWithinRenderer: true,
-          respondWithDetails: [details10],
-          seriesList: [series1],);
+        forPoint: startPoint,
+        isWithinRenderer: true,
+        respondWithDetails: [details10],
+        seriesList: [series1],
+      );
 
       const updatePoint1 = Point<double>(200, 100);
       setupChart(
-          forPoint: updatePoint1,
-          isWithinRenderer: true,
-          respondWithDetails: [details20],
-          seriesList: [series1],);
+        forPoint: updatePoint1,
+        isWithinRenderer: true,
+        respondWithDetails: [details20],
+        seriesList: [series1],
+      );
 
       const endPoint = Point<double>(400, 100);
       setupChart(
-          forPoint: endPoint,
-          isWithinRenderer: true,
-          respondWithDetails: [details3],
-          seriesList: [series1],);
+        forPoint: endPoint,
+        isWithinRenderer: true,
+        respondWithDetails: [details3],
+        seriesList: [series1],
+      );
 
       // Act
-      chart.lastListener.onTapTest(startPoint);
-      chart.lastListener.onDragStart(startPoint);
-      chart.lastListener.onDragUpdate(updatePoint1, 1);
-      chart.lastListener.onDragEnd(endPoint, 1, 0);
+      chart.lastListener?.onTapTest(startPoint);
+      chart.lastListener?.onDragStart?.call(startPoint);
+      chart.lastListener?.onDragUpdate?.call(updatePoint1, 1);
+      chart.lastListener?.onDragEnd?.call(endPoint, 1, 0);
 
       // Validate
       // No interaction, didn't long press first.
@@ -340,75 +395,110 @@ void main() {
   group('Details', () {
     test('expands to domain and includes closest series', () {
       // Setup chart matches point with single domain single series.
-      makeBehavior(SelectionModelType.info, SelectionTrigger.hover,
-          selectClosestSeries: true,);
-      const var point = Point<double>(100, 100);
-      setupChart(forPoint: point, isWithinRenderer: true, respondWithDetails: [
-        details10,
-        details1Series2,
-      ], seriesList: [
-        series1,
-        series2,
-      ],);
+      makeBehavior(
+        SelectionModelType.info,
+        SelectionTrigger.hover,
+        selectClosestSeries: true,
+      );
+      const point = Point<double>(100, 100);
+      setupChart(
+        forPoint: point,
+        isWithinRenderer: true,
+        respondWithDetails: [
+          details10,
+          details1Series2,
+        ],
+        seriesList: [
+          series1,
+          series2,
+        ],
+      );
 
       // Act
-      chart.lastListener.onHover(point);
+      chart.lastListener!.onHover!(point);
 
       // Validate
-      verify(hoverSelectionModel.updateSelection([
-        SeriesDatum(series1, details10.datum),
-        SeriesDatum(series2, details1Series2.datum),
-      ], [
-        series1,
-      ]),);
+      verify(
+        hoverSelectionModel.updateSelection([
+          SeriesDatum(series1, details10.datum),
+          SeriesDatum(series2, details1Series2.datum),
+        ], [
+          series1,
+        ]),
+      );
       verifyNoMoreInteractions(hoverSelectionModel);
       verifyNoMoreInteractions(clickSelectionModel);
     });
 
     test('does not expand to domain', () {
       // Setup chart matches point with single domain single series.
-      makeBehavior(SelectionModelType.info, SelectionTrigger.hover,
-          selectionMode: SelectionMode.single, selectClosestSeries: true,);
-      const var point = Point<double>(100, 100);
-      setupChart(forPoint: point, isWithinRenderer: true, respondWithDetails: [
-        details10,
-        details1Series2,
-      ], seriesList: [
-        series1,
-        series2,
-      ],);
+      makeBehavior(
+        SelectionModelType.info,
+        SelectionTrigger.hover,
+        selectionMode: SelectionMode.single,
+        selectClosestSeries: true,
+      );
+      const point = Point<double>(100, 100);
+      setupChart(
+        forPoint: point,
+        isWithinRenderer: true,
+        respondWithDetails: [
+          details10,
+          details1Series2,
+        ],
+        seriesList: [
+          series1,
+          series2,
+        ],
+      );
 
       // Act
-      chart.lastListener.onHover(point);
+      chart.lastListener!.onHover!(point);
 
       // Validate
-      verify(hoverSelectionModel.updateSelection(
-          [SeriesDatum(series1, details10.datum)], [series1],),);
+      verify(
+        hoverSelectionModel.updateSelection(
+          [SeriesDatum(series1, details10.datum)],
+          [series1],
+        ),
+      );
       verifyNoMoreInteractions(hoverSelectionModel);
       verifyNoMoreInteractions(clickSelectionModel);
     });
 
     test('does not include closest series', () {
       // Setup chart matches point with single domain single series.
-      makeBehavior(SelectionModelType.info, SelectionTrigger.hover,
-          selectClosestSeries: false,);
+      makeBehavior(
+        SelectionModelType.info,
+        SelectionTrigger.hover,
+      );
       const point = Point<double>(100, 100);
-      setupChart(forPoint: point, isWithinRenderer: true, respondWithDetails: [
-        details10,
-        details1Series2,
-      ], seriesList: [
-        series1,
-        series2,
-      ],);
+      setupChart(
+        forPoint: point,
+        isWithinRenderer: true,
+        respondWithDetails: [
+          details10,
+          details1Series2,
+        ],
+        seriesList: [
+          series1,
+          series2,
+        ],
+      );
 
       // Act
-      chart.lastListener.onHover(point);
+      chart.lastListener!.onHover!(point);
 
       // Validate
-      verify(hoverSelectionModel.updateSelection([
-        SeriesDatum(series1, details10.datum),
-        SeriesDatum(series2, details1Series2.datum),
-      ], [],),);
+      verify(
+        hoverSelectionModel.updateSelection(
+          [
+            SeriesDatum(series1, details10.datum),
+            SeriesDatum(series2, details1Series2.datum),
+          ],
+          [],
+        ),
+      );
       verifyNoMoreInteractions(hoverSelectionModel);
       verifyNoMoreInteractions(clickSelectionModel);
     });
@@ -417,45 +507,64 @@ void main() {
       // Setup chart with an overlay series.
       series2.overlaySeries = true;
 
-      makeBehavior(SelectionModelType.info, SelectionTrigger.hover,
-          selectClosestSeries: true,);
-      const var point = Point<double>(100, 100);
-      setupChart(forPoint: point, isWithinRenderer: true, respondWithDetails: [
-        details10,
-        details1Series2,
-      ], seriesList: [
-        series1,
-        series2,
-      ],);
+      makeBehavior(
+        SelectionModelType.info,
+        SelectionTrigger.hover,
+        selectClosestSeries: true,
+      );
+      const point = Point<double>(100, 100);
+      setupChart(
+        forPoint: point,
+        isWithinRenderer: true,
+        respondWithDetails: [
+          details10,
+          details1Series2,
+        ],
+        seriesList: [
+          series1,
+          series2,
+        ],
+      );
 
       // Act
-      chart.lastListener.onHover(point);
+      chart.lastListener!.onHover!(point);
 
       // Validate
-      verify(hoverSelectionModel.updateSelection([
-        SeriesDatum(series1, details10.datum),
-      ], [
-        series1,
-      ]),);
+      verify(
+        hoverSelectionModel.updateSelection([
+          SeriesDatum(series1, details10.datum),
+        ], [
+          series1,
+        ]),
+      );
       verifyNoMoreInteractions(hoverSelectionModel);
       verifyNoMoreInteractions(clickSelectionModel);
     });
 
     test('selection does not exceed maximumDomainDistancePx', () {
       // Setup chart matches point with single domain single series.
-      makeBehavior(SelectionModelType.info, SelectionTrigger.hover,
-          selectClosestSeries: true, maximumDomainDistancePx: 1,);
+      makeBehavior(
+        SelectionModelType.info,
+        SelectionTrigger.hover,
+        selectClosestSeries: true,
+        maximumDomainDistancePx: 1,
+      );
       const point = Point<double>(100, 100);
-      setupChart(forPoint: point, isWithinRenderer: true, respondWithDetails: [
-        details10,
-        details1Series2,
-      ], seriesList: [
-        series1,
-        series2,
-      ],);
+      setupChart(
+        forPoint: point,
+        isWithinRenderer: true,
+        respondWithDetails: [
+          details10,
+          details1Series2,
+        ],
+        seriesList: [
+          series1,
+          series2,
+        ],
+      );
 
       // Act
-      chart.lastListener.onHover(point);
+      chart.lastListener!.onHover!(point);
 
       // Validate
       verify(hoverSelectionModel.updateSelection([], []));
@@ -465,47 +574,62 @@ void main() {
 
     test('adds overlapping points from same series if there are any', () {
       // Setup chart matches point with single domain single series.
-      makeBehavior(SelectionModelType.info, SelectionTrigger.hover,
-          selectionMode: SelectionMode.selectOverlapping,
-          selectClosestSeries: true,);
+      makeBehavior(
+        SelectionModelType.info,
+        SelectionTrigger.hover,
+        selectionMode: SelectionMode.selectOverlapping,
+        selectClosestSeries: true,
+      );
       const point = Point<double>(100, 100);
-      final series = MutableSeries<String>(Series(
+      final series = MutableSeries<String>(
+        Series(
           id: 'overlappingSeries',
           data: ['datum1', 'datum2'],
-          domainFn: (_, i) => series1Data[i],
-          measureFn: (_, __) => null,),);
+          domainFn: (_, i) => series1Data[i!],
+          measureFn: (_, __) => null,
+        ),
+      );
       // Two points covering the mouse position.
       final details1 = DatumDetails(
-          datum: 'datum1',
-          domain: 'myDomain1',
-          series: series,
-          radiusPx: 10,
-          domainDistance: 4,
-          relativeDistance: 5,);
+        datum: 'datum1',
+        domain: 'myDomain1',
+        series: series,
+        radiusPx: 10,
+        domainDistance: 4,
+        relativeDistance: 5,
+      );
       final details2 = DatumDetails(
-          datum: 'datum2',
-          domain: 'myDomain1',
-          series: series,
-          radiusPx: 10,
-          domainDistance: 7,
-          relativeDistance: 9,);
-      setupChart(forPoint: point, isWithinRenderer: true, respondWithDetails: [
-        details1,
-        details2,
-      ], seriesList: [
-        series,
-      ],);
+        datum: 'datum2',
+        domain: 'myDomain1',
+        series: series,
+        radiusPx: 10,
+        domainDistance: 7,
+        relativeDistance: 9,
+      );
+      setupChart(
+        forPoint: point,
+        isWithinRenderer: true,
+        respondWithDetails: [
+          details1,
+          details2,
+        ],
+        seriesList: [
+          series,
+        ],
+      );
 
       // Act
-      chart.lastListener.onHover(point);
+      chart.lastListener!.onHover!(point);
 
       // Validate
-      verify(hoverSelectionModel.updateSelection([
-        SeriesDatum(series, details1.datum),
-        SeriesDatum(series, details2.datum),
-      ], [
-        series,
-      ]),);
+      verify(
+        hoverSelectionModel.updateSelection([
+          SeriesDatum(series, details1.datum),
+          SeriesDatum(series, details2.datum),
+        ], [
+          series,
+        ]),
+      );
       verifyNoMoreInteractions(hoverSelectionModel);
       verifyNoMoreInteractions(clickSelectionModel);
     });
@@ -514,15 +638,18 @@ void main() {
   group('Cleanup', () {
     test('detach removes listener', () {
       // Setup
-      final SelectNearest behavior = makeBehavior(
-          SelectionModelType.info, SelectionTrigger.hover,
-          selectClosestSeries: true,);
+      final behavior = makeBehavior(
+        SelectionModelType.info,
+        SelectionTrigger.hover,
+        selectClosestSeries: true,
+      );
       const point = Point<double>(100, 100);
       setupChart(
-          forPoint: point,
-          isWithinRenderer: true,
-          respondWithDetails: [details10],
-          seriesList: [series1],);
+        forPoint: point,
+        isWithinRenderer: true,
+        respondWithDetails: [details10],
+        seriesList: [series1],
+      );
       expect(chart.lastListener, isNotNull);
 
       // Act
@@ -533,5 +660,3 @@ void main() {
     });
   });
 }
-
-*/

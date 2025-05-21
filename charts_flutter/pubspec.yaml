@@ -2,17 +2,17 @@ name: nimble_charts
 version: 0.5.0-beta
 description: Charts for Flutter. A fork of charts_flutter
 homepage: https://github.com/Nimblesite/nimble_charts
-publish_to: 'none' 
+publish_to: 'none'
 
 environment:
   sdk: '>=3.0.0 <4.0.0'
   flutter: '>=3.0.0 <4.0.0'
 
 dependencies:
-  collection: ^1.14.5
+  collection: ^1.19.1
   flutter:
     sdk: flutter
-  meta: ^1.1.1
+  meta: ^1.16.0
   nimble_charts_common:
     path: ../charts_common
 

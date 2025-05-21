@@ -7,9 +7,9 @@ environment:
   sdk: '>=3.0.0 <4.0.0'
 
 dependencies:
-  collection: ^1.14.5
-  intl: ^0.20.1
-  meta: ^1.1.1
+  collection: ^1.19.1
+  intl: ^0.20.2
+  meta: ^1.16.0
   vector_math: ^2.0.8
 
 dev_dependencies:

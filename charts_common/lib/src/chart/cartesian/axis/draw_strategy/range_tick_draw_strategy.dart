@@ -40,7 +40,7 @@ import 'package:nimble_charts_common/src/common/graphics_factory.dart'
     show GraphicsFactory;
 import 'package:nimble_charts_common/src/common/line_style.dart' show LineStyle;
 import 'package:nimble_charts_common/src/common/material_palette.dart'
-    show MaterialPalette;
+    show MaterialGray, MaterialPalette;
 import 'package:nimble_charts_common/src/common/style/style_factory.dart'
     show StyleFactory;
 import 'package:nimble_charts_common/src/common/text_style.dart' show TextStyle;
@@ -186,7 +186,7 @@ class RangeTickDrawStrategy<D> extends SmallTickDrawStrategy<D> {
         StyleFactory.style.createTickLineStyle(graphicsFactory, lineStyleSpec);
     rangeShadeStyleSpec = rangeShadeStyleSpec ??
         LineStyleSpec(
-          color: MaterialPalette.gray.shade300,
+          color: (MaterialPalette.gray as MaterialGray).shade300,
         );
     rangeShadeStyle = StyleFactory.style
         .createTickLineStyle(graphicsFactory, rangeShadeStyleSpec);

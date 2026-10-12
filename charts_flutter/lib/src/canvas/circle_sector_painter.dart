@@ -14,7 +14,7 @@
 // limitations under the License.
 
 import 'dart:math' show Point, cos, pi, sin;
-import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:nimble_charts_common/common.dart' as common show Color;
 
 /// Draws a sector of a circle, with an optional hole in the center.

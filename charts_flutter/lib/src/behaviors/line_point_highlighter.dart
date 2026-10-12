@@ -14,7 +14,7 @@
 // limitations under the License.
 
 import 'package:collection/collection.dart';
-import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:nimble_charts/src/behaviors/chart_behavior.dart';
 import 'package:nimble_charts_common/common.dart' as common;
 

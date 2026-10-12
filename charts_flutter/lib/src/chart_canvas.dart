@@ -16,7 +16,7 @@
 import 'dart:math' show Point, Rectangle, max;
 import 'dart:ui' as ui show Gradient, Shader;
 
-import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:nimble_charts/src/canvas/circle_sector_painter.dart'
     show CircleSectorPainter;
 import 'package:nimble_charts/src/canvas/line_painter.dart' show LinePainter;

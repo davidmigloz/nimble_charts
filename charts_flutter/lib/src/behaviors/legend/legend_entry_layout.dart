@@ -13,8 +13,6 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import 'package:flutter/material.dart'
-    show GestureDetector, GestureTapUpCallback, Theme;
 import 'package:flutter/widgets.dart';
 import 'package:nimble_charts/src/behaviors/legend/legend.dart'
     show TappableLegend;
@@ -189,7 +187,7 @@ class SimpleLegendEntryLayout implements LegendEntryLayout {
         : null;
     if (isHidden) {
       // Use a default color for hidden legend entries if none is provided.
-      color ??= Theme.of(context).textTheme.bodyMedium!.color;
+      color ??= DefaultTextStyle.of(context).style.color;
       color = color!.withOpacity(0.26);
     }
 

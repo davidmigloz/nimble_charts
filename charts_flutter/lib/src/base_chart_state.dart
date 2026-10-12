@@ -15,7 +15,7 @@
 
 import 'dart:ui' show TextDirection;
 
-import 'package:flutter/material.dart'
+import 'package:flutter/widgets.dart'
     show
         AnimationController,
         BuildContext,

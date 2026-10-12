@@ -15,7 +15,7 @@
 
 import 'dart:math' show Point, cos, sin;
 
-import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:nimble_charts/src/canvas/circle_sector_painter.dart'
     show CircleSectorPainter;
 import 'package:nimble_charts_common/common.dart' as common show CanvasPie;
